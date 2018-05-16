@@ -5,6 +5,8 @@
  */
 package cityofaaron;
 
+import cityofaaron.model.Player;
+
 /**
  *
  * @author kent
@@ -15,7 +17,10 @@ public class CityOfAaron {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        Player playerOne = new Player();
+        playerOne.setName("Hayden");
+        String playerOneName = playerOne.getName();
+        System.out.println("Da playa name is = " + playerOneName);
     }
     
 }
