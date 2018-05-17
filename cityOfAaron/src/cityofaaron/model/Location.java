@@ -13,7 +13,7 @@ import java.util.Objects;
  *
  * @author kent
  */
-class Location implements Serializable {
+public class Location implements Serializable {
     // class instance variables
     private String name;
     private String description;

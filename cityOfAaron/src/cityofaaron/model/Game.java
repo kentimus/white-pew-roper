@@ -18,7 +18,8 @@ public class Game implements Serializable {
     private Map theMap;
     private Storehouse theStorehouse;
     private int currentPopulation;
-    private int wheatInStore;
+    private int acresOwned;
+    private int wheatInStorage;
     private int currentYear;
     
     //javabean code
@@ -56,13 +57,21 @@ public class Game implements Serializable {
     public void setCurrentPopulation(int currentPopulation) {
         this.currentPopulation = currentPopulation;
     }
-
-    public int getWheatInStore() {
-        return wheatInStore;
+    
+    public int getAcresOwned() {
+        return acresOwned;
     }
 
-    public void setWheatInStore(int wheatInStore) {
-        this.wheatInStore = wheatInStore;
+    public void setAcresOwned(int acresOwned) {
+        this.acresOwned = acresOwned;
+    }
+
+    public int getWheatInStorage() {
+        return wheatInStorage;
+    }
+
+    public void setWheatInStorage(int wheatInStorage) {
+        this.wheatInStorage = wheatInStorage;
     }
 
     public int getCurrentYear() {
@@ -120,7 +129,7 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", wheatInStore=" + wheatInStore + ", currentYear=" + currentYear + '}';
+        return "Game{" + "thePlayer=" + thePlayer + ", theMap=" + theMap + ", theStorehouse=" + theStorehouse + ", currentPopulation=" + currentPopulation + ", wheatInStorage=" + wheatInStorage + ", currentYear=" + currentYear + '}';
     }
 
     

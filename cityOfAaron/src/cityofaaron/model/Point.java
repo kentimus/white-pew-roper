@@ -11,7 +11,7 @@ import java.io.Serializable;
  *
  * @author kent
  */
-class Point implements Serializable{
+public class Point implements Serializable{
     //class instance variables
     private int row;
     private int column;

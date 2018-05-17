@@ -12,5 +12,28 @@ package cityofaaron.model;
 public enum Condition{
     Good,
     Fair,
-    Poor
+    Poor;
+    
+   // to string// to string
+    @Override    
+        public String toString() {
+        return "Condition{" + '}';
+    }
+
+    // getters
+    public static Condition getGood() {
+        return Good;
+    }
+
+    public static Condition getFair() {
+        return Fair;
+    }
+
+    public static Condition getPoor() {
+        return Poor;
+    }
+    
+    
+    
+    
 }

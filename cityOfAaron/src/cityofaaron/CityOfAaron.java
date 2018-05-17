@@ -5,7 +5,11 @@
  */
 package cityofaaron;
 
+import cityofaaron.model.Game;
 import cityofaaron.model.Player;
+import cityofaaron.model.Point;
+import cityofaaron.model.Location;
+import cityofaaron.model.Map;
 
 /**
  *
@@ -19,8 +23,29 @@ public class CityOfAaron {
     public static void main(String[] args) {
         Player playerOne = new Player();
         playerOne.setName("Hayden");
-        String playerOneName = playerOne.getName();
-        System.out.println("Da playa name is = " + playerOneName);
+        System.out.println(playerOne.toString());
+        
+        Game gameOne = new Game();
+        gameOne.setCurrentPopulation(1000);
+        gameOne.setAcresOwned(250);
+        gameOne.setWheatInStorage(500);
+        gameOne.setCurrentYear(4);
+        System.out.println(gameOne.toString());
+        
+        Point pointOne = new Point();
+        pointOne.setRow(3);
+        pointOne.setColumn(3);
+        System.out.println(pointOne.toString());
+        
+        Location locationOne = new Location();
+        locationOne.setName("my house");
+        locationOne.setDescription("the place where I watch Netflix");
+        locationOne.setMapSymbol("house");
+        System.out.println(locationOne.toString());
+        
+        Map mapOne = new Map();
+        mapOne.setCurrentLocation(pointOne);
+        System.out.println(mapOne.toString());
     }
     
 }
