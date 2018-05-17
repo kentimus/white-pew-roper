@@ -39,35 +39,6 @@ public class Map implements Serializable {
     }
 
     @Override
-    public int hashCode() {
-        int hash = 3;
-        hash = 47 * hash + Arrays.deepHashCode(this.locations);
-        hash = 47 * hash + Objects.hashCode(this.currentLocation);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Map other = (Map) obj;
-        if (!Arrays.deepEquals(this.locations, other.locations)) {
-            return false;
-        }
-        if (!Objects.equals(this.currentLocation, other.currentLocation)) {
-            return false;
-        }
-        return true;
-    }
-
-    @Override
     public String toString() {
         return "Map{" + "locations=" + locations + ", currentLocation=" + currentLocation + '}';
     }

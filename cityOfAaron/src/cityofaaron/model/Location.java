@@ -55,48 +55,15 @@ public class Location implements Serializable {
 
     public void setGameTips(String[] gameTips) {
         this.gameTips = gameTips;
-    }
-
-    @Override
-    public int hashCode() {
-        int hash = 7;
-        hash = 89 * hash + Objects.hashCode(this.name);
-        hash = 89 * hash + Objects.hashCode(this.description);
-        hash = 89 * hash + Objects.hashCode(this.mapSymbol);
-        hash = 89 * hash + Arrays.deepHashCode(this.gameTips);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Location other = (Location) obj;
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        if (!Objects.equals(this.description, other.description)) {
-            return false;
-        }
-        if (!Objects.equals(this.mapSymbol, other.mapSymbol)) {
-            return false;
-        }
-        if (!Arrays.deepEquals(this.gameTips, other.gameTips)) {
-            return false;
-        }
-        return true;
-    }
+    } 
 
     @Override
     public String toString() {
-        return "Location{" + "name=" + name + ", description=" + description + ", mapSymbol=" + mapSymbol + ", gameTips=" + gameTips + '}';
+        return "Location{" + "name=" + name 
+                + ", description=" + description 
+                + ", mapSymbol=" + mapSymbol 
+                + ", gameTips=" + gameTips 
+                + '}';
     }
     
     
