@@ -10,8 +10,7 @@ package cityofaaron.model;
  * @author kent
  */
 public enum Condition{
-    //instance attributes
-    private String name;
-    
-    
+    Good,
+    Fair,
+    Poor
 }
