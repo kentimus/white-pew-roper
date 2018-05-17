@@ -21,6 +21,16 @@ public class Storehouse implements Serializable {
     
     // Javabean code
     
+    // Constructor
+    public Storehouse() {
+    }
+    
+    //Getters and setters
+    
+
+    
+    }
+    
    
     
 }
