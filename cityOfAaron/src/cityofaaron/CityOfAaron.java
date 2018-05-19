@@ -35,6 +35,7 @@ public class CityOfAaron {
         locationOne.setName("my house");
         locationOne.setDescription("the place where I watch Netflix");
         locationOne.setMapSymbol("house");
+        locationOne.setGameTips(new String[]{ "Tip 1", "Tip 2"});
         System.out.println(locationOne.toString());
         
         Map mapOne = new Map();
