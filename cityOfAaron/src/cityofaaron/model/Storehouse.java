@@ -6,6 +6,7 @@
 package cityofaaron.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -16,10 +17,9 @@ public class Storehouse implements Serializable {
     
     //Class instance variables
     private Author authors;
-    private InventoryItem animals ;
     private InventoryItem tools ;
-    private InventoryItem provisions ;
-    
+    private ArrayList<Animal> animal = new ArrayList<Animal>();
+    private ArrayList<Provision> provision = new ArrayList<Provision>();
     // Javabean code
     
     // Constructor
