@@ -19,23 +19,5 @@ public enum Condition{
         public String toString() {
         return "Condition{" + '}';
     }
-
-    // getters
-    public static Condition getGood() {
-        return Good;
-    }
-
-    public static Condition getFair() {
-        return Fair;
-    }
-
-    public static Condition getPoor() {
-        return Poor;
-    }
-    
-    
-    
-    
-    
-    
+        
 }

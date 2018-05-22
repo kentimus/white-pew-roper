@@ -19,19 +19,4 @@ public enum ItemType {
         return "ItemType{" + '}';
     }
 
-    public static ItemType getAnimal() {
-        return Animal;
-    }
-
-    public static ItemType getTool() {
-        return Tool;
-    }
-
-    public static ItemType getProvision() {
-        return Provision;
-    }
-    
-   
-            
-    
 }
