@@ -36,14 +36,6 @@ public class Storehouse implements Serializable {
         this.authors = authors;
     }
 
-    public InventoryItem getAnimals() {
-        return animals;
-    }
-
-    public void setAnimals(InventoryItem animals) {
-        this.animals = animals;
-    }
-
     public InventoryItem getTools() {
         return tools;
     }
@@ -51,23 +43,14 @@ public class Storehouse implements Serializable {
     public void setTools(InventoryItem tools) {
         this.tools = tools;
     }
-
-    public InventoryItem getProvisions() {
-        return provisions;
-    }
-
-    public void setProvisions(InventoryItem provisions) {
-        this.provisions = provisions;
-    }
-    
     // hashcode and equals
         @Override
     public int hashCode() {
         int hash = 7;
         hash = 83 * hash + Objects.hashCode(this.authors);
-        hash = 83 * hash + Objects.hashCode(this.animals);
+        hash = 83 * hash + Objects.hashCode(this.animal);
         hash = 83 * hash + Objects.hashCode(this.tools);
-        hash = 83 * hash + Objects.hashCode(this.provisions);
+        hash = 83 * hash + Objects.hashCode(this.provision);
         return hash;
     }
 
@@ -86,13 +69,13 @@ public class Storehouse implements Serializable {
         if (!Objects.equals(this.authors, other.authors)) {
             return false;
         }
-        if (!Objects.equals(this.animals, other.animals)) {
+        if (!Objects.equals(this.animal, other.animal)) {
             return false;
         }
         if (!Objects.equals(this.tools, other.tools)) {
             return false;
         }
-        if (!Objects.equals(this.provisions, other.provisions)) {
+        if (!Objects.equals(this.provision, other.provision)) {
             return false;
         }
         return true;
@@ -102,7 +85,7 @@ public class Storehouse implements Serializable {
 
     @Override
     public String toString() {
-        return "Storehouse{" + "authors=" + authors + ", animals=" + animals + ", tools=" + tools + ", provisions=" + provisions + '}';
+        return "Storehouse{" + "authors=" + authors + ", animal=" + animal + ", tools=" + tools + ", provision=" + provision + '}';
     }
     
     
