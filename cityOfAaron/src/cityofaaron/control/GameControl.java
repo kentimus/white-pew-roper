@@ -79,8 +79,8 @@ inside the wheatHarvested Method
 
     public double wheatEatenByRats(int wheatInStore, double tithingPaid){
         //Kent
-        double percentEaten;
-        double bushelsEaten;
+        int percentEaten;
+        int bushelsEaten;
         
         // wheatInStore can't be below zero
 	if(wheatInStore  < 0){
