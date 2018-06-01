@@ -20,11 +20,7 @@ public int pricePerAcre(){
     //kent
 }
 
-/*public int feedPopulation(){
-    //will
-    We dont need this either. the user will be defining this and it will only 
-be needed in the starvedPopulation method
-}*/
+
 
 public int sellAcres(){
     //will
@@ -60,19 +56,27 @@ public int acresPlanted(){
 
 public int wheatHarvested(){
 //Will
+//public int wheatHarvested(int acresPlanted, int randNum){
+//Will
+//import.java.util.Random;
+//int n = rand.nextInt(acresPlanted) + 1
+//    if (randNum > acresPlanted OR randNum < 1) {
+//        return -1;
+//        }
+//    else{ // randNum is between 1 and acres planted
+//            return randNum;
+//        }
+
+//        }
+
 }
 
-/*public int wheatFromOffering(){
-    //hayden
-we dont need this either, the bonus or penalty from offerings will be calculated 
-inside the wheatHarvested Method
-    
-}*/
+
 
     public double wheatEatenByRats(int wheatInStore, double tithingPaid){
         //Kent
-        double percentEaten;
-        double bushelsEaten;
+        int percentEaten = 0;
+        int bushelsEaten;
         
         // wheatInStore can't be below zero
 	if(wheatInStore  < 0){
@@ -105,7 +109,7 @@ inside the wheatHarvested Method
         else{ // randomNum not less than 30
             percentEaten = 0;
         }
-	bushelsEaten = percentEaten * wheatInStore;
+	bushelsEaten = (percentEaten * wheatInStore);
 	return bushelsEaten;
 
     }
