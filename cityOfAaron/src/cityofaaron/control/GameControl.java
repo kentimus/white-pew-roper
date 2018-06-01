@@ -6,25 +6,30 @@
 package cityofaaron.control;
 import cityofaaron.model.Game;
 import java.util.Random;
+
+
 /**
  *
  * @author willi
  */
 public class GameControl {
 
-public int newPopulation (){
+/*public int newPopulation (){
     //Kent
 }
-
-public int pricePerAcre(){
+*/
+   
+    
+/*public int pricePerAcre(){
     //kent
 }
 
 
 
-public int sellAcres(){
+/*public int sellAcres(){
     //will
 }
+    */
 
 public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
 //group
@@ -44,9 +49,10 @@ public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
             }
 }
 
-public int acresPlanted(){
+/*public int acresPlanted(){
     //will
 }
+*/
 
 /*public int offeringPercentage(int wheatInStore){
     //hayden
@@ -54,7 +60,7 @@ public int acresPlanted(){
     coming from the view layer  
 }*/
 
-public int wheatHarvested(){
+/*public int wheatHarvested(){
 //Will
 //public int wheatHarvested(int acresPlanted, int randNum){
 //Will
@@ -70,6 +76,7 @@ public int wheatHarvested(){
 //        }
 
 }
+*/
 
 
 
