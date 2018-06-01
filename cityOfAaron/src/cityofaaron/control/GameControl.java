@@ -5,6 +5,7 @@
  */
 package cityofaaron.control;
 import cityofaaron.model.Game;
+import java.util.Random;
 /**
  *
  * @author willi
@@ -68,9 +69,46 @@ inside the wheatHarvested Method
     
 }*/
 
-public int wheatEatenByRats(){
-//Kent    
-}
+    public double wheatEatenByRats(int wheatInStore, double tithingPaid){
+        //Kent
+        double percentEaten;
+        double bushelsEaten;
+        
+        // wheatInStore can't be below zero
+	if(wheatInStore  < 0){
+            return -1;
+        }
+        
+        // tithingPaid can't be below zero
+	if(tithingPaid < 0){
+            return -1;
+        }
+        // create instance of Random class
+        Random rand = new Random();
+        int randomNum = rand.nextInt(100);
+	if(randomNum  < 30){
+            if(tithingPaid < .08){
+                // Generate random percent between 6% and 10%
+                percentEaten =  rand.nextInt(5) + 6;
+            }
+            if(tithingPaid > .12){
+                // Generate randome percent between 3% and 5%
+                percentEaten = rand.nextInt(3) + 3;
+            }
+            if(tithingPaid >= .08 && tithingPaid <= .12){
+                // tithingPaid between 8% and 12%, inclusive
+                // Generate random percent between 3% and 7%
+                percentEaten = rand.nextInt(5) + 3;
+            }		
+        } 
+		
+        else{ // randomNum not less than 30
+            percentEaten = 0;
+        }
+	bushelsEaten = percentEaten * wheatInStore;
+	return bushelsEaten;
+
+    }
 
 public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore){
 //Hayden
