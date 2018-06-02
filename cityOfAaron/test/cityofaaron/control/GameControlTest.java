@@ -61,17 +61,18 @@ public class GameControlTest {
 
     /**
      * Test of pricePerAcre method, of class GameControl.
-     
+    */
     @Test
     public void testPricePerAcre() {
         System.out.println("pricePerAcre");
         GameControl instance = new GameControl();
         int expResult = 0;
         int result = instance.pricePerAcre();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        System.out.println(result);
+        System.out.println("");
+        assertTrue(result >= 17 && result <= 27);
+        
+    }
 
     /**
      * Test of sellAcres method, of class GameControl.

@@ -34,9 +34,13 @@ public class GameControl {
 
    
     
-/*public int pricePerAcre(){
-    //kent
-}
+    public int pricePerAcre(){
+        //kent
+        Random rand = new Random();
+        // get randomNumber between 17 and 27, inclusive
+        int pricePerAcre = rand.nextInt(11) + 17;
+        return pricePerAcre;
+    }
 
 
 
