@@ -45,8 +45,9 @@ public class GameControl {
 
 
 /*public int sellAcres(){
-    //will
-}
+    //Hayden
+    }
+    
     */
 
 public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
@@ -72,12 +73,6 @@ public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
 }
 */
 
-/*public int offeringPercentage(int wheatInStore){
-    //hayden
-   Not sure we need this since the offering percentage will be 
-    coming from the view layer  
-}*/
-
 /*public int wheatHarvested(){
 //Will
 //public int wheatHarvested(int acresPlanted, int randNum){
@@ -95,7 +90,6 @@ public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
 
 }
 */
-
 
     // argument "rando" temporary for testing
     public double wheatEatenByRats(int wheatInStore, double tithingPaid, int rando){
