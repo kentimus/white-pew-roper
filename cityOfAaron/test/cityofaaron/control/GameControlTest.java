@@ -174,17 +174,91 @@ public class GameControlTest {
 
     /**
      * Test of wheatEatenByRats method, of class GameControl.
-     
+    */
     @Test
-    public void testWheatEatenByRats() {
-        System.out.println("wheatEatenByRats");
+    public void testWheatEatenByRats1() {
+        System.out.println("wheatEatenByRats test 1");
         GameControl instance = new GameControl();
-        int expResult = 0;
-        int result = instance.wheatEatenByRats();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        int wheatInStore = 2000;
+        double tithingPaid = .08;
+        int rando = 20;
+        double expResult = 100;
+        double result = instance.wheatEatenByRats(wheatInStore, tithingPaid, rando);
+        assertEquals(expResult, result, 0.0);
+    }
+    
+    @Test
+    public void testWheatEatenByRats2() {
+        System.out.println("wheatEatenByRats test 2");
+        GameControl instance = new GameControl();
+        int wheatInStore = -1;
+        double tithingPaid = .08;
+        int rando = 20;
+        double expResult = -1;
+        double result = instance.wheatEatenByRats(wheatInStore, tithingPaid, rando);
+        assertEquals(expResult, result, 0.0);
+    }
+    
+    @Test
+    public void testWheatEatenByRats3() {
+        System.out.println("wheatEatenByRats test 3");
+        GameControl instance = new GameControl();
+        int wheatInStore = 2000;
+        double tithingPaid;
+        tithingPaid = -1;
+        int rando = 20;
+        double expResult = -1;
+        double result = instance.wheatEatenByRats(wheatInStore, tithingPaid, rando);
+        assertEquals(expResult, result, 0.0);
+    }
+    
+        @Test
+    public void testWheatEatenByRats4() {
+        System.out.println("wheatEatenByRats test 4");
+        GameControl instance = new GameControl();
+        int wheatInStore = 2000;
+        double tithingPaid = 0.08;
+        int rando = 100;
+        double expResult = 0;
+        double result = instance.wheatEatenByRats(wheatInStore, tithingPaid, rando);
+        assertEquals(expResult, result, 0.0);
+    }
+    
+        @Test
+    public void testWheatEatenByRats5() {
+        System.out.println("wheatEatenByRats test 5");
+        GameControl instance = new GameControl();
+        int wheatInStore = 2000;
+        double tithingPaid = 0.08;
+        int rando = 1;
+        double expResult = 100;
+        double result = instance.wheatEatenByRats(wheatInStore, tithingPaid, rando);
+        assertEquals(expResult, result, 0.0);
+    }
+    
+        @Test
+    public void testWheatEatenByRats6() {
+        System.out.println("wheatEatenByRats test 6");
+        GameControl instance = new GameControl();
+        int wheatInStore = 2000;
+        double tithingPaid = 0;
+        int rando = 20;
+        double expResult = 160;
+        double result = instance.wheatEatenByRats(wheatInStore, tithingPaid, rando);
+        assertEquals(expResult, result, 0.0);
+    }
+    
+        @Test
+    public void testWheatEatenByRats7() {
+        System.out.println("wheatEatenByRats test 7");
+        GameControl instance = new GameControl();
+        int wheatInStore = 2000;
+        double tithingPaid = 0.121;
+        int rando = 20;
+        double expResult = 100;
+        double result = instance.wheatEatenByRats(wheatInStore, tithingPaid, rando);
+        assertEquals(expResult, result, 0.0);
+    }
 
     /**
      * Test of starvedPopulation method, of class GameControl.

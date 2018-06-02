@@ -79,8 +79,8 @@ public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
 */
 
 
-
-    public double wheatEatenByRats(int wheatInStore, double tithingPaid){
+    // argument "rando" temporary for testing
+    public double wheatEatenByRats(int wheatInStore, double tithingPaid, int rando){
         //Kent
         int percentEaten = 0;
         int bushelsEaten;
@@ -95,8 +95,11 @@ public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
             return -1;
         }
         // create instance of Random class
-        Random rand = new Random();
-        int randomNum = rand.nextInt(100);
+        Random rand = new Random(5);
+        //int randomNum = rand.nextInt(100);
+        
+        //temporary line, for testing
+        int randomNum = rando;
 	if(randomNum  < 30){
             if(tithingPaid < .08){
                 // Generate random percent between 6% and 10%
@@ -116,9 +119,8 @@ public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
         else{ // randomNum not less than 30
             percentEaten = 0;
         }
-	bushelsEaten = (percentEaten * wheatInStore);
+	bushelsEaten = (percentEaten * wheatInStore) /100;
 	return bushelsEaten;
-
     }
 
 public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore){
