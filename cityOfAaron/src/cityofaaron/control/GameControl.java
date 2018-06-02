@@ -44,14 +44,14 @@ public class GameControl {
 
 
 
-/*public int sellAcres(){
+    /*public int sellAcres(){
     //Hayden
     }
     
     */
 
-public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
-//group
+    public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
+    //group
                 
 	if (acresRequested < 0) {
 		return -1;
@@ -66,7 +66,7 @@ public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
         else{ int acresBought = acresRequested;
 		return acresBought;
             }
-}
+    }
 
 /*public int acresPlanted(){
     //will
@@ -135,19 +135,19 @@ public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
 	return bushelsEaten;
     }
 
-public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore){
-//Hayden
-    int totalWheatNeeded = currentPopulation * 20;
-    int starvedPopulation = currentPopulation - (feedPopulation/20) ;
+    public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore){
+        //Hayden
+        int totalWheatNeeded = currentPopulation * 20;
+        int starvedPopulation = currentPopulation - (feedPopulation/20) ;
 
-    if (feedPopulation < 0 || feedPopulation > wheatInStore) {
-        return -1;
+        if (feedPopulation < 0 || feedPopulation > wheatInStore) {
+            return -1;
+           }
+        else if (totalWheatNeeded > wheatInStore){
+            return starvedPopulation; 
         }
-    else if (totalWheatNeeded > wheatInStore){
-       return starvedPopulation; 
-    }
-    else starvedPopulation = 0;
+        else starvedPopulation = 0;
         return starvedPopulation;
-}
+    }
     
 }
