@@ -14,10 +14,24 @@ import java.util.Random;
  */
 public class GameControl {
 
-/*public int newPopulation (){
-    //Kent
+    public int newPopulation (int currentPopulation){
+        //Kent
+        int addedPopulation;
+        int newPopulation;
+        
+        //currentPopulation needs to be greater than zero
+        if(currentPopulation <= 0){
+            return -1;
+        }
+    
+        Random rand = new Random(0);
+        // get randomNumber between 1 and 5, inclusive
+        int randomNum = rand.nextInt(5) + 1;
+        addedPopulation = (currentPopulation * randomNum) / 100;
+        newPopulation = addedPopulation + currentPopulation;
+        return newPopulation;
 }
-*/
+
    
     
 /*public int pricePerAcre(){

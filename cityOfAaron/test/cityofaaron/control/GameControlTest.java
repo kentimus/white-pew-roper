@@ -29,16 +29,35 @@ public class GameControlTest {
 
     /**
      * Test of newPopulation method, of class GameControl.
-     
+    */
     @Test
-    public void testNewPopulation() {
-        System.out.println("newPopulation");
+    public void testNewPopulation1() {
+        System.out.println("newPopulation test 1");
         GameControl instance = new GameControl();
-        int expResult = 0;
-        int result = instance.newPopulation();
+        int currentPopulation = 1000;
+        int expResult = 1010;
+        int result = instance.newPopulation(currentPopulation);
         assertEquals(expResult, result);
-        
-    }*/
+    }
+    
+    @Test
+    public void testNewPopulation2() {
+        System.out.println("newPopulation test 2");
+        GameControl instance = new GameControl();
+        int currentPopulation = -1;
+        int expResult = -1;
+        int result = instance.newPopulation(currentPopulation);
+        assertEquals(expResult, result);
+    }
+    
+    public void testNewPopulation3() {
+        System.out.println("newPopulation test 3");
+        GameControl instance = new GameControl();
+        int currentPopulation = 0;
+        int expResult = -1;
+        int result = instance.newPopulation(currentPopulation);
+        assertEquals(expResult, result);
+    }
 
     /**
      * Test of pricePerAcre method, of class GameControl.
