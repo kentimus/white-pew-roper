@@ -44,12 +44,18 @@ public class GameControl {
 
 
 
-    /*public int sellAcres(){
-    //Hayden
+    public int sellAcres(int acresToSell, int pricePerAcre, int wheatInStore, int acresOwned){
+    //Hayden   
+        if (acresToSell < 0 || acresToSell > acresOwned) {
+		return -1;
+        }
+        
+        else { 
+            int value = (acresToSell * pricePerAcre);
+		return value;
+            }
     }
     
-    */
-
     public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore){
     //group
                 

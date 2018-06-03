@@ -284,16 +284,61 @@ public class GameControlTest {
      * Test of starvedPopulation method, of class GameControl.
      */
     @Test
-    public void testStarvedPopulation() {
-        System.out.println("starvedPopulation");
-        int currentPopulation = 0;
-        int feedPopulation = 0;
-        int wheatInStore = 0;
+    public void testStarvedPopulation1() {
+        System.out.println("starvedPopulation 1");
+        int currentPopulation = 100;
+        int feedPopulation = 2000;
+        int wheatInStore = 2800;
         GameControl instance = new GameControl();
         int expResult = 0;
         int result = instance.starvedPopulation(currentPopulation, feedPopulation, wheatInStore);
-        assertEquals(expResult, result);
-       
+        assertEquals(expResult, result);       
     }
     
+    @Test
+    public void testStarvedPopulation2() {
+        System.out.println("starvedPopulation ");
+        int currentPopulation = 100;
+        int feedPopulation = -200;
+        int wheatInStore = 2800;
+        GameControl instance = new GameControl();
+        int expResult = -1;
+        int result = instance.starvedPopulation(currentPopulation, feedPopulation, wheatInStore);
+        assertEquals(expResult, result);       
+    }
+    
+    @Test
+    public void testStarvedPopulation3() {
+        System.out.println("starvedPopulation 3");
+        int currentPopulation = 100;
+        int feedPopulation = 3000;
+        int wheatInStore = 2800;
+        GameControl instance = new GameControl();
+        int expResult = -1;
+        int result = instance.starvedPopulation(currentPopulation, feedPopulation, wheatInStore);
+        assertEquals(expResult, result);       
+    }
+    
+    @Test
+    public void testStarvedPopulation4() {
+        System.out.println("starvedPopulation 4");
+        int currentPopulation = 100;
+        int feedPopulation = 0;
+        int wheatInStore = 2800;
+        GameControl instance = new GameControl();
+        int expResult = 100;
+        int result = instance.starvedPopulation(currentPopulation, feedPopulation, wheatInStore);
+        assertEquals(expResult, result);       
+    }
+     @Test
+    public void testStarvedPopulation5() {
+        System.out.println("starvedPopulation 5");
+        int currentPopulation = 140;
+        int feedPopulation = 2800;
+        int wheatInStore = 2800;
+        GameControl instance = new GameControl();
+        int expResult = 0;
+        int result = instance.starvedPopulation(currentPopulation, feedPopulation, wheatInStore);
+        assertEquals(expResult, result);       
+    }
 }
