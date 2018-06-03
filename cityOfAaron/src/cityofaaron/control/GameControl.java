@@ -44,15 +44,15 @@ public class GameControl {
 
 
 
-    public int sellAcres(int acresToSell, int pricePerAcre, int wheatInStore, int acresOwned){
+    public int sellAcres(int acresToSell, int pricePerAcre, int acresOwned){
     //Hayden   
         if (acresToSell < 0 || acresToSell > acresOwned) {
 		return -1;
         }
         
         else { 
-            int value = (acresToSell * pricePerAcre);
-		return value;
+            int wheatFromAcres = (acresToSell * pricePerAcre);
+		return wheatFromAcres;
             }
     }
     

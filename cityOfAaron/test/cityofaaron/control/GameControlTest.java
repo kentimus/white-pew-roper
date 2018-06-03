@@ -74,19 +74,20 @@ public class GameControlTest {
         
     }
 
-    /**
-     * Test of sellAcres method, of class GameControl.
+    //test of sellAcres method, of class GameControl.
      
     @Test
-    public void testSellAcres() {
-        System.out.println("sellAcres");
+    public void testSellAcres1() {
+        System.out.println("sellAcres test 1");
+        int acresToSell = 10;
+        int pricePerAcre = 20;
+        int acresOwned = 100;
         GameControl instance = new GameControl();
-        int expResult = 0;
-        int result = instance.sellAcres();
+        int expResult = 200;
+        int result = instance.sellAcres(acresToSell, pricePerAcre, acresOwned);
         assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+       
+    }
 
     /**
      * Test of buyAcres method, of class GameControl.
