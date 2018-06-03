@@ -297,7 +297,7 @@ public class GameControlTest {
     
     @Test
     public void testStarvedPopulation2() {
-        System.out.println("starvedPopulation ");
+        System.out.println("starvedPopulation 2");
         int currentPopulation = 100;
         int feedPopulation = -200;
         int wheatInStore = 2800;
