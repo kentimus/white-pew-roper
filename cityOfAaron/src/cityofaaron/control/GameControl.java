@@ -144,7 +144,7 @@ public class GameControl {
     public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore){
         //Hayden
         int totalWheatNeeded = currentPopulation * 20;
-        int starvedPopulation = currentPopulation - (feedPopulation/20);
+        int starvedPopulation = (currentPopulation - (feedPopulation/20));
 
         if (feedPopulation < 0 || feedPopulation > wheatInStore) {
             return -1;
