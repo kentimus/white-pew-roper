@@ -86,9 +86,53 @@ public class GameControlTest {
         int expResult = 200;
         int result = instance.sellAcres(acresToSell, pricePerAcre, acresOwned);
         assertEquals(expResult, result);
-       
     }
 
+        @Test
+    public void testSellAcres2() {
+        System.out.println("sellAcres test 2");
+        int acresToSell = -1;
+        int pricePerAcre = 20;
+        int acresOwned = 100;
+        GameControl instance = new GameControl();
+        int expResult = -1;
+        int result = instance.sellAcres(acresToSell, pricePerAcre, acresOwned);
+        assertEquals(expResult, result);
+    }
+        @Test
+    public void testSellAcres3() {
+        System.out.println("sellAcres test 3");
+        int acresToSell = 76;
+        int pricePerAcre = 20;
+        int acresOwned = 75;
+        GameControl instance = new GameControl();
+        int expResult = -1;
+        int result = instance.sellAcres(acresToSell, pricePerAcre, acresOwned);
+        assertEquals(expResult, result);
+    }
+        @Test
+    public void testSellAcres4() {
+        System.out.println("sellAcres test 4");
+        int acresToSell = 100;
+        int pricePerAcre = 20;
+        int acresOwned = 100;
+        GameControl instance = new GameControl();
+        int expResult = 2000;
+        int result = instance.sellAcres(acresToSell, pricePerAcre, acresOwned);
+        assertEquals(expResult, result);
+    }
+        @Test
+    public void testSellAcres5() {
+        System.out.println("sellAcres test 5");
+        int acresToSell = 0;
+        int pricePerAcre = 20;
+        int acresOwned = 100;
+        GameControl instance = new GameControl();
+        int expResult = 0;
+        int result = instance.sellAcres(acresToSell, pricePerAcre, acresOwned);
+        assertEquals(expResult, result);
+    }
+    
     /**
      * Test of buyAcres method, of class GameControl.
      */
@@ -181,7 +225,7 @@ public class GameControlTest {
 
  // Test of wheatHarvested method, of class GameControl.
      
-    @Test
+    /*@Test
     public void testWheatHarvested1() {
         System.out.println("wheatHarvested test 1");
         GameControl instance = new GameControl();
@@ -191,6 +235,7 @@ public class GameControlTest {
         double result = instance.wheatHarvested(acresPlanted, tithingPaid);
         assertThat(wheatHarvested.isBetween(400, 800));
     }
+    */
 
     /**
      * Test of wheatEatenByRats method, of class GameControl.

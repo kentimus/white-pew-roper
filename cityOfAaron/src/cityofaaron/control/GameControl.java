@@ -96,8 +96,6 @@ public int acresPlanted(int acresRequested, int wheatInStore){
             }
     }
 
-}
-
 public int wheatHarvested(int acresPlanted, double tithingPaid){
 //will
     int wheatHarvested = 0; 
@@ -174,12 +172,13 @@ public int wheatHarvested(int acresPlanted, double tithingPaid){
     public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore){
         //Hayden
         int totalWheatNeeded = currentPopulation * 20;
-        int starvedPopulation = (currentPopulation - (feedPopulation/20));
+        int starvedPopulation;
 
         if (feedPopulation < 0 || feedPopulation > wheatInStore) {
             return -1;
            }
         if (totalWheatNeeded > wheatInStore){
+            starvedPopulation = (wheatInStore / 20);
             return starvedPopulation; 
         }
         else starvedPopulation = 0;
