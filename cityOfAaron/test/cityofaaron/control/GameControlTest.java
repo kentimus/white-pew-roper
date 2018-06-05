@@ -178,19 +178,18 @@ public class GameControlTest {
         fail("The test case is a prototype.");
     }*/
 
-    /**
-     * Test of wheatHarvested method, of class GameControl.
+ // Test of wheatHarvested method, of class GameControl.
      
     @Test
-    public void testWheatHarvested() {
-        System.out.println("wheatHarvested");
+    public void testWheatHarvested1() {
+        System.out.println("wheatHarvested test 1");
         GameControl instance = new GameControl();
-        int expResult = 0;
-        int result = instance.wheatHarvested();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }*/
+        int acresPlanted = 200;
+        double tithingPaid = .08;
+
+        double result = instance.wheatHarvested(acresPlanted, tithingPaid);
+        assertThat(wheatHarvested.isBetween(400, 800));
+    }
 
     /**
      * Test of wheatEatenByRats method, of class GameControl.
