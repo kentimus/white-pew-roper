@@ -68,28 +68,58 @@ public class GameControl {
             }
     }
 
-/*public int acresPlanted(){
+public int acresPlanted(int acresRequested, int wheatInStore){
     //will
+    Random rand = new Random();
+    int acresPlanted = 0;
+    int low;
+    int high;
+
+	if (acresRequested < 0) {
+		return -1;
+        }
+            low = 17;
+            high = 27;
+        int cost = (acresRequested * (rand.nextInt(high - low ) + low));
+	if (cost > wheatInStore) {
+		//not enough wheat in store
+		return -1;
+        }
+        else{acresPlanted = acresRequested;
+		return acresPlanted;
+            }
+    }
+
 }
-*/
 
-/*public int wheatHarvested(){
-//Will
-//public int wheatHarvested(int acresPlanted, int randNum){
-//Will
-//import.java.util.Random;
-//int n = rand.nextInt(acresPlanted) + 1
-//    if (randNum > acresPlanted OR randNum < 1) {
-//        return -1;
-//        }
-//    else{ // randNum is between 1 and acres planted
-//            return randNum;
-//        }
-
-//        }
-
-}
-*/
+public int wheatHarvested(int acresPlanted, double tithingPaid){
+//will
+    int wheatHarvested = 0; 
+    Random rand = new Random();
+    int low;
+    int high;
+    
+    
+    if(tithingPaid < .08){
+        low = 1;
+        high = 3;
+        // 1-3 bushels harvested
+        wheatHarvested =  (rand.nextInt(high - low ) + low)* acresPlanted;
+    }
+    if(tithingPaid > .12){
+        low = 2;
+        high = 5;
+        // 2-5 bushels harvested
+        wheatHarvested =  (rand.nextInt(high - low ) + low)* acresPlanted;
+    }
+    if(tithingPaid >= .08 && tithingPaid <= .12){
+        low = 2;
+        high = 4;
+        // 2-4 bushels harvested
+        wheatHarvested =  (rand.nextInt(high - low ) + low)* acresPlanted;
+    }	
+    return wheatHarvested;
+    }
 
     // argument "rando" temporary for testing
     public double wheatEatenByRats(int wheatInStore, double tithingPaid, int rando){
