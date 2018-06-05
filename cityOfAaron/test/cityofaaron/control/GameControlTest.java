@@ -114,10 +114,10 @@ public class GameControlTest {
     public void testSellAcres4() {
         System.out.println("sellAcres test 4");
         int acresToSell = 100;
-        int pricePerAcre = 20;
+        int pricePerAcre = 27;
         int acresOwned = 100;
         GameControl instance = new GameControl();
-        int expResult = 2000;
+        int expResult = 2700;
         int result = instance.sellAcres(acresToSell, pricePerAcre, acresOwned);
         assertEquals(expResult, result);
     }
