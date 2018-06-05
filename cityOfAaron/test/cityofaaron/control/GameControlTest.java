@@ -331,11 +331,11 @@ public class GameControlTest {
     @Test
     public void testStarvedPopulation1() {
         System.out.println("starvedPopulation 1");
-        int currentPopulation = 100;
+        int currentPopulation = 108;
         int feedPopulation = 2000;
         int wheatInStore = 2800;
         GameControl instance = new GameControl();
-        int expResult = 0;
+        int expResult = 8;
         int result = instance.starvedPopulation(currentPopulation, feedPopulation, wheatInStore);
         assertEquals(expResult, result);       
     }

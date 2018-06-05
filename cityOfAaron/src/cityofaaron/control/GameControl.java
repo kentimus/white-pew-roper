@@ -181,12 +181,9 @@ public int wheatHarvested(int acresPlanted, double tithingPaid){
             starvedPopulation = currentPopulation - (wheatInStore / 20);
             return starvedPopulation; 
         }
-        else if (totalWheatNeeded < wheatInStore){
-            starvedPopulation = feedPopulation / 20;
+        else starvedPopulation =  currentPopulation - (feedPopulation / 20);
             return starvedPopulation;
         }
-        else starvedPopulation = 0;
-        return starvedPopulation;
     }
     
-}
+
