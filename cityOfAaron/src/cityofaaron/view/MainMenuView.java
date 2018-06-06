@@ -85,7 +85,7 @@ public class MainMenuView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("Please make an appropriate selection.");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         

@@ -155,11 +155,8 @@ public class NewGameView {
         CityOfAaron.setCurrentGame(game);
         
         System.out.println();
-        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n")
-                + "this is a work in progress, so for now head back to the Main Menu";
-        
-        
-        
+        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n");
+      
     }
 }
 
