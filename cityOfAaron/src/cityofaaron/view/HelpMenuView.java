@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author kanderson
  */
-public class StartProgramView {
+public class HelpMenuView {
     
     
     /**
@@ -18,9 +18,9 @@ public class StartProgramView {
     /**
      * Constructor
      */
-    public StartProgramView(){
-        // will - welcome message and short explaination of the game
-        message = "Welcome to the City Of Aaron, \n"
+    public HelpMenuView(){
+        
+        message = "This is the message that is printed to the user by this view.\n"
                 + "You have three tasks:\n"
                 + "1 - Replace this message text with the text that is specific to your view.\n"
                 + "2 - Replace this list with menu options that are specific to your view.\n"
@@ -80,8 +80,15 @@ public class StartProgramView {
      */
     public String[] getInputs() {
         
-       // no inputs from this view it is the opening view that explains the game      
-        return null;
+        // Declare the array to have the number of elements you intend to get 
+        // from the user.
+        String[] inputs = new String[1];
+        
+        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        
+        // Repeat for each input you need, putting it into its proper slot in the array.
+        
+        return inputs;
     }
     
     
@@ -138,4 +145,3 @@ public class StartProgramView {
         return true;
     }
 }
-
