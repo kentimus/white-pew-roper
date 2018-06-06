@@ -19,7 +19,14 @@ public class StartProgramView {
      */
     public StartProgramView(){
         // will - welcome message and short explaination of the game
-        message = "Welcome to the City Of Aaron, \n"
+        message = "Hello! Welcome to the beautiful city of Aaron. The highpriest has summoned you here to\n" +
+        "lead our people to prosperity, as the ruler of our city.  What you do as ruler\n" +
+        "will determine if we prosper or perish. Your responsibilities include buying and selling\n" +
+        "land, how much wheat to plant, how much wheat to store, feeding our people, and paying\n" +
+        "a tithe on the wheat grown. If you do not grow enough wheat, you will not be able to feed\n" +
+        "our people, they will starve, and some will die.  Our workforce will be disminished and we\n" +
+        "will find a new leader. Plan your moves carefully, also not to stress you out, but the city\n" +
+        "is infested with rats which constantly eat our wheat.\n"
                 + "You have three tasks:\n"
                 + "1 - Replace this message text with the text that is specific to your view.\n"
                 + "2 - Replace this list with menu options that are specific to your view.\n"
