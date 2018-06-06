@@ -157,8 +157,8 @@ public class MainMenuView {
     
     private void helpMenu(){
         //method to call the help menu
-        System.out.println ("*** Show helpMenu() ***");
-              
+        HelpMenuView view = new HelpMenuView();
+        view.displayView();      
     }
 }
 

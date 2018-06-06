@@ -20,12 +20,15 @@ public class HelpMenuView {
      */
     public HelpMenuView(){
         
-        message = "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
+        message = "This is the Help Menu. It is here to help you.\n"
+                + "----------------------------------------------\n"
+                + "1 - What are the goals of the game?\n"
+                + "2 - Where is the city of Aaron?\n"
+                + "3 - How do I view the map?\n"
+                + "4 - How do I move to another location?\n"
+                + "5 - How do I display a list of cureloms and cumons, tools, ontis of gold, \n"
+                + "         Sons of Mosiah trading cards, etc., from the city storehouse?\n"
+                + "6 - Never mind; this menu isn't helpful. Take me back to the Main Menu.\n";
                 
     }
     
@@ -84,7 +87,7 @@ public class HelpMenuView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
+        inputs[0] = getUserInput("Please choose a number");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -99,14 +102,28 @@ public class HelpMenuView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
+        switch (inputs[0].trim().toUpperCase() ){
+            case "1":
+                helpGameGoals();
+                break;
+            case "2":
+                helpWhereIs();
+                break;
+            case "3":
+                helpViewingMap();
+                break;
+            case "4":
+                helpOtherLocation();
+                break;
+            case "5":
+                helpViewInventory();
+                break;
+            case "6": // return to main menu
+                return false;
+            default : 
+                System.out.println("That wasn't a number between 1 and 6. Try again.\n");
+        }
         
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        someActionHandler();
         
         return true;
     }
@@ -134,14 +151,29 @@ public class HelpMenuView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean someActionHandler(){
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need 
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-        
-        return true;
+    
+    
+    private void helpGameGoals(){
+        System.out.println ("\nGame Goals:\n"
+                + "1: Don't let your people starve\n"
+                + "2: Buy land\n\n");
+    }
+    private void helpWhereIs(){
+        System.out.println ("\nWhere is the city of Aaron?\n"
+                + "It's somewhere in the greater Zarahemla Metropolitan Area,"
+                + "not far off of the Interstate 5.\n\n");
+    }
+    private void helpViewingMap(){
+        System.out.println("\nHow do I view the map?\n"
+                + "Install Google Maps on your Liahona and use faith.\n\n");
+    }
+    private void helpOtherLocation(){
+        System.out.println("\nHow do I move to another location?\n"
+                + "Walk there. The city of Aaron isn't all that big, ya know.\n\n");
+    }
+    private void helpViewInventory(){
+        System.out.println("\nHow do I display a list of cureloms and cumons, tools, ontis of gold, \n"
+                + "         Sons of Mosiah trading cards, etc., from the city storehouse?\n"
+                + "We suggest calling Jerry, the warehouse manager.\n\n");
     }
 }
