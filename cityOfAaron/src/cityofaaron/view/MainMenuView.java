@@ -20,12 +20,13 @@ public class MainMenuView {
      */
     public MainMenuView(){
         
-        message = "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
+        message = "Main Menu\n"
+                + "------------------------\n"
+                + "N - Start New Game\n"
+                + "L - Load a Saved Game\n"
+                + "H - Help Menu\n"
+                + "Q - Quit\n"
+                + "------------------------\n";
                 
     }
     
@@ -99,14 +100,22 @@ public class MainMenuView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
         
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        someActionHandler();
+        switch (inputs[0].trim().toUpperCase() ){
+            case "N":
+                startNewGame();
+                break;
+            case "L":
+                loadSavedGame();
+                break;
+            case "H":
+                helpMenu();
+                break;
+            case "Q":
+                System.out.println("Thank you for playing, have a Heavenly day");
+                return false;
+        }
+        
         
         return true;
     }
@@ -134,15 +143,22 @@ public class MainMenuView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean someActionHandler(){
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need 
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-        
-        return true;
+    private void startNewGame(){
+        // method to start a new game    
+        NewGameView view = new NewGameView();
+        view.displayView();             
+    }
+    
+    private void loadSavedGame(){
+        //method to load a saved game
+        System.out.println ("*** loadSavedGame () ***");
+             
+    }
+    
+    private void helpMenu(){
+        //method to call the help menu
+        System.out.println ("*** Show helpMenu() ***");
+              
     }
 }
 
