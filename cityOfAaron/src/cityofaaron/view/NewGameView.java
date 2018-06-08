@@ -7,9 +7,6 @@ import cityofaaron.model.Game;
 import java.util.Scanner;
 
 
-
-
-
 /**
  *
  * @author kanderson
@@ -104,7 +101,7 @@ public class NewGameView {
     public boolean doAction(String[] inputs){
         // there is only one action here, start a new game and set it in the main cityofaaron class
         
-        // if user hits "enter" then quit to main menu
+        // if user hits "enter", quit to main menu
         
         if (inputs[0] == null || inputs[0].equals("")){
             System.out.println("No player name entered, returning to the Main Menu ...");
@@ -155,7 +152,10 @@ public class NewGameView {
         CityOfAaron.setCurrentGame(game);
         
         System.out.println();
-        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n");
+        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
+            + "Coming soon!! a new game where you can control your own city");
+        
+        //we will create the call for the GameMenuView when we build it
       
     }
 }

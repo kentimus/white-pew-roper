@@ -90,13 +90,8 @@ public class StartProgramView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
-        
-        // return false if you want this view to exit and return
-        // to the view that called it.
+        // There are no inputs for this menu
+        // it is simply an introduction to the game 
         startMainMenuView();
         
         return false;
@@ -125,7 +120,7 @@ public class StartProgramView {
         private void startMainMenuView(){
        //pause for a couple od seconds 
        try {
-           Thread.sleep(2000);
+           Thread.sleep(3000);
         } 
        catch (InterruptedException exception){
            //ignore this exception for now

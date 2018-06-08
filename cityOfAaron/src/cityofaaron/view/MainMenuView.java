@@ -21,12 +21,13 @@ public class MainMenuView {
     public MainMenuView(){
         
         message = "Main Menu\n"
-                + "------------------------\n"
+                + "---------------------\n"
                 + "N - Start New Game\n"
                 + "L - Load a Saved Game\n"
                 + "H - Help Menu\n"
+                + "\n"
                 + "Q - Quit\n"
-                + "------------------------\n";
+                + "---------------------\n";
                 
     }
     
@@ -152,7 +153,6 @@ public class MainMenuView {
     private void loadSavedGame(){
         //method to load a saved game
         System.out.println ("*** loadSavedGame () ***");
-             
     }
     
     private void helpMenu(){
