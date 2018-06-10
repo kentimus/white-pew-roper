@@ -121,6 +121,7 @@ public class HelpMenuView {
             case "6": // return to main menu
                 return false;
             default : 
+                System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
                 System.out.println("That wasn't a number between 1 and 6. Try again.\n");
         }
         
@@ -161,19 +162,24 @@ public class HelpMenuView {
     private void helpWhereIs(){
         System.out.println ("\nWhere is the city of Aaron?\n"
                 + "It's somewhere in the greater Zarahemla Metropolitan Area,"
-                + "not far off of the Interstate 5.\n\n");
+                + "not far off of Interstate 5 near the Nehphihah/Moroni interchage.\n\n");
     }
     private void helpViewingMap(){
         System.out.println("\nHow do I view the map?\n"
-                + "Install Google Maps on your Liahona and use faith.\n\n");
+                + "Try one of the following methods:\n"
+                + "1) Install Google Maps on your Liahona and use faith.\n"
+                + "2) Choose \"View the Map\" from the Game Menu.\n\n");
     }
     private void helpOtherLocation(){
         System.out.println("\nHow do I move to another location?\n"
-                + "Walk there. The city of Aaron isn't all that big, ya know.\n\n");
+                + "The city of Aaron is laid out in a 5x5 grid. In the map menu, choose\n"
+                + "your x and y coordinates. 1,1 is in the top left-hand corner. 5,5 is\n"
+                + "in the bottom right-hand corner.\n\n");
     }
     private void helpViewInventory(){
         System.out.println("\nHow do I display a list of cureloms and cumons, tools, ontis of gold, \n"
                 + "         Sons of Mosiah trading cards, etc., from the city storehouse?\n"
-                + "We suggest calling Jerry, the warehouse manager.\n\n");
+                + "We suggest calling Jerry, the warehouse manager.\n"
+                + "If he doesn't answer, just pick \"See Storehouse Inventory\" from the Game Menu\n\n");
     }
 }
