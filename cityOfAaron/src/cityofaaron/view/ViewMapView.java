@@ -20,13 +20,16 @@ public class ViewMapView {
      */
     public ViewMapView(){
         
-        message = "--- -R- --- --- --- -L-\n"
-                + "--- --- -R- --- --- -L-\n"
-                + "--- --- --- -R- --- -L-\n"
-                + "--- -V- --- --R --- -L-\n"
-                + "--- --- --- -R- --- -L-\n"
+        message = "-W- -R- --- --- -U- -L-\n"
+                + "--- -W -R- --- -U- -L-\n"
+                + "--- -W- -W- -R- -U- -L-\n"
+                + "--- -V- -W- W-R -U- -L-\n"
+                + "--- -G- -W- -R- -U- -L-\n"
                 + "--- --- --- --R --- -L-\n"
-                + "--- --- --- R-- --- ---";
+                + "--- --- --- R-- --- ---\n"
+                + "W = wheat field      R = river\n"
+                + "L = Lamanite border  V = village\n"
+                + "U = undeveloped land G = Granary";
                 
     }
     
