@@ -149,27 +149,25 @@ public class ReportsMenuView{
     
     
     private void animalsInStorehouse(){
-        System.out.println ("\nGame Goals:\n"
-                + "1: Don't let your people starve\n"
-                + "2: Buy land\n\n");
+        System.out.println ("\nAnimals in storehouse:\n"
+                + "This will eventually show the animals in the storehouse\n");
     }
+    
     private void toolsInStorehouse(){
-        System.out.println ("\nWhere is the city of Aaron?\n"
-                + "It's somewhere in the greater Zarahemla Metropolitan Area,"
-                + "not far off of Interstate 5 near the Nehphihah/Moroni interchage.\n\n");
+        System.out.println ("\nTools in storehouse:\n"
+                + "This will eventually show the tools in the storehouse\n");
     }
+    
     private void provisionsInStorehouse(){
-        System.out.println("\nHow do I view the map?\n"
-                + "Try one of the following methods:\n"
-                + "1) Install Google Maps on your Liahona and use faith.\n"
-                + "2) Choose \"View the Map\" from the Game Menu.\n\n");
+        System.out.println("\nProvisions in storehouse:\n"
+                + "This will eventually show the provisions in the storehouse\n");
     }
+    
     private void viewAuthors(){
         System.out.println("\nHow do I move to another location?\n"
-                + "The city of Aaron is laid out in a 5x5 grid. In the map menu, choose\n"
-                + "your x and y coordinates. 1,1 is in the top left-hand corner. 5,5 is\n"
-                + "in the bottom right-hand corner.\n\n");
+                + "This will eventually show the authors of the game\n");
     }
+    
         // Define whatever code you need here to accomplish the action.
         // You can make this a void method if you want. Whatever you need 
         // here, you are free to do.
