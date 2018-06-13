@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author kanderson
  */
-public class ViewTemplate {
+public class ViewMapView {
     
     
     /**
@@ -18,14 +18,15 @@ public class ViewTemplate {
     /**
      * Constructor
      */
-    public ViewTemplate(){
+    public ViewMapView(){
         
-        message = "This is the message that is printed to the user by this view.\n"
-                + "You have three tasks:\n"
-                + "1 - Replace this message text with the text that is specific to your view.\n"
-                + "2 - Replace this list with menu options that are specific to your view.\n"
-                + "\n"
-                + "3 - Prompt the user for what they are expected to enter.\n";
+        message = "--- -R- --- --- --- -L-\n"
+                + "--- --- -R- --- --- -L-\n"
+                + "--- --- --- -R- --- -L-\n"
+                + "--- -V- --- --R --- -L-\n"
+                + "--- --- --- -R- --- -L-\n"
+                + "--- --- --- --R --- -L-\n"
+                + "--- --- --- R-- --- ---";
                 
     }
     
