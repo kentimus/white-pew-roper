@@ -26,7 +26,7 @@ public class ReportsMenuView{
                 + "2 - View the tools in the storehouse\n"
                 + "3 - View the provisions in the storehouse\n"
                 + "4 - View the authors of this game\n"
-                + "/n"
+                + "\n"
                 + "5 - Return to the Game Menu.\n"
                 + "-----------------------------------------\n";
                 
@@ -149,26 +149,31 @@ public class ReportsMenuView{
     
     
     private void animalsInStorehouse(){
-        System.out.println ("\nAnimals in storehouse:\n"
+        System.out.println ("\n**Animals in storehouse**\n"
                 + "This will eventually show the animals in the storehouse\n"
-                + "And the user will be able to save the report\n");
+                + "And the user will be able to save the report\n"
+                + "-------------------------------------------------------\n");
     }
     
     private void toolsInStorehouse(){
-        System.out.println ("\nTools in storehouse:\n"
+        System.out.println ("\n**Tools in storehouse**\n"
                 + "This will eventually show the tools in the storehouse\n"
-                + "And the user will be able to save the report\n");
+                + "And the user will be able to save the report\n"
+                + "-----------------------------------------------------\n");
     }
     
     private void provisionsInStorehouse(){
-        System.out.println("\nProvisions in storehouse:\n"
+        System.out.println("\n**Provisions in storehouse**\n"
                 + "This will eventually show the provisions in the storehouse\n"
-                + "And the user will be able to save the report\n");
+                + "And the user will be able to save the report\n"
+                + "----------------------------------------------------------\n");
     }
     
     private void viewAuthors(){
-        System.out.println("\nHow do I move to another location?\n"
-                + "This will eventually show the authors of the game\n");
+        System.out.println("\n**Game Authors**\n"
+                + "\n"
+                + "This will eventually show the authors of the game\n"
+                + "-------------------------------------------------\n");
     }
     
         // Define whatever code you need here to accomplish the action.
