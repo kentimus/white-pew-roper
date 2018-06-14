@@ -1,17 +1,13 @@
 
 package cityofaaron.view;
 
-import cityofaaron.CityOfAaron;
-import cityofaaron.model.Player;
-import cityofaaron.model.Game;
 import java.util.Scanner;
-
 
 /**
  *
  * @author kanderson
  */
-public class NewGameView {
+public class GameMenuView {
     
     
     /**
@@ -22,10 +18,17 @@ public class NewGameView {
     /**
      * Constructor
      */
-    public NewGameView(){
+    public GameMenuView(){
         
-        message = "Starting a new Game ...\n";
-                               
+        message = "Game Menu\n"
+                + "---------------------\n"
+                + "M - View the Map\n"
+                + "L - Move to a new Location\n"
+                + "C - Manage Crops\n"
+                + "Y - Live the Year\n"
+                + "R - Reports Menu\n"
+                + "---------------------\n";
+                
     }
     
     
@@ -83,8 +86,7 @@ public class NewGameView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Plese enter your name or press Enter to return to the Main Menu", true);
-        
+        inputs[0] = getUserInput("Please choose an option.");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -99,20 +101,28 @@ public class NewGameView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        // there is only one action here, start a new game and set it in the main cityofaaron class
-        
-        // if user hits "enter", quit to main menu
-        
-        if (inputs[0] == null || inputs[0].equals("")){
-            System.out.println("No player name entered, returning to the Main Menu ...");
-            return false;
+        switch (inputs[0].trim().toUpperCase() ){
+            case "M":
+                viewTheMap();
+                break;
+            case "L":
+                moveNewLocation();
+                break;
+            case "C":
+                manageCrops();
+                break;
+            case "Y":
+                liveTheYear();
+                break;
+            case "R":
+                reportsMenu();
+                break;
+            default : 
+                System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
+                System.out.println("Valid choices are M, L, C, Y, and R.\n");
         }
         
-        String playerName = inputs[0];
-        createAndStartGame(playerName);
-        
-        
-        return false;
+        return true;
     }
     
     
@@ -138,26 +148,26 @@ public class NewGameView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private void createAndStartGame(String playerName){
-        // eventually we will do this when we know more
-        // Game game = GameControl.creatNewGame(playerName)
-        // for this week we will do this
-        
-        Player player = new Player();
-        player.setName(playerName);
-        
-        Game game = new Game();
-        game.setThePlayer(player);
-        
-        CityOfAaron.setCurrentGame(game);
-        
-        System.out.println();
-        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
-            + "Coming soon!! a new game where you can control your own city");
-        
-        //Display Game Menu
-        GameMenuView view = new GameMenuView();
-        view.displayView();
+    private void viewTheMap(){
+        ViewMapView view = new ViewMapView();
+        view.displayView(); 
+    }
+    
+    private void moveNewLocation(){
+        System.out.println("Moving to new location ... eventually");
+    }
+    
+    private void manageCrops(){
+        System.out.println("Crops Managed!\n");
+    }
+    
+    private void liveTheYear(){
+        System.out.println("Living the Year isn't available quite yet.\n");
+    }
+    
+    private void reportsMenu(){
+        ReportsMenuView view = new ReportsMenuView();
+        view.displayView(); 
     }
 }
 
