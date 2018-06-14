@@ -7,7 +7,7 @@ import java.util.Scanner;
  *
  * @author kanderson
  */
-public class GameMenuView {
+public class SaveGameView {
     
     
     /**
@@ -18,18 +18,10 @@ public class GameMenuView {
     /**
      * Constructor
      */
-    public GameMenuView(){
+    public SaveGameView(){
         
-        message = "Game Menu\n"
-                + "---------------------\n"
-                + "1 - View the Map\n"
-                + "2 - Move to a new Location\n"
-                + "3 - Manage Crops\n"
-                + "4 - Live the Year\n"
-                + "5 - Reports Menu\n"
-                + "6 - Save Game\n"
-                + "---------------------\n";
-                
+        message = "Please enter a file name to save your game ...\n";
+                               
     }
     
     
@@ -87,7 +79,8 @@ public class GameMenuView {
         // from the user.
         String[] inputs = new String[1];
         
-        inputs[0] = getUserInput("Please choose an option.");
+        inputs[0] = getUserInput("", true);
+        
         
         // Repeat for each input you need, putting it into its proper slot in the array.
         
@@ -102,32 +95,20 @@ public class GameMenuView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        switch (inputs[0].trim().toUpperCase() ){
-            case "1":
-                viewTheMap();
-                break;
-            case "2":
-                moveNewLocation();
-                break;
-            case "3":
-                manageCrops();
-                break;
-            case "4":
-                liveTheYear();
-                break;
-            case "5":
-                reportsMenu();
-                break;
-            case "6":
-                saveGame();
-                break;
-            
-            default : 
-                System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
-                System.out.println("Please Choose a number between 1 and 6.\n");
+        // there is only one action here, start a new game and set it in the main cityofaaron class
+        
+        // if user hits "enter", quit to main menu
+        
+        if (inputs[0] == null || inputs[0].equals("")){
+            System.out.println("No file name entered. Please try again");
+            return true;
         }
         
-        return true;
+        String fileName = inputs[0];
+        saveGame(fileName);
+        
+        
+        return false;
     }
     
     
@@ -153,31 +134,10 @@ public class GameMenuView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private void viewTheMap(){
-        ViewMapView view = new ViewMapView();
-        view.displayView(); 
-    }
-    
-    private void moveNewLocation(){
-        System.out.println("Moving to new location ... eventually");
-    }
-    
-    private void manageCrops(){
-        System.out.println("Crops Managed!\n");
-    }
-    
-    private void liveTheYear(){
-        System.out.println("Living the Year isn't available quite yet.\n");
-    }
-    
-    private void reportsMenu(){
-        ReportsMenuView view = new ReportsMenuView();
-        view.displayView(); 
-    }
-    
-    private void saveGame(){
-        SaveGameView view = new SaveGameView();
-        view.displayView(); 
+    private void saveGame(String fileName){
+        System.out.println("\"" + fileName + "\" is a pretty good filename. Unfortunately, "
+                + "saving the game doesn't work yet.\n");
+       
     }
 }
 
