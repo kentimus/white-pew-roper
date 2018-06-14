@@ -20,7 +20,8 @@ public class ViewMapView {
      */
     public ViewMapView(){
         
-        message = "-W- -R- --- --- -U- -L-\n"
+        message = "** The City Of Aaron **\n"
+                + "-W- -R- --- --- -U- -L-\n"
                 + "--- -W- -R- --- -U- -L-\n"
                 + "--- -W- -W- -R- -U- -L-\n"
                 + "--- -V- -W- W-R -U- -L-\n"
@@ -29,8 +30,7 @@ public class ViewMapView {
                 + "--- --- --- R-- --- ---\n"
                 + "W = wheat field      R = river\n"
                 + "L = Lamanite border  V = village\n"
-                + "U = undeveloped land G = Granary\n"
-                + "\n";
+                + "U = undeveloped land G = Granary\n";
                 
     }
     
