@@ -22,9 +22,9 @@ public class MainMenuView {
         
         message = "Main Menu\n"
                 + "---------------------\n"
-                + "N - Start New Game\n"
-                + "L - Load a Saved Game\n"
-                + "H - Help Menu\n"
+                + "1 - Start New Game\n"
+                + "2 - Load a Saved Game\n"
+                + "3 - Help Menu\n"
                 + "\n"
                 + "Q - Quit\n"
                 + "---------------------\n";
@@ -103,13 +103,13 @@ public class MainMenuView {
     public boolean doAction(String[] inputs){
         
         switch (inputs[0].trim().toUpperCase() ){
-            case "N":
+            case "1":
                 startNewGame();
                 break;
-            case "L":
+            case "2":
                 loadSavedGame();
                 break;
-            case "H":
+            case "3":
                 helpMenu();
                 break;
             case "Q":

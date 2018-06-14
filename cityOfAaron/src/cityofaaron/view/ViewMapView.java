@@ -21,7 +21,7 @@ public class ViewMapView {
     public ViewMapView(){
         
         message = "-W- -R- --- --- -U- -L-\n"
-                + "--- -W -R- --- -U- -L-\n"
+                + "--- -W- -R- --- -U- -L-\n"
                 + "--- -W- -W- -R- -U- -L-\n"
                 + "--- -V- -W- W-R -U- -L-\n"
                 + "--- -G- -W- -R- -U- -L-\n"

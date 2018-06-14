@@ -150,17 +150,20 @@ public class ReportsMenuView{
     
     private void animalsInStorehouse(){
         System.out.println ("\nAnimals in storehouse:\n"
-                + "This will eventually show the animals in the storehouse\n");
+                + "This will eventually show the animals in the storehouse\n"
+                + "And the user will be able to save the report\n");
     }
     
     private void toolsInStorehouse(){
         System.out.println ("\nTools in storehouse:\n"
-                + "This will eventually show the tools in the storehouse\n");
+                + "This will eventually show the tools in the storehouse\n"
+                + "And the user will be able to save the report\n");
     }
     
     private void provisionsInStorehouse(){
         System.out.println("\nProvisions in storehouse:\n"
-                + "This will eventually show the provisions in the storehouse\n");
+                + "This will eventually show the provisions in the storehouse\n"
+                + "And the user will be able to save the report\n");
     }
     
     private void viewAuthors(){
