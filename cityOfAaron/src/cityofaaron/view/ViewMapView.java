@@ -29,7 +29,8 @@ public class ViewMapView {
                 + "--- --- --- R-- --- ---\n"
                 + "W = wheat field      R = river\n"
                 + "L = Lamanite border  V = village\n"
-                + "U = undeveloped land G = Granary";
+                + "U = undeveloped land G = Granary\n"
+                + "\n";
                 
     }
     
@@ -84,15 +85,8 @@ public class ViewMapView {
      */
     public String[] getInputs() {
         
-        // Declare the array to have the number of elements you intend to get 
-        // from the user.
-        String[] inputs = new String[1];
-        
-        inputs[0] = getUserInput("Change this text to prompt the user for the input.");
-        
-        // Repeat for each input you need, putting it into its proper slot in the array.
-        
-        return inputs;
+        //no inputs from this view, just diplay the map and return to the GameView
+        return null;
     }
     
     
@@ -103,16 +97,11 @@ public class ViewMapView {
      * should exit and return to the previous view.
      */
     public boolean doAction(String[] inputs){
-        // Act on the user's input.
-        // This is a "dispatch" function that decides what
-        // other functions to call. You can use an if-, if-else,
-        // or switch statement.
+        // no action jusr dispaly the map
         
-        // return false if you want this view to exit and return
-        // to the view that called it.
-        someActionHandler();
+        startGameMenuView();
         
-        return true;
+        return false;
     }
     
     
@@ -138,15 +127,16 @@ public class ViewMapView {
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     
-    private boolean someActionHandler(){
-        // Define whatever code you need here to accomplish the action.
-        // You can make this a void method if you want. Whatever you need 
-        // here, you are free to do.
-        //
-        // Generally, though, this is where you will call into your Control
-        // classes to do the work of the application.
-        
-        return true;
+    private void startGameMenuView(){
+        //pause for a few seconds and return to Game Menu
+        try {
+            Thread.sleep(4000);
+        }
+        catch (InterruptedException exception){
+            //ignore the exception for now  
+        }
+        GameMenuView gameMenu = new GameMenuView();
+        gameMenu.displayView();
     }
 }
 
