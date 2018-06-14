@@ -151,10 +151,6 @@ public class NewGameView {
         
         CityOfAaron.setCurrentGame(game);
         
-        System.out.println();
-        System.out.println("Welcome to the Game, " + CityOfAaron.getCurrentGame().getThePlayer().getName() + "!\n"
-            + "Coming soon!! a new game where you can control your own city");
-        
         //Display Game Menu
         GameMenuView view = new GameMenuView();
         view.displayView();
