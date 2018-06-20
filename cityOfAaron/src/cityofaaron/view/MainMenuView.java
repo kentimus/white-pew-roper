@@ -1,4 +1,3 @@
-
 package cityofaaron.view;
 
 
@@ -11,14 +10,12 @@ public class MainMenuView extends ViewBase {
     /**
      * Constructor
      */
-    
     public MainMenuView(){
         super();
     }
     
     @Override
     protected String getMessage(){
-        
         return "Main Menu\n"
                 + "---------------------\n"
                 + "1 - Start New Game\n"
@@ -26,8 +23,7 @@ public class MainMenuView extends ViewBase {
                 + "3 - Help Menu\n"
                 + "\n"
                 + "Q - Quit\n"
-                + "---------------------\n";
-                
+                + "---------------------\n";        
     }
         
     /**
@@ -36,7 +32,6 @@ public class MainMenuView extends ViewBase {
      */
     @Override
     public String[] getInputs() {
-        
         // Declare the array to have the number of elements you intend to get 
         // from the user.
         String[] inputs = new String[1];
@@ -44,7 +39,6 @@ public class MainMenuView extends ViewBase {
         inputs[0] = getUserInput("Please make an appropriate selection.");
         
         // Repeat for each input you need, putting it into its proper slot in the array.
-        
         return inputs;
     }
     
@@ -57,7 +51,6 @@ public class MainMenuView extends ViewBase {
      */
     @Override
     public boolean doAction(String[] inputs){
-        
         switch (inputs[0].trim().toUpperCase() ){
             case "1":
                 startNewGame();
@@ -72,7 +65,6 @@ public class MainMenuView extends ViewBase {
                 System.out.println("Thank you for playing, have a Heavenly day");
                 return false;
         }
-        
         
         return true;
     }

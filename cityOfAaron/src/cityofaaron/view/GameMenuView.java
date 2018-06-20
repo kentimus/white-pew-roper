@@ -1,26 +1,24 @@
 
 package cityofaaron.view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author kanderson
  */
-public class GameMenuView {
+public class GameMenuView extends ViewBase {
     
-    
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
+
     
     /**
      * Constructor
      */
     public GameMenuView(){
-        
-        message = "Game Menu\n"
+        super();           
+    }
+    
+    @Override
+    protected String getMessage(){
+        return "Game Menu\n"
                 + "---------------------\n"
                 + "1 - View the Map\n"
                 + "2 - Move to a new Location\n"
@@ -28,59 +26,16 @@ public class GameMenuView {
                 + "4 - Live the Year\n"
                 + "5 - Reports Menu\n"
                 + "6 - Save Game\n"
+                + "\n"
+                + "7 - Back to Main Menu\n"
                 + "---------------------\n";
-                
     }
-    
-    
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        return input;
-    }
-    
-    
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
-    }
-    
+      
     /**
      * Get the set of inputs from the user.
      * @return 
      */
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
@@ -101,6 +56,7 @@ public class GameMenuView {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
         switch (inputs[0].trim().toUpperCase() ){
             case "1":
@@ -121,32 +77,16 @@ public class GameMenuView {
             case "6":
                 saveGame();
                 break;
-            
+            case "7" :
+                // go back to main menu
+                return false;
             default : 
                 System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
-                System.out.println("Please Choose a number between 1 and 6.\n");
+                System.out.println("Please Choose a number between 1 and 7.\n");
         }
         
         return true;
     }
-    
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-    
     
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 

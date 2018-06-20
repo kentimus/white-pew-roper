@@ -8,7 +8,7 @@ package cityofaaron.view;
  * @author willi
  */
 public interface View {
-    
+
     public void displayView();
-    
+
 }

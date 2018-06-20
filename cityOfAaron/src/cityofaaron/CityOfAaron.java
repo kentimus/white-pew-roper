@@ -6,7 +6,7 @@
 package cityofaaron;
 
 import cityofaaron.model.Game;
-import cityofaaron.model.Player;
+//import cityofaaron.model.Player;
 import cityofaaron.view.StartProgramView;
 import cityofaaron.view.View;
 
@@ -34,7 +34,6 @@ public class CityOfAaron {
     public static void main(String[] args) {
        View startProgramView = new StartProgramView();
        startProgramView.displayView();
-       
     }
     
 }
