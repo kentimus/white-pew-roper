@@ -8,6 +8,7 @@ package cityofaaron;
 import cityofaaron.model.Game;
 import cityofaaron.model.Player;
 import cityofaaron.view.StartProgramView;
+import cityofaaron.view.View;
 
 
 /**
@@ -31,7 +32,7 @@ public class CityOfAaron {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       StartProgramView startProgramView = new StartProgramView();
+       View startProgramView = new StartProgramView();
        startProgramView.displayView();
        
     }

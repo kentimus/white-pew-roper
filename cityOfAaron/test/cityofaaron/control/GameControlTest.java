@@ -225,18 +225,58 @@ public class GameControlTest {
 
  // Test of wheatHarvested method, of class GameControl.
      
-    /*@Test
+    @Test
     public void testWheatHarvested1() {
         System.out.println("wheatHarvested test 1");
         GameControl instance = new GameControl();
         int acresPlanted = 200;
+        boolean correct = false;
         double tithingPaid = .08;
 
         double result = instance.wheatHarvested(acresPlanted, tithingPaid);
-        assertThat(wheatHarvested.isBetween(400, 800));
+        if(result == 400 || result == 600 || result == 800) {
+               
+        correct = true;
+        }
+        
+        assertEquals (correct, true);
     }
-    */
+    
+    @Test
+    public void testWheatHarvested2() {
+        System.out.println("wheatHarvested test 2");
+        GameControl instance = new GameControl();
+        int acresPlanted = 200;
+        boolean correct = false;
+        double tithingPaid = .05;
 
+        double result = instance.wheatHarvested(acresPlanted, tithingPaid);
+        if(result == 200 || result == 400 || result == 600) {
+               
+            correct = true;
+        }
+        
+        assertEquals (correct, true);
+    }
+    
+    
+    @Test
+    public void testWheatHarvested3() {
+        System.out.println("wheatHarvested test 3");
+        GameControl instance = new GameControl();
+        int acresPlanted = 300;
+        boolean correct = false;
+        double tithingPaid = .15;
+
+        double result = instance.wheatHarvested(acresPlanted, tithingPaid);
+        if(result == 600 || result == 900 || result == 1200 || result == 1500) {
+               
+            correct = true;
+        }
+        
+        assertEquals (correct, true);
+    }
+    
     /**
      * Test of wheatEatenByRats method, of class GameControl.
     */
