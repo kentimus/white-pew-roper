@@ -6,77 +6,29 @@ import java.util.Scanner;
 /**
  *
  * @author kanderson
+ * @author hpew
  */
-public class ViewMapView {
-    
-    
-    /**
-     * The message that will be displayed by this view.
-     */
-    protected String message;
+public class ViewMapView extends ViewBase{
     
     /**
      * Constructor
      */
     public ViewMapView(){
-        
-        message = "** The City Of Aaron **\n"
-                + "-W- -R- --- --- -U- -L-\n"
-                + "--- -W- -R- --- -U- -L-\n"
-                + "--- -W- -W- -R- -U- -L-\n"
-                + "--- -V- -W- W-R -U- -L-\n"
-                + "--- -G- -W- -R- -U- -L-\n"
-                + "--- --- --- --R --- -L-\n"
-                + "--- --- --- R-- --- ---\n"
-                + "W = wheat field      R = river\n"
-                + "L = Lamanite border  V = village\n"
-                + "U = undeveloped land G = Granary\n";
-                
+        super();
     }
-    
-    
-    /**
-     * Get the user's input. Keep prompting them until they enter a value.
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-    protected String getUserInput(String prompt, boolean allowEmpty){
         
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Make sure we avoid a null-pointer error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any trailing whitespace, including the carriage return.
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        return input;
-    }
-    
-    
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to false so we don't have 
-     * to type it ourselves.
-     * @param prompt
-     * @return 
-     */
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
+    protected String getMessage(){
+        return "** The City Of Aaron **\n"
+               + "-W- -R- --- --- -U- -L-\n"
+               + "--- -W- -R- --- -U- -L-\n"
+               + "--- -W- -W- -R- -U- -L-\n"
+               + "--- -V- -W- W-R -U- -L-\n"
+               + "--- -G- -W- -R- -U- -L-\n"
+               + "--- --- --- --R --- -L-\n"
+               + "--- --- --- R-- --- ---\n"
+               + "W = wheat field      R = river\n"
+               + "L = Lamanite border  V = village\n"
+               + "U = undeveloped land G = Granary\n";       
     }
     
     /**
@@ -103,25 +55,7 @@ public class ViewMapView {
         
         return false;
     }
-    
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
         
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
-    }
-    
-    
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
@@ -129,12 +63,8 @@ public class ViewMapView {
     
     private void startGameMenuView(){
         //pause for a few seconds and return to Game Menu
-        try {
-            Thread.sleep(4000);
-        }
-        catch (InterruptedException exception){
-            //ignore the exception for now  
-        }
+        pause(3000);
+        
         GameMenuView gameMenu = new GameMenuView();
         gameMenu.displayView();
     }
