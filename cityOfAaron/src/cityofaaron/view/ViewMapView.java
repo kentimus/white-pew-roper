@@ -69,4 +69,3 @@ public class ViewMapView extends ViewBase{
         gameMenu.displayView();
     }
 }
-
