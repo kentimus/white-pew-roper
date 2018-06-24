@@ -87,30 +87,39 @@ public class ManageCropsMenuView extends ViewBase{
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
-    
+    /*
+    WILL i think this will be something like the newGameView 
+    where it simply prompts the user for the amount of acres or wheat
+    they want to assign.
+    */
     private void buyLand(){
-        buyLandView view = new buyLandView();
-        view.displayView(); 
+       System.out.println("\n**Buy Land**\n"
+                + "This will Allow the user to enter the number of acres to buy\n"
+                + "-------------------------------------------------------\n");
     }
     
     private void sellLand(){
-        sellLandView view = new sellLandView();
-        view.displayView(); 
+        System.out.println("\n**Buy Land**\n"
+                + "This will Allow the user to enter the number of acres to sell if no areas are bought\n"
+                + "-------------------------------------------------------\n");
     }
     
     private void feedThePeople(){
-        feedThePeopleView view = new feedThePeopleView();
-        view.displayView(); 
+        System.out.println("\n**Buy Land**\n"
+                + "This will Allow the user to enter the number of wheat to feed the population\n"
+                + "-------------------------------------------------------\n");
     }
     
     private void plantCrops(){
-        plantCropsView view = new plantCropsView();
-        view.displayView(); 
+       System.out.println("\n**Buy Land**\n"
+                + "This will Allow the user to enter the number of acres to plant\n"
+                + "-------------------------------------------------------\n");
     }
     
     private void payTithesAndOfferings(){
-        payTithesAndOfferingsView view = new payTithesAndOfferingsView();
-        view.displayView(); 
+       System.out.println("\n**Buy Land**\n"
+                + "This will Allow the user to enter the amount of wheat to tithe or offer\n"
+                + "-------------------------------------------------------\n");
     }
 
 }
