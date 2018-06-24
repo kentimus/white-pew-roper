@@ -94,31 +94,31 @@ public class ManageCropsMenuView extends ViewBase{
     */
     private void buyLand(){
        System.out.println("\n**Buy Land**\n"
-                + "This will Allow the user to enter the number of acres to buy\n"
+                + "This will allow the user to enter the number of acres to buy\n"
                 + "-------------------------------------------------------\n");
     }
     
     private void sellLand(){
         System.out.println("\n**Buy Land**\n"
-                + "This will Allow the user to enter the number of acres to sell if no areas are bought\n"
+                + "This will allow the user to enter the number of acres to sell if no areas are bought\n"
                 + "-------------------------------------------------------\n");
     }
     
     private void feedThePeople(){
         System.out.println("\n**Buy Land**\n"
-                + "This will Allow the user to enter the number of wheat to feed the population\n"
+                + "This will allow the user to enter the number of wheat to feed the population\n"
                 + "-------------------------------------------------------\n");
     }
     
     private void plantCrops(){
        System.out.println("\n**Buy Land**\n"
-                + "This will Allow the user to enter the number of acres to plant\n"
+                + "This will allow the user to enter the number of acres to plant\n"
                 + "-------------------------------------------------------\n");
     }
     
     private void payTithesAndOfferings(){
        System.out.println("\n**Buy Land**\n"
-                + "This will Allow the user to enter the amount of wheat to tithe or offer\n"
+                + "This will allow the user to enter the amount of wheat to tithe or offer\n"
                 + "-------------------------------------------------------\n");
     }
 
