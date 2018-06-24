@@ -2,7 +2,6 @@ package cityofaaron.view;
 
 /**
  *
- * @author kanderson
  * @author hpew
  */
 public class ReportsMenuView extends ViewBase {
@@ -32,7 +31,6 @@ public class ReportsMenuView extends ViewBase {
      *
      * @return
      */
-    
     @Override
     public String[] getInputs() {
 
@@ -53,7 +51,6 @@ public class ReportsMenuView extends ViewBase {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
-    
     @Override
     public boolean doAction(String[] inputs) {
         switch (inputs[0].trim().toUpperCase()) {
