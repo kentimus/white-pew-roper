@@ -88,7 +88,7 @@ public class ManageCropsMenuView extends ViewBase{
     // complex game stuff in our doAction() method. It will get messy very quickly.
     
     /*
-    WILL i think this will be something like the newGameView 
+    I think this will be something like the newGameView 
     where it simply prompts the user for the amount of acres or wheat
     they want to assign.
     */
