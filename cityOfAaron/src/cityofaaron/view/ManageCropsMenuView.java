@@ -1,84 +1,39 @@
 
 package cityofaaron.view;
 
-public class ManageCropssMenuView extends viewbase{
+public class ManageCropsMenuView extends ViewBase{
 
 /**
  *
  * @author willi
  * constructor
  */
-    public ManageCropssMenuView (){
+    public ManageCropsMenuView (){
         super();
     }
 
     /**
      * Message displayed by view.
      */
-    
-    protected String message (); {
+    @Override
+    protected String getMessage() {
 
-        return = "Manage Crops Menu\n"
-                + "---------------------\n"
-                + "1 - Buy Land\n"
-                + "2 - Sell Land\n"
-                + "3 - Feed the people\n"
-                + "4 - Plant Crops\n"
-                + "5 - Pay tithes and Offerings\n"
-                + "---------------------\n";
-                
-    }
-    
-    
-    /**
-     * Get the user's input. Prompt until value is received
-     * @param prompt
-     * @param allowEmpty - determine whether the user can enter no value (just a return key)
-     * @return 
-     */
-
-    protected String getUserInput(String prompt, boolean allowEmpty){
-        
-        Scanner keyboard = new Scanner(System.in);
-        String input = "";
-        boolean inputReceived = false;
-        
-        while(inputReceived == false){
-            
-            System.out.println(prompt);
-            input = keyboard.nextLine();
-            
-            // Write second statement to avoid null error.
-            if (input == null){
-                input = "";
-            }
-            
-            // Trim any whitespace
-            input = input.trim();
-            
-            if (input.equals("") == false || allowEmpty == true){
-                inputReceived = true;
-            }
-        }
-        
-        return input;
-    }
-    
-    
-    /**
-     * An overloaded version of getUserInput that sets allowEmpty to avoid 
-     * to type it.
-     * @param prompt
-     * @return 
-     */
-    protected String getUserInput(String prompt){
-        return getUserInput(prompt, false);
+        return "Manage Crops Menu\n"
+               + "---------------------\n"
+               + "1 - Buy Land\n"
+               + "2 - Sell Land\n"
+               + "3 - Feed the people\n"
+               + "4 - Plant Crops\n"
+               + "5 - Pay tithes and Offerings\n"
+               + "---------------------\n";
     }
     
     /**
      * Get the set of inputs from the user.
      * @return 
      */
+    
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
@@ -100,6 +55,7 @@ public class ManageCropssMenuView extends viewbase{
      * should exit and return to the previous view.
      */
      
+    @Override
     public boolean doAction(String[] inputs){
         switch (inputs[0].trim().toUpperCase() ){
             case "1":
@@ -124,23 +80,6 @@ public class ManageCropssMenuView extends viewbase{
         }
         
         return true;
-    }
-    
-    
-    /**
-     * Control this view's display/prompt/action loop until the user
-     * chooses and action that causes this view to close.
-     */
-    public void displayView(){
-        
-        boolean keepGoing = true;
-        
-        while(keepGoing == true){
-            
-            System.out.println(message);
-            String[] inputs = getInputs();
-            keepGoing = doAction(inputs);
-        }
     }
     
     
