@@ -1,9 +1,10 @@
 
 package cityofaaron.view;
 
-import cityofaaron.CityOfAaron;
-import cityofaaron.model.Player;
+//import cityofaaron.CityOfAaron;
+//import cityofaaron.model.Player;
 import cityofaaron.model.Game;
+import cityofaaron.control.GameControl;
 
 /**
  *
@@ -67,17 +68,8 @@ public class NewGameView extends ViewBase {
     
     
     private void createAndStartGame(String playerName){
-        // eventually we will do this when we know more
-        // Game game = GameControl.creatNewGame(playerName)
-        // for this week we will do this
         
-        Player player = new Player();
-        player.setName(playerName);
-        
-        Game game = new Game();
-        game.setThePlayer(player);
-        
-        CityOfAaron.setCurrentGame(game);
+        Game game = GameControl.creatNewGame(playerName);
         
         //Display Game Menu
         GameMenuView view = new GameMenuView();

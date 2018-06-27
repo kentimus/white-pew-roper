@@ -4,12 +4,32 @@
  * and open the template in the editor.
  */
 package cityofaaron.control;
+import cityofaaron.model.Map;
+import cityofaaron.model.Location;
 
 /**
  *
  * @author willi
  */
 public class MapControl {
+    public static Map createMap( int noOfRows, int noOfColumns){
+        if(noOfRows < 0 || noOfColumns < 0){
+            return null;
+        }
+        
+        Map map = new Map();
+        
+        
+        Location[][] map.locations = createLocations(noOfRows, noOfColumns, map);
+
+
+//       locations = createLocations(noOfRows, noOfColumns)
+//       Assign the locations array to the map
+
+         return map;
+}
+    
+    
     public int[] newLocation(int row, int column){
         // Kent
         

@@ -5,6 +5,8 @@
  */
 package cityofaaron.control;
 
+import cityofaaron.CityOfAaron;
+import cityofaaron.model.Player;
 import cityofaaron.model.Game;
 import java.util.Random;
 
@@ -13,6 +15,26 @@ import java.util.Random;
  * @author willi
  */
 public class GameControl {
+    public static Game creatNewGame(String playerName){
+        Player player = new Player();
+        player.setName(playerName);
+
+        Game game = new Game();
+        game.setThePlayer(player);
+        
+        //Save a reference to the game in the main class
+        CityOfAaron.setCurrentGame(game);
+
+//map = createMap(noOfRows, noOfColumns, items)
+//IF map == null THEN
+// RETURN -1
+//ENDIF
+//Assign the map to the game
+//RETURN 1 // indicates success
+        return game;
+        
+    }
+    
 
     public int newPopulation(int currentPopulation) {
         //Kent
