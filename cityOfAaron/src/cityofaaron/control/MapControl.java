@@ -4,9 +4,9 @@
  * and open the template in the editor.
  */
 package cityofaaron.control;
+
 import cityofaaron.model.Map;
 import cityofaaron.model.Location;
-import cityofaaron.model.Point;
 
 /**
  *
@@ -14,54 +14,64 @@ import cityofaaron.model.Point;
  */
 public class MapControl {
 
-    private static Location[][] createLocations(int rows,
-            int columns)
-    
-    private static void Hints()   
-
-    private static void assignHintsToLocations(Question[] questions,
-            Scene[] scenes)
-
-    private static void assignItemsToScenes(InventoryItem[] items,
-            Scene[] scenes)
-
-    private static void assignScenesToLocations(
-            Scene[] scenes,
-            Location[][] locations)
-            
-        /*
-    public static Map createMap( int noOfRows, int noOfColumns){
-        // create point for map and save the map to the game
-        Point point = new Point();
-        point.setColumn(0);
-        point.setRow(0);
+    public static Map createMap() {
+        Map map = new Map(); 
+        Location[][] locations = createLocations();
+        map.setLocations(locations);
         
-        Map map = new Map();
-        map.setCurrentLocation(point);
-     */   
+        return map;
+    }
+    
+    public static Location[][] createLocations(){
+        // list of hints
+        String wheatHint = "Wheat is yummy. Each Citizen needs 20 Bushels per Year.";
+        String riverHint = "Praying the rats drown in the river? Paying tithing makes that more likely.";
+        String undevelopedHint = "Buying more land lets you plant more wheat. Smart people buy when the price "
+                + "is around 17 bushels per acre.";
+        String lamaniteHint = "It's nice we aren't at war with the Lamanites right now. It's bad enough "
+                + "dealing with rats.";
+        String courtHint = "Think carefully before living out each year. Your rule will be cut short if you "
+                + "make poor choices.";
+        String villageHint = "You can sell some of your land. Smart people sell when the price is near 27"
+                + " bushels per acre.";
+        String granaryHint = "Smart rulers don't spend all their wheat, just in cases of a poor harvest.";
+        String templeHint = "You can pay more than 10% tithing to get extra blessings, but paying more than"
+                + " 13% doesn't give you additional value. Be a wise steward.";
+        
+        //List of locations 
+        Location[][] locations = new Location[5][5];
+        
+        locations[0][0] = new Location("Wheat", "Wheat Field", "W", wheatHint);
+        locations[0][1] = new Location("River", "The Great River Sidon", "R", riverHint);
+        locations[0][2] = new Location("Undeveloped Land", "Not much here.", "U", undevelopedHint);
+        locations[0][3] = new Location("Undeveloped Land", "Not much here.", "U", undevelopedHint);
+        locations[0][4] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint);
+        
+        locations[1][0] = new Location("Wheat", "Wheat Field", "W", wheatHint);
+        locations[1][1] = new Location("Wheat", "Wheat Field", "W", wheatHint);
+        locations[1][2] = new Location("River", "The Great River Sidon", "R", riverHint);
+        locations[1][3] = new Location("Undeveloped Land", "Not much here.", "U", undevelopedHint);
+        locations[1][4] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint);
+        
+        locations[2][0] = new Location("Wheat", "Wheat Field", "W", wheatHint);
+        locations[2][1] = new Location("Rulers Court", "Nice palace you have there!", "C", courtHint);
+        locations[2][2] = new Location("Temple", "Don't forget your recommend!", "T", templeHint);
+        locations[2][3] = new Location("River", "The Great River Sidon", "R", riverHint);
+        locations[2][4] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint);
+        
+        locations[3][0] = new Location("Wheat", "Wheat Field", "W", wheatHint);
+        locations[3][1] = new Location("Village", "Well, technically a city", "V", villageHint);
+        locations[3][2] = new Location("Granary", "... and Storehouse", "G", granaryHint);
+        locations[3][3] = new Location("River", "The Great River Sidon", "R", riverHint);
+        locations[3][4] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint);
+        
+        locations[4][0] = new Location("Wheat", "Wheat Field", "W", wheatHint);
+        locations[4][1] = new Location("Wheat", "Wheat Field", "W", wheatHint);
+        locations[4][2] = new Location("Wheat", "Wheat Field", "W", wheatHint);
+        locations[4][3] = new Location("River", "The Great River Sidon", "R", riverHint);
+        locations[4][4] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint);
+        
+        return locations;
     }
 
-    
-    
-    public int[] newLocation(int row, int column){
-        // Kent
-        
-        int location[] = {0,0};
-        
-        //row has to be between 1 and 5
-        if(row < 1 || row > 5){
-            location[0] = -1;
-            return location;
-        }
-        
-        // column has to be between 1 and 5
-        if(column < 1 || column > 5){
-            location[0] = -1;
-            return location;
-        }
-        
-        location[0] = row;
-        location[1] = column;
-        return location;
-    } 
 }

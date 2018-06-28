@@ -6,8 +6,8 @@
 package cityofaaron.model;
 
 import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Objects;
+//import java.util.Arrays;
+//import java.util.Objects;
 
 /**
  *
@@ -18,11 +18,18 @@ public class Location implements Serializable {
     private String name;
     private String description;
     private String mapSymbol;
-    private String[] gameTips;
+    private String gameTip;
     
     // javabean code
 
     public Location() {
+    }
+    
+    public Location(String name, String description, String mapSymbol, String gameTip){
+        setName(name);
+        setDescription(description);
+        setMapSymbol(mapSymbol);
+        setGameTip(gameTip);
     }
 
     public String getName() {
@@ -44,17 +51,22 @@ public class Location implements Serializable {
     public String getMapSymbol() {
         return mapSymbol;
     }
+    
+    //shorter name, to reduce typing
+    public String gMS(){
+        return mapSymbol;
+    }
 
     public void setMapSymbol(String mapSymbol) {
         this.mapSymbol = mapSymbol;
     }
 
-    public String[] getGameTips() {
-        return gameTips;
+    public String getGameTip() {
+        return gameTip;
     }
 
-    public void setGameTips(String[] gameTips) {
-        this.gameTips = gameTips;
+    public void setGameTip(String gameTip) {
+        this.gameTip = gameTip;
     } 
 
     @Override
@@ -62,7 +74,7 @@ public class Location implements Serializable {
         return "Location{" + "name=" + name 
                 + ", description=" + description 
                 + ", mapSymbol=" + mapSymbol 
-                + ", gameTips=" + gameTips 
+                + ", gameTips=" + gameTip
                 + '}';
     }
     

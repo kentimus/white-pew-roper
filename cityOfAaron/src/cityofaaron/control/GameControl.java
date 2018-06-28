@@ -13,6 +13,7 @@ import cityofaaron.model.Point;
 import cityofaaron.model.Author;
 import cityofaaron.model.Storehouse;
 import java.util.Random;
+//import cityofaaron.control.MapControl
 
 /**
  *
@@ -49,12 +50,8 @@ public class GameControl {
         game.setTheStorehouse(storehouse);
         
         
-        
-        game.setTheMap(map);
-        
-        //
-        
-        
+        Map map = MapControl.createMap();
+        game.setTheMap(map);    
         
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);

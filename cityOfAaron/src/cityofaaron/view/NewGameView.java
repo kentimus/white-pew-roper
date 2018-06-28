@@ -59,6 +59,8 @@ public class NewGameView extends ViewBase {
         }
         
         String playerName = inputs[0];
+        System.out.println("\nWelcome to the game, " + inputs[0] + "!\n");
+        
         createAndStartGame(playerName);
         
         

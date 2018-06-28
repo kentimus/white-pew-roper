@@ -1,4 +1,8 @@
 package cityofaaron.view;
+import cityofaaron.CityOfAaron;
+import cityofaaron.model.Location;
+import cityofaaron.model.Game;
+import cityofaaron.model.Map;
 
 /**
  *
@@ -15,17 +19,40 @@ public class ViewMapView extends ViewBase {
 
     @Override
     protected String getMessage() {
-        return "** The City Of Aaron **\n"
-                + "-W- -R- --- --- -U- -L-\n"
-                + "--- -W- -R- --- -U- -L-\n"
-                + "--- -W- -W- -R- -U- -L-\n"
-                + "--- -V- -W- W-R -U- -L-\n"
-                + "--- -G- -W- -R- -U- -L-\n"
-                + "--- --- --- --R --- -L-\n"
-                + "--- --- --- R-- --- ---\n"
-                + "W = wheat field      R = river\n"
-                + "L = Lamanite border  V = village\n"
-                + "U = undeveloped land G = Granary\n";
+        Game game = CityOfAaron.getCurrentGame();
+        Map map = game.getTheMap();
+        Location[][] l = map.getLocations();
+        
+        String mapDisplay = "\nHere's the Map!\n"
+                + "    1   2   3   4   5\n"
+                + "  |-------------------|\n"
+                + "1 | " + l[0][0].gMS()  + " | " + l[0][1].gMS()  + " | " 
+                        + l[0][2].gMS()  + " | " + l[0][3].gMS()  + " | " 
+                        + l[0][4].gMS()   + " |     W = Wheat field\n"
+                + "  |-------------------|     R = River\n"
+                
+                + "2 | " + l[1][0].gMS()  + " | " + l[1][1].gMS()  + " | " 
+                        + l[1][2].gMS()  + " | " + l[1][3].gMS()  + " | " 
+                        + l[1][4].gMS()   + " |     L = Lamanite border\n"
+                + "  |-------------------|     V = Village\n"
+                
+                + "3 | " + l[2][0].gMS()  + " | " + l[2][1].gMS()  + " | " 
+                        + l[2][2].gMS()  + " | " + l[2][3].gMS()  + " | " 
+                        + l[2][4].gMS()   + " |     U = Undeveloped land\n"
+                + "  |-------------------|     G = Granary/Storehouse\n"
+                
+                + "4 | " + l[3][0].gMS()  + " | " + l[3][1].gMS()  + " | " 
+                        + l[3][2].gMS()  + " | " + l[3][3].gMS()  + " | " 
+                        + l[3][4].gMS()   + " |     C = Ruler's Court\n"
+                + "  |-------------------|     T = Temple\n"
+            
+                + "5 | " + l[4][0].gMS()  + " | " + l[4][1].gMS()  + " | " 
+                        + l[4][2].gMS()  + " | " + l[4][3].gMS()  + " | " 
+                        + l[4][4].gMS()   + " |\n"    
+                + "  |-------------------|\n";
+                
+        
+        return mapDisplay;
     }
 
     /**
