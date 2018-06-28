@@ -10,8 +10,43 @@ package cityofaaron.model;
  * @author kent
  */
 public class Author {
-    @Override
-    public String toString(){
-        return "Author class coming soon";
+    
+    private String name;
+    private String title;
+    
+//Constructor
+
+    public Author() {
     }
+    
+    public Author(String name, String title){
+        setName(name);
+        setTitle(title);
+    }
+    //getters and setters
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    @Override
+    public String toString() {
+        return "Author{" + "name=" + name + ", title=" + title + '}';
+    }
+    
+    
+    
+    
 }

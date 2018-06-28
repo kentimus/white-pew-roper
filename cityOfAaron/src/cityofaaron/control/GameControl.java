@@ -10,6 +10,7 @@ import cityofaaron.model.Player;
 import cityofaaron.model.Game;
 import cityofaaron.model.Map;
 import cityofaaron.model.Point;
+import cityofaaron.model.Author;
 import cityofaaron.model.Storehouse;
 import java.util.Random;
 
@@ -27,20 +28,29 @@ public class GameControl {
         Game game = new Game();
         game.setThePlayer(player);
         
-        // this adds the storehouse to the the game 
-        // this is currently meaningless since nothing has been populated
-        Storehouse storehouse1 = new Storehouse();
-        game.setTheStorehouse(storehouse1);
+        /* this adds the storehouse to the the game 
+        */
         
-        // create point for map and save the map to the game
-        Point point1 = new Point();
-        point1.setColumn(0);
-        point1.setRow(0);
+        //build the storhouse
+        Storehouse storehouse = new Storehouse();
         
-        Map map1 = new Map();
-        map1.setCurrentLocation(point1);
+        // create authors , populate an array and
+        //add it to the storehouse
+        Author[] authors = new Author[3];
         
-        game.setTheMap(map1);
+        authors[0] = new Author("Hayden Pew", "SupremeAlliedCommander");
+        authors[1] = new Author("Kent Roper", "Chief Complainer");
+        authors[2] = new Author("Will White", "White Boy");
+        
+        storehouse.setAuthors(authors);
+        
+        
+        
+        game.setTheStorehouse(storehouse);
+        
+        
+        
+        game.setTheMap(map);
         
         //
         

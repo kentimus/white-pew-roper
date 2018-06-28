@@ -16,7 +16,7 @@ import java.util.Objects;
 public class Storehouse implements Serializable {
     
     //Class instance variables
-    private Author authors;
+    private Author[] authors;
     private InventoryItem tools ;
     private ArrayList<Animal> animal = new ArrayList<Animal>();
     private ArrayList<Provision> provision = new ArrayList<Provision>();
@@ -28,11 +28,11 @@ public class Storehouse implements Serializable {
     
     //Getters and setters
 
-    public Author getAuthors() {
+    public Author[] getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Author authors) {
+    public void setAuthors(Author[] authors) {
         this.authors = authors;
     }
 

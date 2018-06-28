@@ -6,28 +6,41 @@
 package cityofaaron.control;
 import cityofaaron.model.Map;
 import cityofaaron.model.Location;
+import cityofaaron.model.Point;
 
 /**
  *
  * @author willi
  */
 public class MapControl {
+
+    private static Location[][] createLocations(int rows,
+            int columns)
+    
+    private static void Hints()   
+
+    private static void assignHintsToLocations(Question[] questions,
+            Scene[] scenes)
+
+    private static void assignItemsToScenes(InventoryItem[] items,
+            Scene[] scenes)
+
+    private static void assignScenesToLocations(
+            Scene[] scenes,
+            Location[][] locations)
+            
+        /*
     public static Map createMap( int noOfRows, int noOfColumns){
-        if(noOfRows < 0 || noOfColumns < 0){
-            return null;
-        }
+        // create point for map and save the map to the game
+        Point point = new Point();
+        point.setColumn(0);
+        point.setRow(0);
         
         Map map = new Map();
-        
-        
-        Location[][] map.locations = createLocations(noOfRows, noOfColumns, map);
+        map.setCurrentLocation(point);
+     */   
+    }
 
-
-//       locations = createLocations(noOfRows, noOfColumns)
-//       Assign the locations array to the map
-
-         return map;
-}
     
     
     public int[] newLocation(int row, int column){
