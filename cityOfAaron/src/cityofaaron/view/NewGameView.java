@@ -19,11 +19,13 @@ public class NewGameView extends ViewBase {
         super();
     }
     
+    @Override
     protected String getMessage(){
         return "Starting a new Game ...\n";
                                
     }
     
+    @Override
     public String[] getInputs() {
         
         // Declare the array to have the number of elements you intend to get 
@@ -45,6 +47,7 @@ public class NewGameView extends ViewBase {
      * @return true if the view should repeat itself, and false if the view
      * should exit and return to the previous view.
      */
+    @Override
     public boolean doAction(String[] inputs){
         // there is only one action here, start a new game and set it in the main cityofaaron class
         
@@ -69,7 +72,7 @@ public class NewGameView extends ViewBase {
     
     private void createAndStartGame(String playerName){
         
-        Game game = GameControl.creatNewGame(playerName);
+        Game game = GameControl.createNewGame(playerName);
         
         //Display Game Menu
         GameMenuView view = new GameMenuView();

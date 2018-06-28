@@ -8,6 +8,9 @@ package cityofaaron.control;
 import cityofaaron.CityOfAaron;
 import cityofaaron.model.Player;
 import cityofaaron.model.Game;
+import cityofaaron.model.Map;
+import cityofaaron.model.Point;
+import cityofaaron.model.Storehouse;
 import java.util.Random;
 
 /**
@@ -15,12 +18,33 @@ import java.util.Random;
  * @author willi
  */
 public class GameControl {
-    public static Game creatNewGame(String playerName){
+    public static Game createNewGame(String playerName){
+        // this creates a new player object and assign a player name
         Player player = new Player();
         player.setName(playerName);
-
+        
+        // this createsa new game and saves the player to the game
         Game game = new Game();
         game.setThePlayer(player);
+        
+        // this adds the storehouse to the the game 
+        // this is currently meaningless since nothing has been populated
+        Storehouse storehouse1 = new Storehouse();
+        game.setTheStorehouse(storehouse1);
+        
+        // create point for map and save the map to the game
+        Point point1 = new Point();
+        point1.setColumn(0);
+        point1.setRow(0);
+        
+        Map map1 = new Map();
+        map1.setCurrentLocation(point1);
+        
+        game.setTheMap(map1);
+        
+        //
+        
+        
         
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);
