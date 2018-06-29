@@ -86,11 +86,16 @@ public class ViewMapView extends ViewBase {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    private void startGameMenuView() {
-        //pause for a few seconds and return to Game Menu
-        pause(3000);
-
-        GameMenuView gameMenu = new GameMenuView();
-        gameMenu.displayView();
+    private void startGameMenuView(){ 
+    //pause the program for a specific number of miliseconds
+            try {
+            Thread.sleep(4000);
+        } catch (InterruptedException exception) {
+            //do nothing
+        }
     }
+    
 }
+    
+        //pause for a few seconds and return to Game Menu
+    

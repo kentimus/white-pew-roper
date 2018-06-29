@@ -21,6 +21,11 @@ public class Provision extends InventoryItem implements Serializable {
     //javabean code
     public Provision() {
     }
+    
+    public Provision(String name, int perishable){
+        setName(name);
+        setPerishable(0);
+    }
 
     public String getName() {
         return name;

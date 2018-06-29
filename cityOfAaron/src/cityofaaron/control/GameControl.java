@@ -12,6 +12,7 @@ import cityofaaron.model.Map;
 import cityofaaron.model.Point;
 import cityofaaron.model.Author;
 import cityofaaron.model.Storehouse;
+import cityofaaron.model.Provision;
 import java.util.Random;
 //import cityofaaron.control.MapControl
 
@@ -21,22 +22,31 @@ import java.util.Random;
  */
 public class GameControl {
     public static Game createNewGame(String playerName){
-        // this creates a new player object and assign a player name
+        
+        // this createsa new game  
+        Game game = new Game();
+        
+        // this creates a new player object 
+        // and assigns the player to the game
+        try {
         Player player = new Player();
         player.setName(playerName);
-        
-        // this createsa new game and saves the player to the game
-        Game game = new Game();
         game.setThePlayer(player);
         
-        /* this adds the storehouse to the the game 
-        */
-        
-        //build the storhouse
+        System.out.println("\n**New Player created**");
+        } catch(Exception e){
+            System.out.println("\n**FAILED TO CREATE NEW PLAYER**\n"); 
+            } 
+               
+        //build the storehouse
         Storehouse storehouse = new Storehouse();
+        game.setTheStorehouse(storehouse);
         
+        System.out.println("\n**Storehouse created**");
+         
         // create authors , populate an array and
         //add it to the storehouse
+        try{
         Author[] authors = new Author[3];
         
         authors[0] = new Author("Hayden Pew", "SupremeAlliedCommander");
@@ -45,13 +55,33 @@ public class GameControl {
         
         storehouse.setAuthors(authors);
         
+        System.out.println("\n**Authors are set**");
+        } catch(Exception e){
+            System.out.println("\n**FAILED TO CREATE AUTHORS**\n"); 
+            } 
         
+        try{
+        Provision[] provisions = new Provision[3];
         
-        game.setTheStorehouse(storehouse);
+        provisions[0] = new Provision ("Goat milk", 2);
+        provisions[1] = new Provision ("dates", 10);        
+        provisions[2] = new Provision ("Twizzlers", 1000);
         
+        storehouse.setProvisions(provisions);
         
+        System.out.println("\n**Provisions added**");
+        } catch(Exception e){
+            System.out.println("\n**FAILED TO ADD PROVISIONS**\n"); 
+            } 
+        
+        try{
         Map map = MapControl.createMap();
-        game.setTheMap(map);    
+        game.setTheMap(map); 
+        
+        System.out.println("\n**Map Created**");
+        } catch(Exception e){
+            System.out.println("\n**FAILED TO CREATE MAP**\n"); 
+            } 
         
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);

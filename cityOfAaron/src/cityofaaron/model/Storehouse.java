@@ -19,7 +19,7 @@ public class Storehouse implements Serializable {
     private Author[] authors;
     private InventoryItem tools ;
     private ArrayList<Animal> animal = new ArrayList<Animal>();
-    private ArrayList<Provision> provision = new ArrayList<Provision>();
+    private Provision [] provisions;
     // Javabean code
     
     // Constructor
@@ -43,6 +43,16 @@ public class Storehouse implements Serializable {
     public void setTools(InventoryItem tools) {
         this.tools = tools;
     }
+
+    public Provision[] getProvisions() {
+        return provisions;
+    }
+
+    public void setProvisions(Provision[] provisions) {
+        this.provisions = provisions;
+    }
+    
+    
     // hashcode and equals
         @Override
     public int hashCode() {
@@ -50,7 +60,7 @@ public class Storehouse implements Serializable {
         hash = 83 * hash + Objects.hashCode(this.authors);
         hash = 83 * hash + Objects.hashCode(this.animal);
         hash = 83 * hash + Objects.hashCode(this.tools);
-        hash = 83 * hash + Objects.hashCode(this.provision);
+        hash = 83 * hash + Objects.hashCode(this.provisions);
         return hash;
     }
 
@@ -75,7 +85,7 @@ public class Storehouse implements Serializable {
         if (!Objects.equals(this.tools, other.tools)) {
             return false;
         }
-        if (!Objects.equals(this.provision, other.provision)) {
+        if (!Objects.equals(this.provisions, other.provisions)) {
             return false;
         }
         return true;
@@ -85,7 +95,7 @@ public class Storehouse implements Serializable {
 
     @Override
     public String toString() {
-        return "Storehouse{" + "authors=" + authors + ", animal=" + animal + ", tools=" + tools + ", provision=" + provision + '}';
+        return "Storehouse{" + "authors=" + authors + ", animal=" + animal + ", tools=" + tools + ", provisions=" + provisions + '}';
     }
     
     
