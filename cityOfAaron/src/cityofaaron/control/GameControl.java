@@ -103,6 +103,13 @@ public class GameControl {
         } catch (Exception e) {
             System.out.println("\n**FAILED TO CREATE MAP**\n");
         }
+        
+        
+        // adding intitial wheat, acres, population, year:
+        game.setAcresOwned(1000);
+        game.setWheatInStorage(2000);
+        game.setCurrentPopulation(1000);
+        game.setCurrentYear(1);
 
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);
