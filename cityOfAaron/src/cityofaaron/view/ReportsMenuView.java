@@ -99,9 +99,8 @@ public class ReportsMenuView extends ViewBase {
     }
 
     private void viewAuthors() {
-        System.out.println("\n**Game Authors**\n"
-                + "\n"
-                + "This will eventually show the authors of the game\n"
-                + "-------------------------------------------------\n");
+        //method to call the authors report
+        ReportsAuthorsView view = new ReportsAuthorsView();
+        view.displayView();
     }
 }

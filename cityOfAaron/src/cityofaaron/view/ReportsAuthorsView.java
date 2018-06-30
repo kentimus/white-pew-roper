@@ -2,19 +2,19 @@ package cityofaaron.view;
 import cityofaaron.CityOfAaron;
 import cityofaaron.model.Game;
 import cityofaaron.model.Storehouse;
-import cityofaaron.model.Tool;
+import cityofaaron.model.Author;
 
 
 /**
  *
  * @author hpew
  */
-public class ReportsToolsView extends ViewBase {
+public class ReportsAuthorsView extends ViewBase {
 
     /**
      * Constructor
      */
-    public ReportsToolsView() {
+    public ReportsAuthorsView() {
         super();
     }
 
@@ -22,41 +22,18 @@ public class ReportsToolsView extends ViewBase {
     protected String getMessage() {
         Game game = CityOfAaron.getCurrentGame();
         Storehouse storehouse = game.getStorehouse();
-        Tool[] tools = storehouse.getTools();
+        Author[] authors = storehouse.getAuthors();
         
-        tools = sortTools(tools);
-        int total = getTotal(tools);
         
-        String message = "-------------------------------------\n"
-                + "You have " + total + " tools in your inventory:\n"
+        String message = "------------------------------------\n"
+                + "Authored by:\n"
                 + "-------------------------------------\n";
-        for(Tool tool : tools){
-            message += tool.getname() + " : " + tool.getQuantity() + "\n";
+        for(Author author : authors){
+            message += author.getName() + " -- " + author.getTitle() +  "\n";
         }
         return message;
     }
     
-    private Tool[] sortTools(Tool[] tools){
-        for(int i=0; i<tools.length; i++){
-            for(int j=i+1; j<tools.length; j++){
-                if(tools[i].getname().compareTo(tools[j].getname()) > 0){
-                    Tool temp = tools[i];
-                    tools[i] = tools[j];
-                    tools[j] = temp;
-                }
-            }
-        }
-        return tools;
-    }
-    
-    private int getTotal(Tool[] tools){
-        int total = 0;
-        for(Tool tool : tools){
-            total += tool.getQuantity();
-        }
-        return total;
-    }
-
     /**
      * Get the set of inputs from the user.
      *
@@ -98,3 +75,4 @@ public class ReportsToolsView extends ViewBase {
     }
     
 }  
+
