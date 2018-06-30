@@ -5,24 +5,39 @@
  */
 package cityofaaron.model;
 
+import java.io.Serializable;
+import java.util.Objects;
+
 /**
  *
  * @author kent
  */
 public class Tool {
     private String name;
+    private int quantity;
     
 
     public Tool() {
+    }
+    
+    public Tool(String name, int quantity){
+        setName(name);
+        setQuantity(quantity);
     }
     
     public String getname() {
         return name;
     }
 
-    public void setname(String name) {
+    public void setName(String name) {
         this.name = name;
     }
     
+    public int getQuantity(){
+        return quantity;
+    }
     
+    public void setQuantity(int quantity){
+        this.quantity = quantity;
+    }
 }

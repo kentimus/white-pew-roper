@@ -13,6 +13,7 @@ import cityofaaron.model.Point;
 import cityofaaron.model.Author;
 import cityofaaron.model.Storehouse;
 import cityofaaron.model.Provision;
+import cityofaaron.model.Tool;
 import java.util.Random;
 //import cityofaaron.control.MapControl
 
@@ -21,81 +22,95 @@ import java.util.Random;
  * @author willi
  */
 public class GameControl {
-    public static Game createNewGame(String playerName){
-        
+
+    public static Game createNewGame(String playerName) {
+
         // this createsa new game  
         Game game = new Game();
-        
+
         // this creates a new player object 
         // and assigns the player to the game
         try {
-        Player player = new Player();
-        player.setName(playerName);
-        game.setThePlayer(player);
-        
-        System.out.println("\n**New Player created**");
-        } catch(Exception e){
-            System.out.println("\n**FAILED TO CREATE NEW PLAYER**\n"); 
-            } 
-               
+            Player player = new Player();
+            player.setName(playerName);
+            game.setThePlayer(player);
+
+            System.out.println("\n**New Player created**");
+        } catch (Exception e) {
+            System.out.println("\n**FAILED TO CREATE NEW PLAYER**\n");
+        }
+
         //build the storehouse
         Storehouse storehouse = new Storehouse();
         game.setTheStorehouse(storehouse);
-        
+
         System.out.println("\n**Storehouse created**");
-         
+
         // create authors , populate an array and
         //add it to the storehouse
-        try{
-        Author[] authors = new Author[3];
+        try {
+            Author[] authors = new Author[3];
+
+            authors[0] = new Author("Hayden Pew", "SupremeAlliedCommander");
+            authors[1] = new Author("Kent Roper", "Chief Complainer");
+            authors[2] = new Author("Will White", "White Boy");
+
+            storehouse.setAuthors(authors);
+
+            System.out.println("\n**Authors are set**");
+        } catch (Exception e) {
+            System.out.println("\n**FAILED TO CREATE AUTHORS**\n");
+        }
+
+        try {
+            Provision[] provisions = new Provision[3];
+
+            provisions[0] = new Provision("Goat milk", 2);
+            provisions[1] = new Provision("dates", 10);
+            provisions[2] = new Provision("Twizzlers", 1000);
+
+            storehouse.setProvisions(provisions);
+
+            System.out.println("\n**Provisions added**");
+        } catch (Exception e) {
+            System.out.println("\n**FAILED TO ADD PROVISIONS**\n");
+        }
         
-        authors[0] = new Author("Hayden Pew", "SupremeAlliedCommander");
-        authors[1] = new Author("Kent Roper", "Chief Complainer");
-        authors[2] = new Author("Will White", "White Boy");
-        
-        storehouse.setAuthors(authors);
-        
-        System.out.println("\n**Authors are set**");
-        } catch(Exception e){
-            System.out.println("\n**FAILED TO CREATE AUTHORS**\n"); 
-            } 
-        
-        try{
-        Provision[] provisions = new Provision[3];
-        
-        provisions[0] = new Provision ("Goat milk", 2);
-        provisions[1] = new Provision ("dates", 10);        
-        provisions[2] = new Provision ("Twizzlers", 1000);
-        
-        storehouse.setProvisions(provisions);
-        
-        System.out.println("\n**Provisions added**");
-        } catch(Exception e){
-            System.out.println("\n**FAILED TO ADD PROVISIONS**\n"); 
-            } 
-        
-        try{
-        Map map = MapControl.createMap();
-        game.setTheMap(map); 
-        
-        System.out.println("\n**Map Created**");
-        } catch(Exception e){
-            System.out.println("\n**FAILED TO CREATE MAP**\n"); 
-            } 
-        
+        try {
+            Tool[] tools = new Tool[9];
+
+            tools[0] = new Tool("Combine Harvester", 2);
+            tools[1] = new Tool("Sickle", 17);
+            tools[2] = new Tool("Seed drill", 2);
+            tools[3] = new Tool("Pitchfork", 4);
+            tools[4] = new Tool("Tractor", 3);
+            tools[5] = new Tool("Curelom Harness", 5);
+            tools[6] = new Tool("Cumon Bridle", 4);
+            tools[7] = new Tool("Farmers Almenac", 1);
+            tools[8] = new Tool("Mesoamerican Calendar", 1);
+
+            storehouse.setTools(tools);
+
+            System.out.println("\n**Tools are set**");
+        } catch (Exception e) {
+            System.out.println("\n**FAILED TO CREATE TOOLS**\n");
+        }
+
+        try {
+            Map map = MapControl.createMap();
+            game.setTheMap(map);
+
+            System.out.println("\n**Map Created**");
+        } catch (Exception e) {
+            System.out.println("\n**FAILED TO CREATE MAP**\n");
+        }
+
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);
 
-//map = createMap(noOfRows, noOfColumns, items)
-//IF map == null THEN
-// RETURN -1
-//ENDIF
-//Assign the map to the game
-//RETURN 1 // indicates success
         return game;
-        
+
     }
-    
 
     public int newPopulation(int currentPopulation) {
         //Kent
