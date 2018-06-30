@@ -15,14 +15,23 @@ public class StartProgramView extends ViewBase {
 
     @Override
     protected String getMessage() {
-        return "Hello! Welcome to the beautiful city of Aaron. The highpriest has summoned you here to\n"
-                + "lead our people to prosperity, as the ruler of our city.  What you do as ruler\n"
-                + "will determine if we prosper or perish. Your responsibilities include buying and selling\n"
-                + "land, how much wheat to plant, how much wheat to store, feeding our people, and paying\n"
-                + "a tithe on the wheat grown. If you do not grow enough wheat, you will not be able to feed\n"
-                + "our people, they will starve, and some will die.  Our workforce will be disminished and we\n"
-                + "will find a new leader. Plan your moves carefully, also not to stress you out, but the city\n"
-                + "is infested with rats which constantly eat our wheat.\n";
+        String message = "   _____ _ _                  __                                 \n"
+                + "  / ____(_) |                / _|     /\\                         \n"
+                + " | |     _| |_ _   _    ___ | |_     /  \\   __ _ _ __ ___  _ __  \n"
+                + " | |    | | __| | | |  / _ \\|  _|   / /\\ \\ / _` | '__/ _ \\| '_ \\ \n"
+                + " | |____| | |_| |_| | | (_) | |    / ____ \\ (_| | | | (_) | | | |\n"
+                + "  \\_____|_|\\__|\\__, |  \\___/|_|   /_/    \\_\\__,_|_|  \\___/|_| |_|\n"
+                + "                __/ |                                            \n"
+                + "               |___/"
+                + "\n"
+                + "------------------------------------------------------------------\n"
+                + "The new fun game where you can:\n"
+                + "------------------------------------------------------------------\n"
+                + "Buy and Sell Land! Grow Wheat! Pay tithing! View your inventory!\n\n"
+                + "Don't let your people starve,and you can be a winner!\n"
+                + "------------------------------------------------------------------\n";
+
+        return message;
     }
 
     /**
