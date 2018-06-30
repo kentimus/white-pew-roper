@@ -9,7 +9,6 @@ import cityofaaron.CityOfAaron;
 import cityofaaron.model.Player;
 import cityofaaron.model.Game;
 import cityofaaron.model.Map;
-import cityofaaron.model.Point;
 import cityofaaron.model.Author;
 import cityofaaron.model.Storehouse;
 import cityofaaron.model.Provision;
@@ -42,7 +41,7 @@ public class GameControl {
 
         //build the storehouse
         Storehouse storehouse = new Storehouse();
-        game.setTheStorehouse(storehouse);
+        game.setStorehouse(storehouse);
 
         System.out.println("\n**Storehouse created**");
 

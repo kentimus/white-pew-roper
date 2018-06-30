@@ -95,7 +95,4 @@ public class ViewMapView extends ViewBase {
         }
     }
     
-}
-    
-        //pause for a few seconds and return to Game Menu
-    
+}    

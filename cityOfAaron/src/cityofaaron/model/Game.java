@@ -16,7 +16,7 @@ public class Game implements Serializable {
     // class instance variables
     private Player thePlayer;
     private Map theMap;
-    private Storehouse theStorehouse;
+    private Storehouse storehouse;
     private int currentPopulation;
     private int acresOwned;
     private int wheatInStorage;
@@ -42,12 +42,12 @@ public class Game implements Serializable {
         this.theMap = theMap;
     }
 
-    public Storehouse getTheStorehouse() {
-        return theStorehouse;
+    public Storehouse getStorehouse() {
+        return storehouse;
     }
 
-    public void setTheStorehouse(Storehouse theStorehouse) {
-        this.theStorehouse = theStorehouse;
+    public void setStorehouse(Storehouse storehouse) {
+        this.storehouse = storehouse;
     }
 
     public int getCurrentPopulation() {
@@ -87,7 +87,7 @@ public class Game implements Serializable {
         return "Game{" 
                 + "thePlayer=" + thePlayer 
                 + ", theMap=" + theMap 
-                + ", theStorehouse=" + theStorehouse 
+                + ", theStorehouse=" + storehouse 
                 + ", currentPopulation=" + currentPopulation 
                 + ", wheatInStorage=" + wheatInStorage 
                 + ", currentYear=" + currentYear 

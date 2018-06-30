@@ -86,10 +86,9 @@ public class ReportsMenuView extends ViewBase {
     }
 
     private void toolsInStorehouse() {
-        System.out.println("\n**Tools in storehouse**\n"
-                + "This will eventually show the tools in the storehouse\n"
-                + "And the user will be able to save the report\n"
-                + "-----------------------------------------------------\n");
+        //method to call the tools report
+        ReportsToolsView view = new ReportsToolsView();
+        view.displayView();
     }
 
     private void provisionsInStorehouse() {

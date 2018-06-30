@@ -17,9 +17,9 @@ public class Storehouse implements Serializable {
     
     //Class instance variables
     private Author[] authors;
-    private InventoryItem tools ;
     private ArrayList<Animal> animal = new ArrayList<Animal>();
     private Provision [] provisions;
+    private Tool[] tools;
     // Javabean code
     
     // Constructor
@@ -36,11 +36,11 @@ public class Storehouse implements Serializable {
         this.authors = authors;
     }
 
-    public InventoryItem getTools() {
+    public Tool[] getTools() {
         return tools;
     }
 
-    public void setTools(InventoryItem tools) {
+    public void setTools(Tool[] tools) {
         this.tools = tools;
     }
 
