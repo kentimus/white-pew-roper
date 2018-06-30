@@ -25,8 +25,11 @@ public class ReportsToolsView extends ViewBase {
         Tool[] tools = storehouse.getTools();
         
         tools = sortTools(tools);
+        int total = getTotal(tools);
         
-        String message = "";
+        String message = "--------------------------/n"
+                + "You have " + total + " tools in your inventory:\n"
+                + "---------------------------------\n";
         for(Tool tool : tools){
             message += tool.getname() + " : " + tool.getQuantity() + "\n";
         }
@@ -36,7 +39,7 @@ public class ReportsToolsView extends ViewBase {
     private Tool[] sortTools(Tool[] tools){
         for(int i=0; i<tools.length; i++){
             for(int j=i+1; j<tools.length; j++){
-                if(tools[i].getQuantity() > tools[j].getQuantity()){
+                if(tools[i].getname().compareTo(tools[j].getname()) > 0){
                     Tool temp = tools[i];
                     tools[i] = tools[j];
                     tools[j] = temp;
@@ -44,6 +47,14 @@ public class ReportsToolsView extends ViewBase {
             }
         }
         return tools;
+    }
+    
+    private int getTotal(Tool[] tools){
+        int total = 0;
+        for(Tool tool : tools){
+            total += tool.getQuantity();
+        }
+        return total;
     }
 
     /**
