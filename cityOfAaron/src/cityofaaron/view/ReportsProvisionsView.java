@@ -29,7 +29,7 @@ public class ReportsProvisionsView extends ViewBase {
         String message
                 = "-----------------------------------------\n"
                 + "You have the following Provisions, Enjoy!\n"
-                + "-----------------------------------------";
+                + "-----------------------------------------\n";
         for (Provision provision : provisions) {
             message += provision.getName() + ", which will perish in " + provision.getPerishable() + " days\n";
         }
