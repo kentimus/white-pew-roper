@@ -63,11 +63,14 @@ public class GameControl {
         }
 
         try {
-            Provision[] provisions = new Provision[3];
+            Provision[] provisions = new Provision[6];
 
             provisions[0] = new Provision("Goat milk", 2);
             provisions[1] = new Provision("dates", 10);
             provisions[2] = new Provision("Twizzlers", 1000);
+            provisions[3] = new Provision("Wheat", 365);
+            provisions[4] = new Provision("Lama jerky", 730);
+            provisions[5] = new Provision("Grapes", 4);
 
             storehouse.setProvisions(provisions);
 
@@ -75,7 +78,7 @@ public class GameControl {
         } catch (Exception e) {
             System.out.println("\n**FAILED TO ADD PROVISIONS**\n");
         }
-        
+
         try {
             Tool[] tools = new Tool[9];
 
@@ -95,10 +98,7 @@ public class GameControl {
         } catch (Exception e) {
             System.out.println("\n**FAILED TO CREATE TOOLS**\n");
         }
-        
-        
-        
-        
+
         try {
             Animal[] animals = new Animal[4];
 
@@ -106,7 +106,6 @@ public class GameControl {
             animals[1] = new Animal("Deer", 20);
             animals[2] = new Animal("Sheep", 260);
             animals[3] = new Animal("Horse", 8);
-
 
             storehouse.setAnimals(animals);
 
@@ -123,19 +122,18 @@ public class GameControl {
         } catch (Exception e) {
             System.out.println("\n**FAILED TO CREATE MAP**\n");
         }
-        
-        
+
         // adding intitial wheat, acres, population, year:
-        game.setAcresOwned(1000);
+        game.setAcresOwned(100);
         game.setWheatInStorage(2000);
-        game.setCurrentPopulation(1000);
+        game.setCurrentPopulation(100);
         game.setCurrentYear(1);
+                
 
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);
 
         return game;
-
     }
 
     public int newPopulation(int currentPopulation) {
