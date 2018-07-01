@@ -21,6 +21,10 @@ public class Animal extends InventoryItem implements Serializable {
     public Animal() {
     }
 
+    public Animal(String cat, int i) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     public String getname() {
         return name;
     }

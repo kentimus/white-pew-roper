@@ -13,6 +13,7 @@ import cityofaaron.model.Author;
 import cityofaaron.model.Storehouse;
 import cityofaaron.model.Provision;
 import cityofaaron.model.Tool;
+import cityofaaron.model.Animal;
 import java.util.Random;
 //import cityofaaron.control.MapControl
 
@@ -93,6 +94,25 @@ public class GameControl {
             System.out.println("\n**Tools are set**");
         } catch (Exception e) {
             System.out.println("\n**FAILED TO CREATE TOOLS**\n");
+        }
+        
+        
+        
+        
+        try {
+            Animal[] animals = new Animal[4];
+
+            animals[0] = new Animal("Cat", 5);
+            animals[1] = new Animal("Deer", 20);
+            animals[2] = new Animal("Sheep", 260);
+            animals[3] = new Animal("Horse", 8);
+
+
+            storehouse.setAnimals(animals);
+
+            System.out.println("\n**Animals in fields**");
+        } catch (Exception e) {
+            System.out.println("\n**FAILED TO CREATE ANIMALS**\n");
         }
 
         try {

@@ -97,6 +97,10 @@ public class Storehouse implements Serializable {
     public String toString() {
         return "Storehouse{" + "authors=" + authors + ", animal=" + animal + ", tools=" + tools + ", provisions=" + provisions + '}';
     }
+
+    public void setAnimals(Animal[] animals) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
     
 
