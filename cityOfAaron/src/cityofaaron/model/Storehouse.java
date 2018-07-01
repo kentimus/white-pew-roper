@@ -6,7 +6,6 @@
 package cityofaaron.model;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -17,7 +16,7 @@ public class Storehouse implements Serializable {
     
     //Class instance variables
     private Author[] authors;
-    private ArrayList<Animal> animal = new ArrayList<Animal>();
+    private Animal[] animals; 
     private Provision [] provisions;
     private Tool[] tools;
     // Javabean code
@@ -51,14 +50,21 @@ public class Storehouse implements Serializable {
     public void setProvisions(Provision[] provisions) {
         this.provisions = provisions;
     }
+
+    public Animal[] getAnimals() {
+        return animals;
+    }
     
+    public void setAnimals(Animal[] animals) {
+        this.animals = animals;
+    }
     
     // hashcode and equals
         @Override
     public int hashCode() {
         int hash = 7;
         hash = 83 * hash + Objects.hashCode(this.authors);
-        hash = 83 * hash + Objects.hashCode(this.animal);
+        hash = 83 * hash + Objects.hashCode(this.animals);
         hash = 83 * hash + Objects.hashCode(this.tools);
         hash = 83 * hash + Objects.hashCode(this.provisions);
         return hash;
@@ -79,7 +85,7 @@ public class Storehouse implements Serializable {
         if (!Objects.equals(this.authors, other.authors)) {
             return false;
         }
-        if (!Objects.equals(this.animal, other.animal)) {
+        if (!Objects.equals(this.animals, other.animals)) {
             return false;
         }
         if (!Objects.equals(this.tools, other.tools)) {
@@ -95,14 +101,7 @@ public class Storehouse implements Serializable {
 
     @Override
     public String toString() {
-        return "Storehouse{" + "authors=" + authors + ", animal=" + animal + ", tools=" + tools + ", provisions=" + provisions + '}';
-    }
-
-    public void setAnimals(Animal[] animals) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
-
+        return "Storehouse{" + "authors=" + authors + ", animals=" + animals + ", tools=" + tools + ", provisions=" + provisions + '}';
+    } 
     
     }
