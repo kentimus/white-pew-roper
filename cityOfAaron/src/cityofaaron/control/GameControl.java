@@ -66,7 +66,7 @@ public class GameControl {
             Provision[] provisions = new Provision[6];
 
             provisions[0] = new Provision("Goat milk", 2);
-            provisions[1] = new Provision("dates", 10);
+            provisions[1] = new Provision("Dates", 10);
             provisions[2] = new Provision("Twizzlers", 1000);
             provisions[3] = new Provision("Wheat", 365);
             provisions[4] = new Provision("Lama jerky", 730);

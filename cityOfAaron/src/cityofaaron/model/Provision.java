@@ -24,7 +24,7 @@ public class Provision extends InventoryItem implements Serializable {
     
     public Provision(String name, int perishable){
         setName(name);
-        setPerishable(0);
+        setPerishable(perishable);
     }
 
     public String getName() {

@@ -92,10 +92,8 @@ public class ReportsMenuView extends ViewBase {
     }
 
     private void provisionsInStorehouse() {
-        System.out.println("\n**Provisions in storehouse**\n"
-                + "This will eventually show the provisions in the storehouse\n"
-                + "And the user will be able to save the report\n"
-                + "----------------------------------------------------------\n");
+        ReportsProvisionsView view = new ReportsProvisionsView();
+        view.displayView();
     }
 
     private void viewAuthors() {
