@@ -6,6 +6,7 @@
 package cityofaaron.control;
 
 import cityofaaron.CityOfAaron;
+import cityofaaron.exceptions.GameControlException;
 import cityofaaron.model.Player;
 import cityofaaron.model.Game;
 import cityofaaron.model.Map;
@@ -136,14 +137,14 @@ public class GameControl {
         return game;
     }
 
-    public int newPopulation(int currentPopulation) {
+    public int newPopulation(int currentPopulation) throws GameControlException {
         //Kent
         int addedPopulation;
         int newPopulation;
 
         //currentPopulation needs to be greater than zero
         if (currentPopulation <= 0) {
-            return -1;
+            throw new GameControlException("Population cannot be greater than zero");
         }
 
         Random rand = new Random(0);
@@ -162,35 +163,35 @@ public class GameControl {
         return pricePerAcre;
     }
 
-    public int sellAcres(int acresToSell, int pricePerAcre, int acresOwned) {
+    public int sellAcres(int acresToSell, int pricePerAcre, int acresOwned) throws GameControlException {
         //Hayden   
         if (acresToSell < 0 || acresToSell > acresOwned) {
-            return -1;
+            throw new GameControlException("You cannot sell more acres than you own");
         } else {
             int wheatFromAcres = (acresToSell * pricePerAcre);
             return wheatFromAcres;
         }
     }
 
-    public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore) {
+    public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore) throws GameControlException {
         //group
 
         if (acresRequested < 0) {
-            return -1;
+            throw new GameControlException("The number of acres must be >= to 0");
         }
 
         // get request cost
         int cost = (acresRequested * pricePerAcre);
         if (cost > wheatInStore) {
             //not enough wheat in store
-            return -1;
+            throw new GameControlException("Insuffecient wheat for purchases");
         } else {
             int acresBought = acresRequested;
             return acresBought;
         }
     }
 
-    public int acresPlanted(int acresRequested, int wheatInStore) {
+    public int acresPlanted(int acresRequested, int wheatInStore) throws GameControlException {
         //will
         Random rand = new Random();
         int acresPlanted;
@@ -198,14 +199,14 @@ public class GameControl {
         int high;
 
         if (acresRequested < 0) {
-            return -1;
+            throw new GameControlException("Acres cannot be negative negative");
         }
         low = 17;
         high = 27;
         int cost = (acresRequested * (rand.nextInt(high - low) + low));
         if (cost > wheatInStore) {
             //not enough wheat in store
-            return -1;
+            throw new GameControlException("There is not enough wheat in store to plant this many acres");
         } else {
             acresPlanted = acresRequested;
             return acresPlanted;
@@ -241,19 +242,19 @@ public class GameControl {
     }
 
     // argument "rando" temporary for testing
-    public double wheatEatenByRats(int wheatInStore, double tithingPaid, int rando) {
+    public double wheatEatenByRats(int wheatInStore, double tithingPaid, int rando) throws GameControlException {
         //Kent
         int percentEaten = 0;
         int bushelsEaten;
 
         // wheatInStore can't be below zero
         if (wheatInStore < 0) {
-            return -1;
+            throw new GameControlException("Wheat in store cannot be below zero");
         }
 
         // tithingPaid can't be below zero
         if (tithingPaid < 0) {
-            return -1;
+            throw new GameControlException("Tithing cannot be negative");
         }
         // create instance of Random class
         Random rand = new Random(5);
@@ -282,13 +283,13 @@ public class GameControl {
         return bushelsEaten;
     }
 
-    public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore) {
+    public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore) throws GameControlException {
         //Hayden
         int totalWheatNeeded = currentPopulation * 20;
         int starvedPopulation;
 
         if (feedPopulation < 0 || feedPopulation > wheatInStore) {
-            return -1;
+            throw new GameControlException("wheat in store must be >= feed population");
         }
         if (totalWheatNeeded > wheatInStore) {
             starvedPopulation = currentPopulation - (wheatInStore / 20);
