@@ -14,6 +14,7 @@ import java.util.Objects;
  * @author kent
  */
 public class Map implements Serializable {
+
     //class instance variables
     private Location[][] locations;
     private Point currentLocation;
@@ -42,8 +43,5 @@ public class Map implements Serializable {
     public String toString() {
         return "Map{" + "locations=" + locations + ", currentLocation=" + currentLocation + '}';
     }
-    
-    
-    
-    
+
 }

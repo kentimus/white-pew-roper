@@ -10,16 +10,15 @@ package cityofaaron.model;
  * @author kent
  */
 public class Author {
-    
+
     private String name;
     private String title;
-    
-//Constructor
 
+//Constructor
     public Author() {
     }
-    
-    public Author(String name, String title){
+
+    public Author(String name, String title) {
         setName(name);
         setTitle(title);
     }
@@ -45,8 +44,5 @@ public class Author {
     public String toString() {
         return "Author{" + "name=" + name + ", title=" + title + '}';
     }
-    
-    
-    
-    
+
 }

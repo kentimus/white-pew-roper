@@ -15,7 +15,7 @@ public class StartProgramView extends ViewBase {
 
     @Override
     protected String getMessage() {
-        String message  
+        String message
                 = "   _____                       __                                 \n"
                 + " /  ____(_) _                 / _|     /\\                         \n"
                 + " | |     _ | |_  _  _    __   | |_    /  \\     ___ ____ ___   ____  \n"

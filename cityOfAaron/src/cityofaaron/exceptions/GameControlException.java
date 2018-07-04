@@ -9,7 +9,7 @@ package cityofaaron.exceptions;
  *
  * @author willi
  */
-public class GameControlException extends Exception{
+public class GameControlException extends Exception {
 
     public GameControlException() {
     }
@@ -29,6 +29,5 @@ public class GameControlException extends Exception{
     public GameControlException(String message, Throwable cause, boolean enableSuppression, boolean writableStackTrace) {
         super(message, cause, enableSuppression, writableStackTrace);
     }
-  
-}
 
+}

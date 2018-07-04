@@ -9,15 +9,15 @@ package cityofaaron.model;
  *
  * @author kent
  */
-public enum Condition{
+public enum Condition {
     Good,
     Fair,
     Poor;
-    
-   // to string// to string
-    @Override    
-        public String toString() {
+
+    // to string// to string
+    @Override
+    public String toString() {
         return "Condition{" + '}';
     }
-        
+
 }

@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author willi
  */
 public class Animal extends InventoryItem implements Serializable {
+
     //class instance variables
     private String name;
     private int age;
@@ -76,10 +77,4 @@ public class Animal extends InventoryItem implements Serializable {
         return "Animal{" + "name=" + name + ", age=" + age + '}';
     }
 
-
-    
-    
-    
-    
 }
-

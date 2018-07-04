@@ -13,21 +13,18 @@ import java.util.Objects;
  * @author willi
  */
 public class InventoryItem implements Serializable {
-    
 
 //Class instance variables
-    private ItemType itemType ;
-    private int quantity ;
-    private Condition condition ;
-  
-        // Javabean code
-    
+    private ItemType itemType;
+    private int quantity;
+    private Condition condition;
+
+    // Javabean code
     // Constructor
     public InventoryItem() {
     }
-    
-    //Getters and setters
 
+    //Getters and setters
     public ItemType getitemType() {
         return itemType;
     }
@@ -89,6 +86,5 @@ public class InventoryItem implements Serializable {
     public String toString() {
         return "InventoryItem{" + "itemType=" + itemType + ", quantity=" + quantity + ", condition=" + condition + '}';
     }
- 
-    
+
 }

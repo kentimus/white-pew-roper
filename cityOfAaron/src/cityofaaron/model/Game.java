@@ -13,6 +13,7 @@ import java.util.Objects;
  * @author kent
  */
 public class Game implements Serializable {
+
     // class instance variables
     private Player thePlayer;
     private Map theMap;
@@ -21,7 +22,7 @@ public class Game implements Serializable {
     private int acresOwned;
     private int wheatInStorage;
     private int currentYear;
-    
+
     //javabean code
     public Game() {
     }
@@ -57,7 +58,7 @@ public class Game implements Serializable {
     public void setCurrentPopulation(int currentPopulation) {
         this.currentPopulation = currentPopulation;
     }
-    
+
     public int getAcresOwned() {
         return acresOwned;
     }
@@ -84,15 +85,14 @@ public class Game implements Serializable {
 
     @Override
     public String toString() {
-        return "Game{" 
-                + "thePlayer=" + thePlayer 
-                + ", theMap=" + theMap 
-                + ", theStorehouse=" + storehouse 
-                + ", currentPopulation=" + currentPopulation 
-                + ", wheatInStorage=" + wheatInStorage 
-                + ", currentYear=" + currentYear 
+        return "Game{"
+                + "thePlayer=" + thePlayer
+                + ", theMap=" + theMap
+                + ", theStorehouse=" + storehouse
+                + ", currentPopulation=" + currentPopulation
+                + ", wheatInStorage=" + wheatInStorage
+                + ", currentYear=" + currentYear
                 + '}';
     }
 
-    
 }

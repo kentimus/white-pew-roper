@@ -13,18 +13,18 @@ import java.util.Objects;
  * @author kent
  */
 public class Tool {
+
     private String name;
     private int quantity;
-    
 
     public Tool() {
     }
-    
-    public Tool(String name, int quantity){
+
+    public Tool(String name, int quantity) {
         setName(name);
         setQuantity(quantity);
     }
-    
+
     public String getname() {
         return name;
     }
@@ -32,12 +32,12 @@ public class Tool {
     public void setName(String name) {
         this.name = name;
     }
-    
-    public int getQuantity(){
+
+    public int getQuantity() {
         return quantity;
     }
-    
-    public void setQuantity(int quantity){
+
+    public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
 }

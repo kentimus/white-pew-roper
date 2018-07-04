@@ -11,11 +11,12 @@ import java.io.Serializable;
  *
  * @author kent
  */
-public class Point implements Serializable{
+public class Point implements Serializable {
+
     //class instance variables
     private int row;
     private int column;
-    
+
     //javabean code
     public Point() {
         // empty contstructor
@@ -36,11 +37,10 @@ public class Point implements Serializable{
     public void setColumn(int column) {
         this.column = column;
     }
-    
+
     @Override
     public String toString() {
         return "Point{" + "row=" + row + ", column=" + column + '}';
     }
-    
-    
+
 }

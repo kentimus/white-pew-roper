@@ -25,7 +25,7 @@ import java.util.Random;
 public class GameControl {
 
     public static Game createNewGame(String playerName) {
-
+        
         // this createsa new game  
         Game game = new Game();
 
@@ -50,6 +50,7 @@ public class GameControl {
         // create authors , populate an array and
         //add it to the storehouse
         try {
+            // author group
             Author[] authors = new Author[3];
 
             authors[0] = new Author("Hayden Pew", "SupremeAlliedCommander");
@@ -64,6 +65,7 @@ public class GameControl {
         }
 
         try {
+            // Author hpew
             Provision[] provisions = new Provision[6];
 
             provisions[0] = new Provision("Goat milk", 2);
@@ -81,6 +83,7 @@ public class GameControl {
         }
 
         try {
+            // author kroper
             Tool[] tools = new Tool[9];
 
             tools[0] = new Tool("Combine Harvester", 2);
@@ -101,6 +104,7 @@ public class GameControl {
         }
 
         try {
+            //author willw
             Animal[] animals = new Animal[4];
 
             animals[0] = new Animal("Cat", 5);

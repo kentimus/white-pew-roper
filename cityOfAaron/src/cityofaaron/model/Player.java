@@ -13,16 +13,16 @@ import java.util.Objects;
  *
  * @author kent
  */
-public class Player implements Serializable{
+public class Player implements Serializable {
+
     //class instance variables
     private String name;
     private ArrayList<Game> games = new ArrayList<Game>();
-    
-    
+
     //javabean code
     public Player() {
     }
-    
+
     public String getName() {
         return name;
     }
@@ -38,8 +38,6 @@ public class Player implements Serializable{
     public void setGames(ArrayList<Game> games) {
         this.games = games;
     }
-    
-    
 
     @Override
     public String toString() {
@@ -71,8 +69,5 @@ public class Player implements Serializable{
         return true;
     }
     //end javabean code
-    
-    
-    
-    
+
 }

@@ -14,18 +14,18 @@ import java.io.Serializable;
  * @author kent
  */
 public class Location implements Serializable {
+
     // class instance variables
     private String name;
     private String description;
     private String mapSymbol;
     private String gameTip;
-    
-    // javabean code
 
+    // javabean code
     public Location() {
     }
-    
-    public Location(String name, String description, String mapSymbol, String gameTip){
+
+    public Location(String name, String description, String mapSymbol, String gameTip) {
         setName(name);
         setDescription(description);
         setMapSymbol(mapSymbol);
@@ -51,9 +51,9 @@ public class Location implements Serializable {
     public String getMapSymbol() {
         return mapSymbol;
     }
-    
+
     //shorter name, to reduce typing
-    public String gMS(){
+    public String gMS() {
         return mapSymbol;
     }
 
@@ -67,17 +67,15 @@ public class Location implements Serializable {
 
     public void setGameTip(String gameTip) {
         this.gameTip = gameTip;
-    } 
+    }
 
     @Override
     public String toString() {
-        return "Location{" + "name=" + name 
-                + ", description=" + description 
-                + ", mapSymbol=" + mapSymbol 
+        return "Location{" + "name=" + name
+                + ", description=" + description
+                + ", mapSymbol=" + mapSymbol
                 + ", gameTips=" + gameTip
                 + '}';
     }
-    
-    
-    
+
 }

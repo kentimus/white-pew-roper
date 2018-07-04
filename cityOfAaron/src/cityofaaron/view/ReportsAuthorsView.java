@@ -1,9 +1,9 @@
 package cityofaaron.view;
+
 import cityofaaron.CityOfAaron;
 import cityofaaron.model.Game;
 import cityofaaron.model.Storehouse;
 import cityofaaron.model.Author;
-
 
 /**
  *
@@ -23,17 +23,16 @@ public class ReportsAuthorsView extends ViewBase {
         Game game = CityOfAaron.getCurrentGame();
         Storehouse storehouse = game.getStorehouse();
         Author[] authors = storehouse.getAuthors();
-        
-        
+
         String message = "------------------------------------\n"
                 + "Authored by:\n"
                 + "-------------------------------------\n";
-        for(Author author : authors){
-            message += author.getName() + " -- " + author.getTitle() +  "\n";
+        for (Author author : authors) {
+            message += author.getName() + " -- " + author.getTitle() + "\n";
         }
         return message;
     }
-    
+
     /**
      * Get the set of inputs from the user.
      *
@@ -65,14 +64,13 @@ public class ReportsAuthorsView extends ViewBase {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    private void startGameMenuView(){ 
-    //pause the program for a specific number of miliseconds
-            try {
+    private void startGameMenuView() {
+        //pause the program for a specific number of miliseconds
+        try {
             Thread.sleep(4000);
         } catch (InterruptedException exception) {
             //do nothing
         }
     }
-    
-}  
 
+}

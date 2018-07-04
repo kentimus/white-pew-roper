@@ -91,7 +91,6 @@ public abstract class ViewBase implements View {
         return input;
     }
 
-    
     /**
      * an overloaded version of getUserInput that sets allowEmpty to false so we
      * dont have to type it ourselves
@@ -102,8 +101,7 @@ public abstract class ViewBase implements View {
     protected String getUserInput(String prompt) {
         return getUserInput(prompt, false);
     }
-    
-    
+
     //pause the program for a specific number of miliseconds
     protected static void pause(int milliseconds) {
         try {

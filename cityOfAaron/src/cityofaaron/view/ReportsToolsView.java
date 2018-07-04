@@ -1,9 +1,9 @@
 package cityofaaron.view;
+
 import cityofaaron.CityOfAaron;
 import cityofaaron.model.Game;
 import cityofaaron.model.Storehouse;
 import cityofaaron.model.Tool;
-
 
 /**
  *
@@ -23,23 +23,23 @@ public class ReportsToolsView extends ViewBase {
         Game game = CityOfAaron.getCurrentGame();
         Storehouse storehouse = game.getStorehouse();
         Tool[] tools = storehouse.getTools();
-        
+
         tools = sortTools(tools);
         int total = getTotal(tools);
-        
+
         String message = "-------------------------------------\n"
                 + "You have " + total + " tools in your inventory:\n"
                 + "-------------------------------------\n";
-        for(Tool tool : tools){
+        for (Tool tool : tools) {
             message += tool.getname() + " : " + tool.getQuantity() + "\n";
         }
         return message;
     }
-    
-    private Tool[] sortTools(Tool[] tools){
-        for(int i=0; i<tools.length; i++){
-            for(int j=i+1; j<tools.length; j++){
-                if(tools[i].getname().compareTo(tools[j].getname()) > 0){
+
+    private Tool[] sortTools(Tool[] tools) {
+        for (int i = 0; i < tools.length; i++) {
+            for (int j = i + 1; j < tools.length; j++) {
+                if (tools[i].getname().compareTo(tools[j].getname()) > 0) {
                     Tool temp = tools[i];
                     tools[i] = tools[j];
                     tools[j] = temp;
@@ -48,10 +48,10 @@ public class ReportsToolsView extends ViewBase {
         }
         return tools;
     }
-    
-    private int getTotal(Tool[] tools){
+
+    private int getTotal(Tool[] tools) {
         int total = 0;
-        for(Tool tool : tools){
+        for (Tool tool : tools) {
             total += tool.getQuantity();
         }
         return total;
@@ -88,13 +88,13 @@ public class ReportsToolsView extends ViewBase {
     // Define your action handlers here. These are the methods that your doAction()
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
-    private void startGameMenuView(){ 
-    //pause the program for a specific number of miliseconds
-            try {
+    private void startGameMenuView() {
+        //pause the program for a specific number of miliseconds
+        try {
             Thread.sleep(4000);
         } catch (InterruptedException exception) {
             //do nothing
         }
     }
-    
-}  
+
+}

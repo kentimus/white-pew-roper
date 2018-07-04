@@ -13,20 +13,19 @@ import java.util.Objects;
  * @author pewst
  */
 public class Storehouse implements Serializable {
-    
+
     //Class instance variables
     private Author[] authors;
-    private Animal[] animals; 
-    private Provision [] provisions;
+    private Animal[] animals;
+    private Provision[] provisions;
     private Tool[] tools;
     // Javabean code
-    
+
     // Constructor
     public Storehouse() {
     }
-    
-    //Getters and setters
 
+    //Getters and setters
     public Author[] getAuthors() {
         return authors;
     }
@@ -54,13 +53,13 @@ public class Storehouse implements Serializable {
     public Animal[] getAnimals() {
         return animals;
     }
-    
+
     public void setAnimals(Animal[] animals) {
         this.animals = animals;
     }
-    
+
     // hashcode and equals
-        @Override
+    @Override
     public int hashCode() {
         int hash = 7;
         hash = 83 * hash + Objects.hashCode(this.authors);
@@ -96,12 +95,11 @@ public class Storehouse implements Serializable {
         }
         return true;
     }
-    
-    // to string
 
+    // to string
     @Override
     public String toString() {
         return "Storehouse{" + "authors=" + authors + ", animals=" + animals + ", tools=" + tools + ", provisions=" + provisions + '}';
-    } 
-    
     }
+
+}

@@ -10,7 +10,6 @@ import cityofaaron.model.Game;
 import cityofaaron.view.StartProgramView;
 import cityofaaron.view.View;
 
-
 /**
  *
  * @author kent
@@ -19,21 +18,28 @@ public class CityOfAaron {
 
     // keep a copy of the current game in the main class
     public static Game currentGame = null;
-    
-    public static Game getCurrentGame(){
+
+    public static Game getCurrentGame() {
         return currentGame;
     }
-    
-    public static void setCurrentGame(Game game){
+
+    public static void setCurrentGame(Game game) {
         currentGame = game;
     }
-    
+
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       View startProgramView = new StartProgramView();
-       startProgramView.displayView();
+        try {
+            View startProgramView = new StartProgramView();
+            startProgramView.displayView();
+        } catch (Throwable te) {
+            System.out.println("Something went horrible wrong, so sorry, try again.");
+            System.out.println(te.getMessage());
+            te.printStackTrace();
+            return;
+        }
     }
-    
+
 }
