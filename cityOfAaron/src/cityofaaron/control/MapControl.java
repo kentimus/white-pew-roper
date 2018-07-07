@@ -25,12 +25,13 @@ public class MapControl {
 
             
         } catch (Throwable te) {
-            throw new MapControlException("--- Map not created ---");
+            throw new MapControlException("--- Map not created ---\n");
         }
         return map;
     }
 
-    public static Location[][] createLocations() {
+    public static Location[][] createLocations() throws MapControlException {
+        try {
         // list of hints
         String wheatHint = "Wheat is yummy. Each Citizen needs 20 Bushels per Year.";
         String riverHint = "Praying the rats drown in the river? Paying tithing makes that more likely.";
@@ -77,10 +78,12 @@ public class MapControl {
         locations[4][1] = new Location("Wheat", "Wheat Field", "W", wheatHint);
         locations[4][2] = new Location("Wheat", "Wheat Field", "W", wheatHint);
         locations[4][3] = new Location("River", "The Great River Sidon", "R", riverHint);
-        locations[4][4] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint);
-        
+        locations[4][4] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint); 
 
         return locations;
+        } catch (Throwable te){
+            throw new MapControlException("--- Locations not assigned to the map ---\n");
+        }
     }
 
 }
