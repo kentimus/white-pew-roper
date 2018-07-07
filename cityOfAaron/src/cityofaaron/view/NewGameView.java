@@ -58,7 +58,7 @@ public class NewGameView extends ViewBase {
         try {
             int age = Integer.parseInt(inputs[1]);
         } catch (Exception e) {
-            System.out.println("***1234 are examples of numbers abc's are letters, please use numbers***");
+            System.out.println("\n***abc's are letters,1234 are examples of numbers, please use numbers***");
         }
 
         String playerName = inputs[0];
@@ -79,8 +79,8 @@ public class NewGameView extends ViewBase {
             //Display Game Menu
             GameMenuView view = new GameMenuView();
             view.displayView();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (GameControlException te) {
+            System.out.println(te.getMessage());
         }
 
     }
