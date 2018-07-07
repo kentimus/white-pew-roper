@@ -79,6 +79,9 @@ public class MapControl {
         locations[4][2] = new Location("Wheat", "Wheat Field", "W", wheatHint);
         locations[4][3] = new Location("River", "The Great River Sidon", "R", riverHint);
         locations[4][4] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint); 
+        
+        //added temporarily for testing a fail condition, will remove during week 12:
+        //locations[4][5] = new Location("Lamanite Border", "Lamanites live just beyond that fence.", "L", lamaniteHint); 
 
         return locations;
         } catch (Throwable te){
