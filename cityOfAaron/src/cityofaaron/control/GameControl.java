@@ -24,28 +24,29 @@ import java.util.Random;
  */
 public class GameControl {
 
-    public static Game createNewGame(String playerName) {
-
+    public static Game createNewGame(String playerName)  
+            throws GameControlException  {
+         
         // this createsa new game  
         Game game = new Game();
+         //
+        
+        
 
         // this creates a new player object 
         // and assigns the player to the game
-        try {
+        try{
             Player player = new Player();
             player.setName(playerName);
             game.setThePlayer(player);
 
-            System.out.println("\n**New Player created**");
-        } catch (Exception e) {
-            System.out.println("\n**FAILED TO CREATE NEW PLAYER**\n");
+        } catch (Throwable te) {
+            throw new GameControlException("FAILED TO CREATE NEW PLAYER");
         }
 
         //build the storehouse
         Storehouse storehouse = new Storehouse();
         game.setStorehouse(storehouse);
-
-        System.out.println("\n**Storehouse created**");
 
         // create authors , populate an array and
         //add it to the storehouse
@@ -56,12 +57,12 @@ public class GameControl {
             authors[0] = new Author("Hayden Pew", "SupremeAlliedCommander");
             authors[1] = new Author("Kent Roper", "Chief Complainer");
             authors[2] = new Author("Will White", "White Boy");
-
+            // Added author for testing/failing purposes
+            //authors[3] = new Author("Will fsdfWhite", "White Boy");
             storehouse.setAuthors(authors);
 
-            System.out.println("\n**Authors are set**");
-        } catch (Exception e) {
-            System.out.println("\n**FAILED TO CREATE AUTHORS**\n");
+        } catch (Throwable te) {
+            throw new GameControlException("\n**FAILED TO CREATE AUTHORS**\n");
         }
 
         try {
@@ -77,9 +78,8 @@ public class GameControl {
 
             storehouse.setProvisions(provisions);
 
-            System.out.println("\n**Provisions added**");
         } catch (Exception e) {
-            System.out.println("\n**FAILED TO ADD PROVISIONS**\n");
+            throw new GameControlException("\n**FAILED TO ADD PROVISIONS**\n");
         }
 
         try {
@@ -98,9 +98,8 @@ public class GameControl {
 
             storehouse.setTools(tools);
 
-            System.out.println("\n**Tools are set**");
         } catch (Exception e) {
-            System.out.println("\n**FAILED TO CREATE TOOLS**\n");
+            throw new GameControlException("\n**FAILED TO CREATE TOOLS**\n");
         }
 
         try {
@@ -114,18 +113,16 @@ public class GameControl {
 
             storehouse.setAnimals(animals);
 
-            System.out.println("\n**Animals in fields**");
         } catch (Exception e) {
-            System.out.println("\n**FAILED TO CREATE ANIMALS**\n");
+            throw new GameControlException("\n**FAILED TO CREATE ANIMALS**\n");
         }
 
         try {
             Map map = MapControl.createMap();
             game.setTheMap(map);
-
-            System.out.println("\n**Map Created**");
+            
         } catch (Exception e) {
-            System.out.println("\n**FAILED TO CREATE MAP**\n");
+            throw new GameControlException("\n**FAILED TO CREATE MAP**\n");
         }
 
         // adding intitial wheat, acres, population, year:
@@ -136,9 +133,12 @@ public class GameControl {
 
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);
-
+        
         return game;
+        
     }
+        
+    
 
     public int newPopulation(int currentPopulation)
             throws GameControlException {

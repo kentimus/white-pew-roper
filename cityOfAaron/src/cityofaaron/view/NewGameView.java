@@ -79,8 +79,8 @@ public class NewGameView extends ViewBase {
             //Display Game Menu
             GameMenuView view = new GameMenuView();
             view.displayView();
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+        } catch (GameControlException te) {
+            System.out.println(te.getMessage());
         }
 
     }
