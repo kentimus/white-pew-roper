@@ -7,6 +7,7 @@ package cityofaaron.control;
 
 import cityofaaron.model.Map;
 import cityofaaron.model.Location;
+import cityofaaron.exceptions.MapControlException;
 
 /**
  *
@@ -16,9 +17,16 @@ public class MapControl {
 
     public static Map createMap() {
         Map map = new Map();
-        Location[][] locations = createLocations();
-        map.setLocations(locations);
+        
+        try{
+            
+            Location[][] locations = createLocations();
+            map.setLocations(locations);
 
+            
+        } catch (Exception e) {
+            System.out.println("\n**FAILED TO CREATE MAP**\n");
+        }
         return map;
     }
 
