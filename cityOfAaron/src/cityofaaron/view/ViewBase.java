@@ -1,12 +1,19 @@
 package cityofaaron.view;
 
-import java.util.Scanner;
+import cityofaaron.CityOfAaron;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author pewst
  */
 public abstract class ViewBase implements View {
+    protected final BufferedReader keyboard = CityOfAaron.getInFile();
+    protected final PrintWriter console = CityOfAaron.getOutFile();
 
     /**
      * Constructor
@@ -66,14 +73,19 @@ public abstract class ViewBase implements View {
      */
     protected String getUserInput(String prompt, boolean allowEmpty) {
 
-        Scanner keyboard = new Scanner(System.in);
+//        Scanner keyboard = new Scanner(System.in);
+
         String input = "";
         boolean inputReceived = false;
 
         while (inputReceived == false) {
 
             System.out.println(prompt);
-            input = keyboard.nextLine();
+            try {
+                input = this.keyboard.readLine();
+            } catch (IOException ex) {
+                Logger.getLogger(ViewBase.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
             // Make sure we avoid a null-pointer error.
             if (input == null) {
