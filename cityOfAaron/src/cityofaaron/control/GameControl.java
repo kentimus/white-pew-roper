@@ -170,7 +170,7 @@ public class GameControl {
             CityOfAaron.setCurrentGame(game);
             
         } catch(IOException | ClassNotFoundException ex){
-            throw new GameControlException("Game won't write to the file:" + ex.getMessage());
+            throw new GameControlException("Game won't open the file:" + ex.getMessage());
         }
         return game;
     }
