@@ -9,19 +9,18 @@ import cityofaaron.model.Game;
  *
  * @author kent roper
  */
-public class SaveGameView extends ViewBase {
+public class StartSavedGameView extends ViewBase {
 
     /**
      * Constructor
      */
-    public SaveGameView() {
+    public StartSavedGameView() {
         super();
     }
 
     @Override
     public String getMessage() {
-        return "Please enter a file name to save your game ...\n";
-
+        return "Please enter the file name of your saved game ...\n";
     }
 
     /**
@@ -61,17 +60,21 @@ public class SaveGameView extends ViewBase {
         }
 
         String fileName = inputs[0];
-        saveGame(fileName);
+        startSavedGame(fileName);
 
         return false;
     }
 
-    private void saveGame(String fileName) {
+    private void startSavedGame(String fileName) {
         try {
-            GameControl.saveGame(CityOfAaron.getCurrentGame(), fileName);
-            this.console.println("\nGame has been saved!\n");
+            Game game = GameControl.getSavedGame(fileName);
+            this.console.println("\nWelcome back " + game.getThePlayer().getName() + "!\n");
+            
+            //Display Game Menu
+            GameMenuView view = new GameMenuView();
+            view.displayView();
         } catch (Exception te) {
-            ErrorView.display(this.getClass().getName(), "Error saving game: " + te.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error loading game: " + te.getMessage());
         }
     }
 }

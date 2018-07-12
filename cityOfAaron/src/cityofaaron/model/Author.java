@@ -5,11 +5,13 @@
  */
 package cityofaaron.model;
 
+import java.io.Serializable;
+import java.util.Objects;
 /**
  *
  * @author kent
  */
-public class Author {
+public class Author extends InventoryItem implements Serializable {
 
     private String name;
     private String title;

@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author kent
  */
-public class Tool {
+public class Tool extends InventoryItem implements Serializable {
 
     private String name;
     private int quantity;

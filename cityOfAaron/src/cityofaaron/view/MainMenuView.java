@@ -77,7 +77,8 @@ public class MainMenuView extends ViewBase {
 
     private void loadSavedGame() {
         //method to load a saved game
-        this.console.println("*** loadSavedGame () ***");
+        StartSavedGameView view = new StartSavedGameView();
+        view.displayView();
     }
 
     private void helpMenu() {

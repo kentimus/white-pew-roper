@@ -15,6 +15,13 @@ import cityofaaron.model.Storehouse;
 import cityofaaron.model.Provision;
 import cityofaaron.model.Tool;
 import cityofaaron.model.Animal;
+import cityofaaron.view.ErrorView;
+import java.io.BufferedInputStream;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.Random;
 //import cityofaaron.control.MapControl
 
@@ -24,18 +31,16 @@ import java.util.Random;
  */
 public class GameControl {
 
-    public static Game createNewGame(String playerName)  
-            throws GameControlException  {
-         
+    public static Game createNewGame(String playerName)
+            throws GameControlException {
+
         // this createsa new game  
         Game game = new Game();
-         //
-        
-        
+        //
 
         // this creates a new player object 
         // and assigns the player to the game
-        try{
+        try {
             Player player = new Player();
             player.setName(playerName);
             game.setThePlayer(player);
@@ -61,7 +66,7 @@ public class GameControl {
             //authors[3] = new Author("Will fsdfWhite", "White Boy");
             storehouse.setAuthors(authors);
 
-        } catch (Throwable te) {
+        } catch (Exception e) {
             throw new GameControlException("\n**FAILED TO CREATE AUTHORS**\n");
         }
 
@@ -120,7 +125,7 @@ public class GameControl {
         try {
             Map map = MapControl.createMap();
             game.setTheMap(map);
-            
+
         } catch (Exception e) {
             throw new GameControlException("\n**FAILED TO CREATE MAP**\n");
         }
@@ -133,14 +138,41 @@ public class GameControl {
 
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);
-        
+
         return game;
-        
+
     }
+
+    public static void saveGame(Game game, String fileName) 
+            throws GameControlException {
+        if(game == null || fileName == null || fileName.length() < 1){
+            throw new GameControlException("Game or Filename not valid");
+        }
         
-    public static void saveGame(String fileName){
-        System.out.println("\"" + fileName + "\" is a pretty good filename. Unfortunately, "
-                + "saving the game doesn't work yet.\n");
+        try(ObjectOutputStream out = 
+            new ObjectOutputStream(new FileOutputStream(fileName))){
+            out.writeObject(game); // writing the game
+            
+        } catch(IOException ex){
+            throw new GameControlException("Game won't write to the file:" + ex.getMessage());
+        }
+    }
+    
+    public static Game getSavedGame(String fileName) throws GameControlException {
+        Game game = null;
+        if(fileName == null){
+            throw new GameControlException("Missing Filename");
+        }
+        try(ObjectInputStream in = 
+            new ObjectInputStream(new FileInputStream(fileName))){
+            
+            game = (Game)in.readObject();
+            CityOfAaron.setCurrentGame(game);
+            
+        } catch(IOException | ClassNotFoundException ex){
+            throw new GameControlException("Game won't write to the file:" + ex.getMessage());
+        }
+        return game;
     }
 
     public int newPopulation(int currentPopulation)
