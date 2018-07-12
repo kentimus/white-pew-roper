@@ -78,8 +78,12 @@ public class GameMenuView extends ViewBase {
                 // go back to main menu
                 return false;
             default:
-                System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
-                System.out.println("Please Choose a number between 1 and 7.\n");
+                String errorMessage = "\"" + inputs[0].trim() + "\" wasn't a valid choice."
+                        + "\nPlease Choose a number between 1 and 7.";
+                ErrorView.display(this.getClass().getName(), errorMessage);
+                
+                //System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
+                //System.out.println("Please Choose a number between 1 and 7.\n");
         }
 
         return true;

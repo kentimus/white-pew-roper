@@ -6,13 +6,13 @@
 package cityofaaron;
 
 import cityofaaron.model.Game;
-//import cityofaaron.model.Player;
 import cityofaaron.view.StartProgramView;
 import cityofaaron.view.View;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
+
 /**
  *
  * @author kent
@@ -24,6 +24,7 @@ public class CityOfAaron {
 
     private static PrintWriter outFile = null;
     private static BufferedReader inFile = null;
+    private static PrintWriter logFile = null;
 
     public static Game getCurrentGame() {
         return currentGame;
@@ -40,7 +41,8 @@ public class CityOfAaron {
         try {
             CityOfAaron.inFile = new BufferedReader(new InputStreamReader(System.in));
             CityOfAaron.outFile = new PrintWriter(System.out, true);
-            
+            CityOfAaron.logFile = new PrintWriter("logfile.txt");
+
             View startProgramView = new StartProgramView();
             startProgramView.displayView();
         } catch (Throwable te) {
@@ -48,23 +50,24 @@ public class CityOfAaron {
             System.out.println(te.getMessage());
             te.printStackTrace();
             return;
-        }
-        finally {
+        } finally {
             try {
-            if (CityOfAaron.inFile != null)   
-            CityOfAaron.inFile.close();
-            
-            if (CityOfAaron.outFile != null)
-            CityOfAaron.outFile.close();
-        
-            }
-            catch(IOException ex) {
+                if (CityOfAaron.inFile != null) {
+                    CityOfAaron.inFile.close();
+                }
+
+                if (CityOfAaron.outFile != null) {
+                    CityOfAaron.outFile.close();
+                }
+                if (CityOfAaron.logFile != null) {
+                    CityOfAaron.logFile.close();
+                }
+            } catch (IOException ex) {
                 System.out.println("file not closed correctly");
                 return;
             }
         }
     }
-            
 
     public static PrintWriter getOutFile() {
         return outFile;
@@ -82,5 +85,13 @@ public class CityOfAaron {
 
     public static void setInFile(BufferedReader inFile) {
         CityOfAaron.inFile = inFile;
+    }
+
+    public static PrintWriter getLogFile() {
+        return logFile;
+    }
+
+    public static void setLogFile(PrintWriter logFile) {
+        CityOfAaron.logFile = logFile;
     }
 }
