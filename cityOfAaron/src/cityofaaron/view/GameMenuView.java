@@ -81,9 +81,6 @@ public class GameMenuView extends ViewBase {
                 String errorMessage = "\"" + inputs[0].trim() + "\" wasn't a valid choice."
                         + "\nPlease Choose a number between 1 and 7.";
                 ErrorView.display(this.getClass().getName(), errorMessage);
-                
-                //System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
-                //System.out.println("Please Choose a number between 1 and 7.\n");
         }
 
         return true;
@@ -98,11 +95,13 @@ public class GameMenuView extends ViewBase {
     }
 
     private void moveNewLocation() {
-        System.out.println("Moving to new location ... eventually");
+        MoveLocationView view = new MoveLocationView();
+        view.displayView();
     }
 
-    private void manageCrops() {
-        System.out.println("Crops Managed!\n");
+    private void manageCrops() { 
+        ManageCropsMenuView view = new ManageCropsMenuView();
+        view.displayView();
     }
 
     private void liveTheYear() {

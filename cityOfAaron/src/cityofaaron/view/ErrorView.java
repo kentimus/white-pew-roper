@@ -20,7 +20,7 @@ public class ErrorView {
         console.println(
                 "\n---Error--------------------------------------"
               + "\n" + errorMessage
-              + "\n----------------------------------------------"  
+              + "\n----------------------------------------------\n"  
         );
         
         log.printf("%n%n%s", className + " - " + errorMessage);

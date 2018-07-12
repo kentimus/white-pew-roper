@@ -49,7 +49,9 @@ public class MoveLocationView extends ViewBase {
 
         // if user hits "enter", quit to main menu
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("No coordinates entered. Please try again");
+            String errorMessage = "o coordinates entered. Please try again";
+            ErrorView.display(this.getClass().getName(), errorMessage);
+           
             return true;
         }
 

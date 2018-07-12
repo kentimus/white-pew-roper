@@ -23,6 +23,7 @@ public class ManageCropsMenuView extends ViewBase {
                 + "3 - Feed the people\n"
                 + "4 - Plant Crops\n"
                 + "5 - Pay tithes and Offerings\n"
+                + "\n6 - Go back to Game Menu\n"
                 + "---------------------\n";
     }
 
@@ -69,10 +70,12 @@ public class ManageCropsMenuView extends ViewBase {
             case "5":
                 payTithesAndOfferings();
                 break;
-
+            case "6": // return to main menu
+                return false;
             default:
-                System.out.println("\"" + inputs[0].trim() + "\" invalid choice.");
-                System.out.println("Please Choose a number between 1 and 6.\n");
+                String errorMessage = "\"" + inputs[0].trim() + "\" wasn't a valid choice."
+                        + "\nThat wasn't a number between 1 and 6. Try again.";
+                ErrorView.display(this.getClass().getName(), errorMessage);
         }
 
         return true;

@@ -69,8 +69,9 @@ public class HelpMenuView extends ViewBase {
             case "6": // return to main menu
                 return false;
             default:
-                System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
-                System.out.println("That wasn't a number between 1 and 6. Try again.\n");
+                String errorMessage = "\"" + inputs[0].trim() + "\" wasn't a valid choice."
+                        + "\nThat wasn't a number between 1 and 6. Try again.";
+                ErrorView.display(this.getClass().getName(), errorMessage);
         }
 
         return true;
