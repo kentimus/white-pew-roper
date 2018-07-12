@@ -62,7 +62,7 @@ public class MainMenuView extends ViewBase {
                 helpMenu();
                 break;
             case "Q":
-                System.out.println("Thank you for playing, have a Heavenly day");
+                this.console.println("Thank you for playing, have a Heavenly day");
                 return false;
         }
 
@@ -77,7 +77,7 @@ public class MainMenuView extends ViewBase {
 
     private void loadSavedGame() {
         //method to load a saved game
-        System.out.println("*** loadSavedGame () ***");
+        this.console.println("*** loadSavedGame () ***");
     }
 
     private void helpMenu() {

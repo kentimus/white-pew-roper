@@ -62,7 +62,7 @@ public class MoveLocationView extends ViewBase {
     }
 
     private void moveLocation(String coordinates) {
-        System.out.println("\"" + coordinates + "\" is a great location. It will be better, "
+        this.console.println("\"" + coordinates + "\" is a great location. It will be better, "
                 + "when the program works.\n");
 
     }

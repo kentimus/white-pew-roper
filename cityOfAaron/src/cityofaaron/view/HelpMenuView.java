@@ -78,33 +78,33 @@ public class HelpMenuView extends ViewBase {
     }
 
     private void helpGameGoals() {
-        System.out.println("\nGame Goals:\n"
+        this.console.println("\nGame Goals:\n"
                 + "1: Don't let your people starve\n"
                 + "2: Buy land\n\n");
     }
 
     private void helpWhereIs() {
-        System.out.println("\nWhere is the city of Aaron?\n"
+        this.console.println("\nWhere is the city of Aaron?\n"
                 + "It's somewhere in the greater Zarahemla Metropolitan Area,"
                 + "not far off of Interstate 5 near the Nehphihah/Moroni interchage.\n\n");
     }
 
     private void helpViewingMap() {
-        System.out.println("\nHow do I view the map?\n"
+        this.console.println("\nHow do I view the map?\n"
                 + "Try one of the following methods:\n"
                 + "1) Install Google Maps on your Liahona and use faith.\n"
                 + "2) Choose \"View the Map\" from the Game Menu.\n\n");
     }
 
     private void helpOtherLocation() {
-        System.out.println("\nHow do I move to another location?\n"
+        this.console.println("\nHow do I move to another location?\n"
                 + "The city of Aaron is laid out in a 5x5 grid. In the map menu, choose\n"
                 + "your x and y coordinates. 1,1 is in the top left-hand corner. 5,5 is\n"
                 + "in the bottom right-hand corner.\n\n");
     }
 
     private void helpViewInventory() {
-        System.out.println("\nHow do I display a list of cureloms and cumons, tools, ontis of gold, \n"
+        this.console.println("\nHow do I display a list of cureloms and cumons, tools, ontis of gold, \n"
                 + "         Sons of Mosiah trading cards, etc., from the city storehouse?\n"
                 + "We suggest calling Jerry, the warehouse manager.\n"
                 + "If he doesn't answer, just pick \"See Storehouse Inventory\" from the Game Menu\n\n");

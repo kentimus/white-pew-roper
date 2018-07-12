@@ -52,17 +52,18 @@ public class NewGameView extends ViewBase {
 
         // if user hits "enter", quit to main menu
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("No player name entered, returning to the Main Menu ...");
+            this.console.println("No player name entered, returning to the Main Menu ...");
             return false;
         }
         try {
             int age = Integer.parseInt(inputs[1]);
         } catch (Exception e) {
-            System.out.println("\n***abc's are letters,1234 are examples of numbers, please use numbers***");
+            String errorMessage = "***abc's are letters,1234 are examples of numbers, please use numbers***";
+            ErrorView.display(this.getClass().getName(), errorMessage);
         }
 
         String playerName = inputs[0];
-        System.out.println("\nWelcome to the game, " + inputs[0] + "!");
+        this.console.println("\nWelcome to the game, " + inputs[0] + "!");
 
         createAndStartGame(playerName);
 
@@ -80,7 +81,7 @@ public class NewGameView extends ViewBase {
             GameMenuView view = new GameMenuView();
             view.displayView();
         } catch (GameControlException te) {
-            System.out.println(te.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error creating game: " + te.getMessage());
         }
 
     }

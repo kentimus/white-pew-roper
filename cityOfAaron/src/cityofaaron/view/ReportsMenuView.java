@@ -69,8 +69,9 @@ public class ReportsMenuView extends ViewBase {
             case "5": // return to main menu
                 return false;
             default:
-                System.out.println("\"" + inputs[0].trim() + "\" wasn't a valid choice.");
-                System.out.println("That wasn't a number between 1 and 5. Try again.\n");
+                String errorMessage = "\"" + inputs[0].trim() + "\" wasn't a valid choice."
+                        + "\nThat wasn't a number between 1 and 5. Try again.";
+                ErrorView.display(this.getClass().getName(), errorMessage);;
         }
         return true;
     }
@@ -79,7 +80,7 @@ public class ReportsMenuView extends ViewBase {
     // method will call based on the user's input. We don't want to do a lot of 
     // complex game stuff in our doAction() method. It will get messy very quickly.
     private void animalsInStorehouse() {
-        System.out.println("\n**Animals in storehouse**\n"
+        this.console.println("\n**Animals in storehouse**\n"
                 + "This will eventually show the animals in the storehouse\n"
                 + "And the user will be able to save the report\n"
                 + "-------------------------------------------------------\n");

@@ -105,7 +105,7 @@ public class GameMenuView extends ViewBase {
     }
 
     private void liveTheYear() {
-        System.out.println("Living the Year isn't available quite yet.\n");
+        this.console.println("Living the Year isn't available quite yet.\n");
     }
 
     private void reportsMenu() {

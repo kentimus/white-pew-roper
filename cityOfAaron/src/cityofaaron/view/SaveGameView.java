@@ -1,5 +1,9 @@
 package cityofaaron.view;
 
+import cityofaaron.control.GameControl;
+import cityofaaron.exceptions.GameControlException;
+import cityofaaron.model.Game;
+
 /**
  *
  * @author kent roper
@@ -49,7 +53,9 @@ public class SaveGameView extends ViewBase {
 
         // if user hits "enter", quit to main menu
         if (inputs[0] == null || inputs[0].equals("")) {
-            System.out.println("No file name entered. Please try again");
+            String errorMessage = "No file name entered. Please try again";
+            ErrorView.display(this.getClass().getName(), errorMessage);
+            
             return true;
         }
 
@@ -60,8 +66,13 @@ public class SaveGameView extends ViewBase {
     }
 
     private void saveGame(String fileName) {
-        System.out.println("\"" + fileName + "\" is a pretty good filename. Unfortunately, "
-                + "saving the game doesn't work yet.\n");
+        //this.console.println("\"" + fileName + "\" is a pretty good filename. Unfortunately, "
+        //        + "saving the game doesn't work yet.\n");
+        try {
+            GameControl.saveGame(fileName);
+        } catch (Exception te) {
+            ErrorView.display(this.getClass().getName(), "Error saving game: " + te.getMessage());
+        }
 
     }
 }

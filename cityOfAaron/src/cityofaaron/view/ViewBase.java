@@ -55,7 +55,7 @@ public abstract class ViewBase implements View {
             //only print it if it is none null
             String message = getMessage();
             if (message != null) {
-                System.out.println(getMessage());
+                this.console.println(getMessage());
 
             }
             String[] inputs = getInputs();
@@ -80,7 +80,7 @@ public abstract class ViewBase implements View {
 
         while (inputReceived == false) {
 
-            System.out.println(prompt);
+            this.console.println(prompt);
             try {
                 input = this.keyboard.readLine();
             } catch (IOException ex) {

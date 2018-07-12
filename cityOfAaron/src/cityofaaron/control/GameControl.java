@@ -138,7 +138,10 @@ public class GameControl {
         
     }
         
-    
+    public static void saveGame(String fileName){
+        System.out.println("\"" + fileName + "\" is a pretty good filename. Unfortunately, "
+                + "saving the game doesn't work yet.\n");
+    }
 
     public int newPopulation(int currentPopulation)
             throws GameControlException {
