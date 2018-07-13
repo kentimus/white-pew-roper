@@ -68,9 +68,11 @@ public class FileToolsView extends ViewBase {
         Tool[] tools = storehouse.getTools();
         try(PrintWriter report = new PrintWriter(new FileWriter(fileName))) {
             report.println("Tools in the inventory");
-            String printFormat = "%-23s %-10s";
+            report.println();
+            
+            String printFormat = "%-23s %10s";
             report.println(String.format(printFormat, "Tools", "Quantities"));
-            report.println("----------------------- --------");
+            report.println("----------------------- ----------");
             
             for (Tool tool : tools) {
                 report.println(String.format(printFormat, tool.getname(), tool.getQuantity()));

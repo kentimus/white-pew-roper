@@ -1,0 +1,13 @@
+Tools in the inventory
+Tools                   Quantities
+
+----------------------- ----------
+Combine Harvester                2
+Sickle                          17
+Seed drill                       2
+Pitchfork                        4
+Tractor                          3
+Curelom Harness                  5
+Cumon Bridle                     4
+Farmers Almenac                  1
+Mesoamerican Calendar            1

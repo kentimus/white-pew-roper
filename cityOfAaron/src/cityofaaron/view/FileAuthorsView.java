@@ -68,6 +68,7 @@ public class FileAuthorsView extends ViewBase {
         Author[] authors = storehouse.getAuthors();
         try(PrintWriter report = new PrintWriter(new FileWriter(fileName))) {
             report.println("Game Authors");
+            report.println();
             String printFormat = "%-12s %-25s";
             report.println(String.format(printFormat, "Name", "Title"));
             report.println("------------ ------------------------");
