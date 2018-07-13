@@ -22,7 +22,12 @@ public class ReportsMenuView extends ViewBase {
                 + "3 - View the provisions in the storehouse\n"
                 + "4 - View the authors of this game\n"
                 + "\n"
-                + "5 - Return to the Game Menu.\n"
+                + "5 - Save animals report to a file\n"
+                + "6 - Save the tools report to a file\n"
+                + "7 - Save the provisions report to a file\n"
+                + "8 - Save the authors report to a file\n"
+                + "\n"
+                + "9 - Return to the Game Menu.\n"
                 + "-----------------------------------------\n";
     }
 
@@ -66,7 +71,19 @@ public class ReportsMenuView extends ViewBase {
             case "4":
                 viewAuthors();
                 break;
-            case "5": // return to main menu
+            case "5":
+                saveAnimals();
+                break;
+            case "6":
+                saveTools();
+                break;
+            case "7":
+                saveProvisions();
+                break;
+            case "8":
+                saveAuthors();
+                break;
+            case "9": // return to main menu
                 return false;
             default:
                 String errorMessage = "\"" + inputs[0].trim() + "\" wasn't a valid choice."
@@ -102,4 +119,31 @@ public class ReportsMenuView extends ViewBase {
         ReportsAuthorsView view = new ReportsAuthorsView();
         view.displayView();
     }
+    
+    private void saveAnimals(){
+        
+    }
+    
+    private void saveTools(){
+        try{
+            SaveToolsView view = new SaveToolsView();
+            view.displayView();
+        } catch(Exception ex){
+            ErrorView.display(this.getClass().getName(), "Error displaying the Tools report screen: " + ex.getMessage());
+        }
+    }
+    
+    private void saveProvisions(){
+        
+    }
+    
+    private void saveAuthors(){
+        try{
+            SaveAuthorsView view = new SaveAuthorsView();
+            view.displayView();
+        } catch(Exception ex){
+            ErrorView.display(this.getClass().getName(), "Error displaying the Tools report screen: " + ex.getMessage());
+        }
+    }
+    
 }
