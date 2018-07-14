@@ -24,7 +24,7 @@ public class FileAuthorsView extends ViewBase {
 
     @Override
     protected String getMessage() {
-        return "Saving Tools report to " + this.fileName + "\n";
+        return "Saving Authors report to " + this.fileName + "\n";
     }
     
     public void setFileName(String filename){

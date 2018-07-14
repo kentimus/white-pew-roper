@@ -142,7 +142,7 @@ public class ReportsMenuView extends ViewBase {
             SaveAuthorsView view = new SaveAuthorsView();
             view.displayView();
         } catch(Exception ex){
-            ErrorView.display(this.getClass().getName(), "Error displaying the Tools report screen: " + ex.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error displaying the Authors report screen: " + ex.getMessage());
         }
     }
     

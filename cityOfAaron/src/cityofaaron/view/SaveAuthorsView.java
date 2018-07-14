@@ -72,7 +72,7 @@ public class SaveAuthorsView extends ViewBase {
             view.displayView();
             this.console.println("File has been saved\n");
         } catch (Exception te) {
-            ErrorView.display(this.getClass().getName(), "Error saving Tools report: " + te.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error saving Authors report: " + te.getMessage());
         }
     }
 }
