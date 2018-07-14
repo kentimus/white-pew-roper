@@ -7,6 +7,7 @@ package cityofaaron.control;
 
 import cityofaaron.CityOfAaron;
 import cityofaaron.exceptions.GameControlException;
+import cityofaaron.exceptions.MapControlException;
 import cityofaaron.model.Player;
 import cityofaaron.model.Game;
 import cityofaaron.model.Map;
@@ -66,8 +67,8 @@ public class GameControl {
             //authors[3] = new Author("Will fsdfWhite", "White Boy");
             storehouse.setAuthors(authors);
 
-        } catch (Exception e) {
-            throw new GameControlException("\n**FAILED TO CREATE AUTHORS**\n");
+        } catch (Throwable te) {
+            throw new GameControlException("**FAILED TO CREATE AUTHORS**");
         }
 
         try {
@@ -83,8 +84,8 @@ public class GameControl {
 
             storehouse.setProvisions(provisions);
 
-        } catch (Exception e) {
-            throw new GameControlException("\n**FAILED TO ADD PROVISIONS**\n");
+        } catch (Throwable te) {
+            throw new GameControlException("**FAILED TO ADD PROVISIONS**");
         }
 
         try {
@@ -103,8 +104,8 @@ public class GameControl {
 
             storehouse.setTools(tools);
 
-        } catch (Exception e) {
-            throw new GameControlException("\n**FAILED TO CREATE TOOLS**\n");
+        } catch (Throwable te) {
+            throw new GameControlException("**FAILED TO CREATE TOOLS**");
         }
 
         try {
@@ -118,16 +119,16 @@ public class GameControl {
 
             storehouse.setAnimals(animals);
 
-        } catch (Exception e) {
-            throw new GameControlException("\n**FAILED TO CREATE ANIMALS**\n");
+        } catch (Throwable te) {
+            throw new GameControlException("**FAILED TO CREATE ANIMALS**");
         }
 
         try {
             Map map = MapControl.createMap();
             game.setTheMap(map);
 
-        } catch (Exception e) {
-            throw new GameControlException("\n**FAILED TO CREATE MAP**\n");
+        } catch (MapControlException te) {
+            throw new GameControlException("**FAILED TO CREATE MAP**");
         }
 
         // adding intitial wheat, acres, population, year:
