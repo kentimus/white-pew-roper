@@ -2,8 +2,8 @@ package cityofaaron.view;
 
 import cityofaaron.CityOfAaron;
 import cityofaaron.model.Game;
+import cityofaaron.model.Provision;
 import cityofaaron.model.Storehouse;
-import cityofaaron.model.Tool;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 
@@ -11,19 +11,19 @@ import java.io.PrintWriter;
  *
  * @author hpew
  */
-public class FileToolsView extends ViewBase {
+public class FileProvisionsView extends ViewBase {
     String fileName = "";
 
     /**
      * Constructor
      */
-    public FileToolsView() {
+    public FileProvisionsView() {
         super();
     }
 
     @Override
     protected String getMessage() {
-        return "Saving Tools report to " + this.fileName + "\n";
+        return "Saving Provisions report to " + this.fileName + "\n";
     }
     
     public void setFileName(String filename){
@@ -64,24 +64,23 @@ public class FileToolsView extends ViewBase {
     private void saveReportFile(){
         Game game = CityOfAaron.getCurrentGame();
         Storehouse storehouse = game.getStorehouse();
-        Tool[] tools = storehouse.getTools();
+        Provision[] provisions = storehouse.getProvisions();
         try(PrintWriter report = new PrintWriter(new FileWriter(fileName))) {
-            report.println("Tools in the inventory");
+            report.println("Provisions in the inventory");
             report.println();
             
             String printFormat = "%-23s %10s";
-            report.println(String.format(printFormat, "Tools", "Quantities"));
+            report.println(String.format(printFormat, "Provisions", "Perishes"));
             report.println("----------------------- ----------");
             
-            for (Tool tool : tools) {
-                report.println(String.format(printFormat, tool.getname(), tool.getQuantity()));
+            for (Provision provision : provisions) {
+                report.println(String.format(printFormat, provision.getName(), provision.getPerishable()));
             }
             
             report.flush();        
         } catch (Exception ex) {
-            ErrorView.display(this.getClass().getName(), "Error saving the Tools report: " + ex.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error saving the Provisions report: " + ex.getMessage());
         } 
     }
 
 }
-

@@ -17,6 +17,7 @@ public class Animal extends InventoryItem implements Serializable {
     //class instance variables
     private String name;
     private int age;
+    private int quantity;
 
     //javabean code
     public Animal() {
@@ -42,7 +43,16 @@ public class Animal extends InventoryItem implements Serializable {
     public void setAge(int age) {
         this.age = age;
     }
-
+    
+    public int getQuantity() {
+        return quantity;
+    }
+    
+    public void setQuantity(int quantity) {
+        this.quantity = age;
+    }
+            
+            
     @Override
     public int hashCode() {
         int hash = 3;
@@ -77,16 +87,16 @@ public class Animal extends InventoryItem implements Serializable {
         return "Animal{" + "name=" + name + ", age=" + age + '}';
     }
 
-    public String getQuantity() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    //public String getQuantity() {
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+   // }
 
     public Object getname() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    private void setQuantity(int quantity) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+    //private void setQuantity(int quantity) {
+    //    throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    //}
 
 }

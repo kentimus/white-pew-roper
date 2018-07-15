@@ -87,7 +87,7 @@ public class ReportsMenuView extends ViewBase {
                 return false;
             default:
                 String errorMessage = "\"" + inputs[0].trim() + "\" wasn't a valid choice."
-                        + "\nThat wasn't a number between 1 and 5. Try again.";
+                        + "\nThat wasn't a number between 1 and 9. Try again.";
                 ErrorView.display(this.getClass().getName(), errorMessage);;
         }
         return true;
@@ -135,7 +135,12 @@ public class ReportsMenuView extends ViewBase {
     }
     
     private void saveProvisions(){
-        
+        try{
+            SaveProvisionsView view = new SaveProvisionView();
+            view.displayView();
+        } catch(Exception ex){
+            ErrorView.display(this.getClass().getName(), "Error displaying the Tools report screen: " + ex.getMessage());
+        }
     }
     
     private void saveAuthors(){

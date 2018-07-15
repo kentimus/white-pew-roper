@@ -16,7 +16,7 @@ import cityofaaron.model.Storehouse;
  */
 public class ReportsAnimalView extends ViewBase {
 
-    private Object[] animals;
+    //private Object[] animals;
 
     /**
      * Constructor
@@ -29,18 +29,17 @@ public class ReportsAnimalView extends ViewBase {
     protected String getMessage() {
         Game game = CityOfAaron.getCurrentGame();
         Storehouse storehouse = game.getStorehouse();
-        Animal[] animals;
-        animals = storehouse.getAnimals();
+        Animal[] animals = storehouse.getAnimals();
 
-        animals = sortAnimal(animals);
-        int total = getTotal(animals);
+        //animals = sortAnimal(animals);
+        //int total = getTotal(animals);
 
         String message;
         message = "-------------------------------------\n"
-                + "There are " + total + " animals in the city.\n"
+                + "You have the following animals in the city.\n"
                 + "-------------------------------------\n";
         for (Animal animal : animals) {
-            message += animals.getname() + " : " + animals.getQuantity() + "\n";
+            message += animal.getName() + " : " + animal.getQuantity() + "\n";
         }
         return message;
     }
@@ -48,7 +47,7 @@ public class ReportsAnimalView extends ViewBase {
     private Animal[] sortAnimals(Animal[] animals) {
         for (int i = 0; i < animals.length; i++) {
             for (int j = i + 1; j < animals.length; j++) {
-                if (animals[i].getname().compareTo(animals[j].getname()) > 0) {
+                if (animals[i].getName().compareTo(animals[j].getName()) > 0) {
                     Animal temp = animals[i];
                     animals[i] = animals[j];
                     animals[j] = temp;
