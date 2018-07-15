@@ -69,12 +69,12 @@ public class FileProvisionsView extends ViewBase {
             report.println("Provisions in the inventory");
             report.println();
             
-            String printFormat = "%-23s %10s";
-            report.println(String.format(printFormat, "Provisions", "Perishes"));
-            report.println("----------------------- ----------");
+            String printFormat = "%-15s %10s %9s" ;
+            report.println(String.format(printFormat, "Provisions", "Quantity", "Perishes"));
+            report.println("------------      --------  --------");
             
             for (Provision provision : provisions) {
-                report.println(String.format(printFormat, provision.getName(), provision.getPerishable()));
+                report.println(String.format(printFormat, provision.getName(), provision.getQuantity(), provision.getPerishable()));
             }
             
             report.flush();        

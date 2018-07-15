@@ -73,12 +73,12 @@ public class GameControl {
             // Author hpew
             Provision[] provisions = new Provision[6];
 
-            provisions[0] = new Provision("Goat milk", 2);
-            provisions[1] = new Provision("Dates", 10);
-            provisions[2] = new Provision("Twizzlers", 1000);
-            provisions[3] = new Provision("Wheat", 365);
-            provisions[4] = new Provision("Lama jerky", 730);
-            provisions[5] = new Provision("Grapes", 4);
+            provisions[0] = new Provision("Goat milk", 2, 4);
+            provisions[1] = new Provision("Dates", 10, 300);
+            provisions[2] = new Provision("Twizzlers", 1000, 22);
+            provisions[3] = new Provision("Wheat", 365, 503);
+            provisions[4] = new Provision("Lama jerky", 730, 328);
+            provisions[5] = new Provision("Grapes", 4, 33);
 
             storehouse.setProvisions(provisions);
 

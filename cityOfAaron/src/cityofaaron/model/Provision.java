@@ -17,14 +17,16 @@ public class Provision extends InventoryItem implements Serializable {
     //class instance variables
     private String name;
     private int perishable;
+    private int quantity;
 
     //javabean code
     public Provision() {
     }
 
-    public Provision(String name, int perishable) {
+    public Provision(String name, int perishable, int quantity) {
         setName(name);
         setPerishable(perishable);
+        setQuantity(quantity);
     }
 
     public String getName() {
@@ -42,6 +44,14 @@ public class Provision extends InventoryItem implements Serializable {
     public void setPerishable(int perishable) {
         this.perishable = perishable;
     }
+    
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
 
     @Override
     public boolean equals(Object obj) {
@@ -58,10 +68,16 @@ public class Provision extends InventoryItem implements Serializable {
         if (this.perishable != other.perishable) {
             return false;
         }
-        if (!Objects.equals(this.name, other.name)) {
-            return false;
-        }
-        return true;
+        return Objects.equals(this.name, other.name);
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 3;
+        hash = 37 * hash + Objects.hashCode(this.name);
+        hash = 37 * hash + this.perishable;
+        hash = 37 * hash + this.quantity;
+        return hash;
     }
 
     @Override

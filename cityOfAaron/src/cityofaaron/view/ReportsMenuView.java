@@ -136,10 +136,10 @@ public class ReportsMenuView extends ViewBase {
     
     private void saveProvisions(){
         try{
-            SaveProvisionsView view = new SaveProvisionView();
+            SaveProvisionsView view = new SaveProvisionsView();
             view.displayView();
         } catch(Exception ex){
-            ErrorView.display(this.getClass().getName(), "Error displaying the Tools report screen: " + ex.getMessage());
+            ErrorView.display(this.getClass().getName(), "Error displaying the Provisions report screen: " + ex.getMessage());
         }
     }
     

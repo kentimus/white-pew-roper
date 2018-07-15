@@ -25,13 +25,14 @@ public class ReportsProvisionsView extends ViewBase {
         Provision[] provisions = storehouse.getProvisions();
 
         provisions = sortProvisions(provisions);
+        int total = getTotal(provisions);
 
         String message
                 = "-----------------------------------------\n"
                 + "You have the following Provisions, Enjoy!\n"
                 + "-----------------------------------------\n";
         for (Provision provision : provisions) {
-            message += provision.getName() + ", which will perish in " + provision.getPerishable() + " days\n";
+            message += provision.getName() + ", You have " + provision.getQuantity() + " in the storehouse, which will perish in " + provision.getPerishable() + " days\n";
         }
         return message;
     }
@@ -47,6 +48,14 @@ public class ReportsProvisionsView extends ViewBase {
             }
         }
         return provisions;
+    }
+    
+    private int getTotal (Provision[] provisions) {
+        int total = 0;
+        for (Provision provision : provisions) {
+            total += provision.getQuantity();
+        }
+        return total;
     }
 
     /**
