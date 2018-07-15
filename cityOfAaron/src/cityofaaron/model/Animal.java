@@ -22,16 +22,16 @@ public class Animal extends InventoryItem implements Serializable {
     public Animal() {
     }
 
-    public Animal(String name, int age) {
+    public Animal(String name, int quantity) {
         setName(name);
-        setAge(0);
+        setQuantity(quantity);
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public final void setName(String name) {
         this.name = name;
     }
 
@@ -75,6 +75,18 @@ public class Animal extends InventoryItem implements Serializable {
     @Override
     public String toString() {
         return "Animal{" + "name=" + name + ", age=" + age + '}';
+    }
+
+    public String getQuantity() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    public Object getname() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    private void setQuantity(int quantity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

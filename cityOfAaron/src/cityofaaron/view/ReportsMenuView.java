@@ -121,7 +121,8 @@ public class ReportsMenuView extends ViewBase {
     }
     
     private void saveAnimals(){
-        
+        ReportsAnimalView view = new ReportsAnimalView();
+        view.displayView();
     }
     
     private void saveTools(){
