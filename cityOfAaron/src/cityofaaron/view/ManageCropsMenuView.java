@@ -90,9 +90,8 @@ public class ManageCropsMenuView extends ViewBase {
     they want to assign.
      */
     private void buyLand() {
-        this.console.println("\n**Buy Land**\n"
-                + "This will allow the user to enter the number of acres to buy\n"
-                + "-------------------------------------------------------\n");
+        BuyLandView view = new BuyLandView();
+        view.displayView();
     }
 
     private void sellLand() {

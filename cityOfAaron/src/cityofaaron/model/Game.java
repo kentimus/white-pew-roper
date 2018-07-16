@@ -22,6 +22,7 @@ public class Game implements Serializable {
     private int acresOwned;
     private int wheatInStorage;
     private int currentYear;
+    private int pricePerAcre;
 
     //javabean code
     public Game() {
@@ -81,6 +82,14 @@ public class Game implements Serializable {
 
     public void setCurrentYear(int currentYear) {
         this.currentYear = currentYear;
+    }
+    
+    public int getPricePerAcre() {
+        return pricePerAcre;
+    }
+
+    public void setPricePerAcre(int pricePerAcre) {
+        this.pricePerAcre = pricePerAcre;
     }
 
     @Override

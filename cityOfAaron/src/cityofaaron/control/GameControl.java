@@ -132,8 +132,9 @@ public class GameControl {
         // adding intitial wheat, acres, population, year:
         game.setAcresOwned(100);
         game.setWheatInStorage(2000);
-        game.setCurrentPopulation(100);
+        game.setCurrentPopulation(1000);
         game.setCurrentYear(1);
+        game.setPricePerAcre(pricePerAcre());
 
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);
@@ -193,7 +194,7 @@ public class GameControl {
         return newPopulation;
     }
 
-    public int pricePerAcre() {
+    public static int pricePerAcre() {
         //kent
         Random rand = new Random();
         // get randomNumber between 17 and 27, inclusive
@@ -212,7 +213,7 @@ public class GameControl {
         }
     }
 
-    public int buyAcres(int acresRequested, int pricePerAcre, int wheatInStore)
+    public static void buyAcres(Game game, int acresRequested, int pricePerAcre, int wheatInStore)
             throws GameControlException {
         //group
 
@@ -223,11 +224,25 @@ public class GameControl {
         int cost = (acresRequested * pricePerAcre);
         if (cost > wheatInStore) {
             //not enough wheat in store
-            throw new GameControlException("Insuffecient wheat for purchases");
+            //throw new GameControlException("Insuffecient wheat for purchases");
+            throw new GameControlException("cost = " + cost + ", wheatInStore = " + wheatInStore
+                    + " pricePerAcre = " + pricePerAcre
+                    + " acresRequested = " + acresRequested);
         } else {
             int acresBought = acresRequested;
-            return acresBought;
+            
+            int acresOwned = game.getAcresOwned();
+            int newAcresOwned = acresOwned + acresBought;
+            
+            int wheatInStorage = game.getWheatInStorage();
+            int wheatSpent = acresRequested * pricePerAcre;
+            int newWheatInStorage = wheatInStorage - wheatSpent;
+            
+            game.setAcresOwned(newAcresOwned);
+            game.setWheatInStorage(newWheatInStorage);
+            
         }
+        
     }
 
     public int acresPlanted(int acresRequested, int wheatInStore)
