@@ -23,6 +23,9 @@ public class Game implements Serializable {
     private int wheatInStorage;
     private int currentYear;
     private int pricePerAcre;
+    private int peopleFed;
+    private int tithingPaid;
+    private int cropsPlanted;
 
     //javabean code
     public Game() {
