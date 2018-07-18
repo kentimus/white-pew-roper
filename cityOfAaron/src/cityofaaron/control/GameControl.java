@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -130,9 +131,9 @@ public class GameControl {
         }
 
         // adding intitial wheat, acres, population, year:
-        game.setAcresOwned(100);
+        game.setAcresOwned(1000);
         game.setWheatInStorage(2000);
-        game.setCurrentPopulation(1000);
+        game.setCurrentPopulation(100);
         game.setCurrentYear(1);
         game.setPricePerAcre(pricePerAcre());
 
@@ -245,26 +246,36 @@ public class GameControl {
         
     }
 
-    public int acresPlanted(int acresRequested, int wheatInStore)
+    public static void acresPlanted(Game game, int acresToPlant)
             throws GameControlException {
         //will
-        Random rand = new Random();
-        int acresPlanted;
-        int low;
-        int high;
-
-        if (acresRequested < 0) {
+        int wheatInStore = game.getWheatInStorage();
+        int currentAcres = game.getAcresOwned();
+        int currentPop = game.getCurrentPopulation();
+        
+        
+        if (acresToPlant < 0) {
             throw new GameControlException("Acres cannot be negative negative");
         }
-        low = 17;
-        high = 27;
-        int cost = (acresRequested * (rand.nextInt(high - low) + low));
-        if (cost > wheatInStore) {
+        
+        if (acresToPlant > currentAcres) {
+            throw new GameControlException(" You can not plant more acres then you own");
+        }
+        
+        int possibleAcresPlanted = (currentPop *10);       
+        
+        if (acresToPlant > possibleAcresPlanted) {
+            throw new GameControlException ("Each person can only farm 10 acres");
+        }
+        
+        if (acresToPlant > wheatInStore) {
             //not enough wheat in store
             throw new GameControlException("There is not enough wheat in store to plant this many acres");
         } else {
-            acresPlanted = acresRequested;
-            return acresPlanted;
+            int newWheatInStore = (wheatInStore - acresToPlant);
+            game.setCropsPlanted(acresToPlant);
+            game.setWheatInStorage(newWheatInStore);
+            
         }
     }
 
@@ -339,26 +350,34 @@ public class GameControl {
         return bushelsEaten;
     }
 
-    public int starvedPopulation(int currentPopulation, int feedPopulation, int wheatInStore)
+    public static void starvedPopulation(Game game, int wheatForPopulation)
             throws GameControlException {
         //Hayden
-        int totalWheatNeeded = currentPopulation * 20;
+        int totalWheatNeeded = game.getCurrentPopulation() * 20;
         int starvedPopulation;
-
-        if (feedPopulation <= 0) {
+        int wheatInStore = game.getWheatInStorage();
+        int currentPopulation = game.getCurrentPopulation();
+        if (wheatForPopulation <= 0) {
             throw new GameControlException("wheat in store must be >= feed population or cannot be zero");
         }
 
-        if (feedPopulation > wheatInStore) {
+        if (wheatForPopulation > wheatInStore) {
             throw new GameControlException("Wheat feed to population must be less then wheat in store");
         }
 
         if (totalWheatNeeded > wheatInStore) {
             starvedPopulation = currentPopulation - (wheatInStore / 20);
-            return starvedPopulation;
+            int newCurrentPop = currentPopulation - starvedPopulation;
+            int newWheatInStorage = wheatInStore - wheatForPopulation;
+            
+            game.setCurrentPopulation(newCurrentPop);
+            game.setWheatInStorage(newWheatInStorage);
+            game.setStarvedPopulation(starvedPopulation);
+            
         } else {
-            starvedPopulation = currentPopulation - (feedPopulation / 20);
+            game.setCurrentPopulation(currentPopulation);
+            game.setWheatInStorage(wheatInStore - wheatForPopulation);
         }
-        return starvedPopulation;
     }
+        
 }

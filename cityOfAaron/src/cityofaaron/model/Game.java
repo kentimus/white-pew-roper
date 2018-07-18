@@ -23,7 +23,7 @@ public class Game implements Serializable {
     private int wheatInStorage;
     private int currentYear;
     private int pricePerAcre;
-    private int peopleFed;
+    private int starvedPopulation;
     private int tithingPaid;
     private int cropsPlanted;
 
@@ -94,6 +94,32 @@ public class Game implements Serializable {
     public void setPricePerAcre(int pricePerAcre) {
         this.pricePerAcre = pricePerAcre;
     }
+
+    public int getStarvedPopulation() {
+        return starvedPopulation;
+    }
+
+    public void setStarvedPopulation(int peopleFed) {
+        this.starvedPopulation = peopleFed;
+    }
+
+    public int getTithingPaid() {
+        return tithingPaid;
+    }
+
+    public void setTithingPaid(int tithingPaid) {
+        this.tithingPaid = tithingPaid;
+    }
+
+    public int getCropsPlanted() {
+        return cropsPlanted;
+    }
+
+    public void setCropsPlanted(int cropsPlanted) {
+        this.cropsPlanted = cropsPlanted;
+    }
+    
+    
 
     @Override
     public String toString() {

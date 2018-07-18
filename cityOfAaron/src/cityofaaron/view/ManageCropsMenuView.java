@@ -101,15 +101,13 @@ public class ManageCropsMenuView extends ViewBase {
     }
 
     private void feedThePeople() {
-        this.console.println("\n**Buy Land**\n"
-                + "This will allow the user to enter the number of wheat to feed the population\n"
-                + "-------------------------------------------------------\n");
+        FeedPeopleView view = new FeedPeopleView();
+        view.displayView();
     }
 
     private void plantCrops() {
-        this.console.println("\n**Buy Land**\n"
-                + "This will allow the user to enter the number of acres to plant\n"
-                + "-------------------------------------------------------\n");
+        AcresPlantedView view = new AcresPlantedView();
+        view.displayView();
     }
 
     private void payTithesAndOfferings() {

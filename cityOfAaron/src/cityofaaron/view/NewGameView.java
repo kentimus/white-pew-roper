@@ -33,8 +33,7 @@ public class NewGameView extends ViewBase {
         String[] inputs = new String[2];
 
         inputs[0] = getUserInput("Plese enter your name or press Enter to return to the Main Menu", false);
-        inputs[1] = getUserInput("Plese enter your age", true);
-
+        
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
     }
@@ -55,12 +54,7 @@ public class NewGameView extends ViewBase {
             this.console.println("No player name entered, returning to the Main Menu ...");
             return false;
         }
-        try {
-            int age = Integer.parseInt(inputs[1]);
-        } catch (Exception e) {
-            String errorMessage = "***abc's are letters,1234 are examples of numbers, please use numbers***";
-            ErrorView.display(this.getClass().getName(), errorMessage);
-        }
+        
 
         String playerName = inputs[0];
         this.console.println("\nWelcome to the game, " + inputs[0] + "!");
