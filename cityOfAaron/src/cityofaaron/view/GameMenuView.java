@@ -105,7 +105,8 @@ public class GameMenuView extends ViewBase {
     }
 
     private void liveTheYear() {
-        this.console.println("Living the Year isn't available quite yet.\n");
+        LiveYearView view = new LiveYearView();
+        view.displayView();
     }
 
     private void reportsMenu() {

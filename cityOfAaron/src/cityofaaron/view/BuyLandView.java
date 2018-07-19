@@ -90,8 +90,7 @@ public class BuyLandView extends ViewBase {
             Game game = CityOfAaron.getCurrentGame();
             int pricePerAcre = game.getPricePerAcre();
             int wheatInStorage = game.getWheatInStorage();
-            int currentPopulation = game.getCurrentPopulation();
-            
+                        
             GameControl.buyAcres(game, acres, pricePerAcre, wheatInStorage);
             
             wheatInStorage = game.getWheatInStorage();
@@ -99,7 +98,7 @@ public class BuyLandView extends ViewBase {
             
             this.console.println("You bought " + acres + " acres.\n"
                     + "You now have " + acresOwned + " acres of land and "
-                            + wheatInStorage + " bundles of wheat.\n");
+                            + wheatInStorage + " bushels of wheat.\n");
         } catch (Exception te) {
             ErrorView.display(this.getClass().getName(), "Error buying acres: " + te.getMessage());
         }

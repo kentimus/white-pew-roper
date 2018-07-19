@@ -203,14 +203,21 @@ public class GameControl {
         return pricePerAcre;
     }
 
-    public int sellAcres(int acresToSell, int pricePerAcre, int acresOwned)
+    public static void sellAcres(Game game, int acresToSell, int pricePerAcre, int wheatInStore)
             throws GameControlException {
-        //Hayden   
+        //Hayden
+        int acresOwned = game.getAcresOwned();
+         
         if (acresToSell < 0 || acresToSell > acresOwned) {
             throw new GameControlException("You cannot sell more acres than you own");
         } else {
             int wheatFromAcres = (acresToSell * pricePerAcre);
-            return wheatFromAcres;
+            wheatInStore = (wheatInStore + wheatFromAcres);
+            int newAcresOwned = (acresOwned - acresToSell);
+            
+            game.setWheatInStorage(wheatInStore);
+            game.setAcresOwned(newAcresOwned);
+            
         }
     }
 
@@ -308,11 +315,12 @@ public class GameControl {
     }
 
     // argument "rando" temporary for testing
-    public double wheatEatenByRats(int wheatInStore, double tithingPaid, int rando)
+    public static double wheatEatenByRats(Game game, int wheatInStore, double tithingPaid, int rando)
             throws GameControlException {
         //Kent
         int percentEaten = 0;
         int bushelsEaten;
+        wheatInStore = game.getWheatInStorage();
 
         // wheatInStore can't be below zero
         if (wheatInStore < 0) {
@@ -336,7 +344,7 @@ public class GameControl {
             }
             if (tithingPaid > .12) {
                 // Generate randome percent between 3% and 5%
-                percentEaten = rand.nextInt(3) + 3;
+                percentEaten = rand.nextInt(2) + 3;
             }
             if (tithingPaid >= .08 && tithingPaid <= .12) {
                 // tithingPaid between 8% and 12%, inclusive
