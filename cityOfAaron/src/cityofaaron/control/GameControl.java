@@ -337,8 +337,7 @@ public class GameControl {
         return wheatHarvested;
     }
 
-    // argument "rando" temporary for testing
-    public static double wheatEatenByRats(Game game, int wheatInStore, double tithingPaid, int rando)
+    public static double wheatEatenByRats(Game game, int wheatInStore, double tithingPaid)
             throws GameControlException {
         //Kent
         int percentEaten = 0;
@@ -355,11 +354,9 @@ public class GameControl {
             throw new GameControlException("Tithing cannot be negative");
         }
         // create instance of Random class
-        Random rand = new Random(5);
-        //int randomNum = rand.nextInt(100);
+        Random rand = new Random();
+        int randomNum = rand.nextInt(100);
 
-        //temporary line, for testing
-        int randomNum = rando;
         if (randomNum < 30) {
             if (tithingPaid < .08) {
                 // Generate random percent between 6% and 10%
