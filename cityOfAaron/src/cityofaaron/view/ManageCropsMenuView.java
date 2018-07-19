@@ -95,9 +95,8 @@ public class ManageCropsMenuView extends ViewBase {
     }
 
     private void sellLand() {
-        this.console.println("\n**Buy Land**\n"
-                + "This will allow the user to enter the number of acres to sell if no areas are bought\n"
-                + "-------------------------------------------------------\n");
+        SellLandView view = new SellLandView();
+        view.displayView();
     }
 
     private void feedThePeople() {

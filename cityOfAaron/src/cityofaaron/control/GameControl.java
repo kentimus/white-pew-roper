@@ -247,10 +247,33 @@ public class GameControl {
             int newWheatInStorage = wheatInStorage - wheatSpent;
             
             game.setAcresOwned(newAcresOwned);
-            game.setWheatInStorage(newWheatInStorage);
-            
-        }
+            game.setWheatInStorage(newWheatInStorage);   
+        }   
+    }
+    
+    public static void sellAcres(Game game, int acresSold)
+            throws GameControlException {
+        //kent
         
+        int acresOwned = game.getAcresOwned();
+        int pricePerAcre = game.getPricePerAcre();
+        int wheatInStore = game.getWheatInStorage();
+        
+
+        if (acresSold < 0) {
+            throw new GameControlException("The number of acres must be >= to 0");
+        }
+        if (acresSold > acresOwned) {
+            throw new GameControlException("You can't sell " + acresSold + " acres of land\n"
+                    + " when you only have " + acresOwned + " of land that you own.");
+        } else {
+            
+            int newAcresOwned = acresOwned - acresSold;
+            int newWheat = wheatInStore + (acresSold * pricePerAcre);
+           
+            game.setAcresOwned(newAcresOwned);
+            game.setWheatInStorage(newWheat);   
+        }   
     }
 
     public static void acresPlanted(Game game, int acresToPlant)
