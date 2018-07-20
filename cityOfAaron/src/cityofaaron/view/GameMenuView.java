@@ -19,12 +19,12 @@ public class GameMenuView extends ViewBase {
                 + "---------------------\n"
                 + "1 - View the Map\n"
                 + "2 - Move to a new Location\n"
-                + "3 - Manage Crops\n"
-                + "4 - Live the Year\n"
-                + "5 - Reports Menu\n"
-                + "6 - Save Game\n"
+                
+                + "3 - Live the Year\n"
+                + "4 - Reports Menu\n"
+                + "5 - Save Game\n"
                 + "\n"
-                + "7 - Back to Main Menu\n"
+                + "6 - Back to Main Menu\n"
                 + "---------------------\n";
     }
 
@@ -62,24 +62,24 @@ public class GameMenuView extends ViewBase {
             case "2":
                 moveNewLocation();
                 break;
-            case "3":
+            case "7":
                 manageCrops();
                 break;
-            case "4":
+            case "3":
                 liveTheYear();
                 break;
-            case "5":
+            case "4":
                 reportsMenu();
                 break;
-            case "6":
+            case "5":
                 saveGame();
                 break;
-            case "7":
+            case "6":
                 // go back to main menu
                 return false;
             default:
                 String errorMessage = "\"" + inputs[0].trim() + "\" wasn't a valid choice."
-                        + "\nPlease Choose a number between 1 and 7.";
+                        + "\nPlease Choose a number between 1 and 6.";
                 ErrorView.display(this.getClass().getName(), errorMessage);
         }
 

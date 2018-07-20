@@ -130,12 +130,15 @@ public class GameControl {
             throw new GameControlException("**FAILED TO CREATE MAP**");
         }
 
-        // adding intitial wheat, acres, population, year:
+        // adding intitial wheat, acres, population, year, etc:
         game.setAcresOwned(1000);
         game.setWheatInStorage(2000);
         game.setCurrentPopulation(100);
         game.setCurrentYear(1);
         game.setPricePerAcre(pricePerAcre());
+        game.setLandBought(0);
+        game.setEatenByRats(0);
+        game.setWheatHarvested(0);
 
         //Save a reference to the game in the main class
         CityOfAaron.setCurrentGame(game);
@@ -247,7 +250,8 @@ public class GameControl {
             int newWheatInStorage = wheatInStorage - wheatSpent;
             
             game.setAcresOwned(newAcresOwned);
-            game.setWheatInStorage(newWheatInStorage);   
+            game.setWheatInStorage(newWheatInStorage);
+            game.setLandBought(acresRequested);
         }   
     }
     
@@ -339,10 +343,12 @@ public class GameControl {
         int wheatTithe = wheatHarvested*tithingPaid/100;
         System.out.println(wheatHarvested);
         int newWheatHarvested = (wheatInStore + wheatHarvested - wheatTithe);
-        game.setWheatInStorage(newWheatHarvested); 
+        game.setWheatInStorage(newWheatHarvested);
+        game.setWheatHarvested(wheatHarvested);
+        game.setTithingPaid(wheatTithe);
     }
 
-    public static double wheatEatenByRats(Game game, int wheatInStore, double tithingPaid)
+    public static void wheatEatenByRats(Game game, int wheatInStore, int tithingPaid)
             throws GameControlException {
         //Kent
         int percentEaten = 0;
@@ -363,15 +369,15 @@ public class GameControl {
         int randomNum = rand.nextInt(100);
 
         if (randomNum < 30) {
-            if (tithingPaid < .08) {
+            if (tithingPaid < 8) {
                 // Generate random percent between 6% and 10%
                 percentEaten = rand.nextInt(5) + 6;
             }
-            if (tithingPaid > .12) {
+            if (tithingPaid > 12) {
                 // Generate randome percent between 3% and 5%
                 percentEaten = rand.nextInt(2) + 3;
             }
-            if (tithingPaid >= .08 && tithingPaid <= .12) {
+            if (tithingPaid >= 8 && tithingPaid <= 12) {
                 // tithingPaid between 8% and 12%, inclusive
                 // Generate random percent between 3% and 7%
                 percentEaten = rand.nextInt(5) + 3;
@@ -380,7 +386,7 @@ public class GameControl {
             percentEaten = 0;
         }
         bushelsEaten = (percentEaten * wheatInStore) / 100;
-        return bushelsEaten;
+        game.setEatenByRats(bushelsEaten);
     }
 
     public static void starvedPopulation(Game game, int wheatForPopulation)

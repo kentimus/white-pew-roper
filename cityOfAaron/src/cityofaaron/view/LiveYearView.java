@@ -1,18 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package cityofaaron.view;
 
 import cityofaaron.CityOfAaron;
 import cityofaaron.control.GameControl;
 import cityofaaron.exceptions.GameControlException;
 import cityofaaron.model.Game;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author pewst
+ * @author kanderson
  */
 public class LiveYearView extends ViewBase {
 
@@ -25,38 +22,19 @@ public class LiveYearView extends ViewBase {
 
     @Override
     protected String getMessage() {
-        Game game = CityOfAaron.getCurrentGame();
-        int wheatInStore = game.getWheatInStorage();
-        int population = game.getCurrentPopulation();
-        int acres = game.getAcresOwned();
-        int price = game.getPricePerAcre();
-
-        return "Welcome Esteemed " + game.getThePlayer() + " we look forward to your inspired leadreship\n\n"
-                + "You currently have:\n"
-                + population + " citizens in the City,\n"
-                + acres + " acres to be used, and\n"
-                + wheatInStore + " bushels of wheat in storage\n"
-                + "The current price per acres is " + price +"\n\n";
-
+        String message = "";
+        return message;
     }
 
+    /**
+     * Get the set of inputs from the user.
+     *
+     * @return
+     */
     @Override
     public String[] getInputs() {
-        
-        // Declare the array to have the number of elements you intend to get 
-        // from the user.
-        String[] inputs = new String[4];
-
-        inputs[0] = getUserInput("How many acres would you like to buy?");
-
-        inputs[1] = getUserInput("How many acres would you like to sell?");
-
-        inputs[2] = getUserInput("How many bushels of wheat do you want to reserve for feeding your people?");
-
-        inputs[3] = getUserInput("How many acres would you like to plant");
-
-        // Repeat for each input you need, putting it into its proper slot in the array.
-        return inputs;
+        // no inputs from this view it is the opening view that explains the game      
+        return null;
     }
 
     /**
@@ -67,56 +45,42 @@ public class LiveYearView extends ViewBase {
      * should exit and return to the previous view.
      */
     @Override
-   public boolean doAction(String[] inputs) {
-        // there is only one action here, start a new game and set it in the main cityofaaron class
-
-        // if user hits "enter", quit to main menu
-        if (inputs[0] == null || inputs[0].equals("")) {
-            String errorMessage = "Nothing entered. Try again.";
-            ErrorView.display(this.getClass().getName(), errorMessage);
-            
-            return true;
-        }
-
+    public boolean doAction(String[] inputs) {
         try {
-            int acresBuy = Integer.parseInt(inputs[0]);
-            int acresSell = Integer.parseInt(inputs[1]);
-            liveYear(acresBuy,acresSell);
-            return false;
-        } catch (NumberFormatException e) {
-            String errorMessage = "***abc's are letters,1234 are examples of numbers, please use numbers***";
-            ErrorView.display(this.getClass().getName(), errorMessage);
+            liveYear();
+        } catch (GameControlException ex) {
+             ErrorView.display(this.getClass().getName(), "Error living year: " + ex.getMessage());
         }
-        return true;
-        
-   }
-   
-    private void liveYear(int acresBuy, int acresSell) {
-        try {
-            Game game = CityOfAaron.getCurrentGame();
-            int pricePerAcre = game.getPricePerAcre();
-            int wheatInStorage = game.getWheatInStorage();
-            int currentPopulation = game.getCurrentPopulation();
 
-            GameControl.buyAcres(game, acresBuy, pricePerAcre, wheatInStorage);
-
-            wheatInStorage = game.getWheatInStorage();
-            int acresOwned = game.getAcresOwned();
-            
-            this.console.println("You bought " + acresBuy + " acres.\n"
-                    + "You now have " + wheatInStorage + " bunshels of wheat.\n");
-            
-            GameControl.sellAcres(game, acresSell, pricePerAcre, wheatInStorage);
-            
-            wheatInStorage = game.getWheatInStorage();
-            acresOwned = game.getAcresOwned();
-            
-            this.console.println("You sold " + acresSell + " acres.\n"
-                    + "You now have " + wheatInStorage + " bunshels of wheat.\n");
-
-        } catch (GameControlException te) {
-            ErrorView.display(this.getClass().getName(), "Error buying acres: " + te.getMessage());
-        }
+        return false;
     }
-    
+
+    private void liveYear() throws GameControlException {
+        Game game = CityOfAaron.getCurrentGame();
+        
+        BuyLandView blView = new BuyLandView();
+        blView.displayView();
+        
+        int landBought = game.getLandBought();
+        if(landBought == 0){
+            SellLandView slView = new SellLandView();
+            slView.displayView();
+        }
+        
+        FeedPeopleView fpView = new FeedPeopleView();
+        fpView.displayView();
+        
+        AcresPlantedView apView = new AcresPlantedView();
+        apView.displayView();
+        
+        TithingPaidView tpView = new TithingPaidView();
+        tpView.displayView();
+        
+        GameControl.wheatEatenByRats(game, game.getWheatInStorage(), game.getTithingPaid());
+        
+        game.setCurrentYear(game.getCurrentYear() + 1);
+        
+        YearReportView yrView = new YearReportView();
+        yrView.displayView();
+    }
 }
