@@ -8,10 +8,7 @@ package cityofaaron.model;
 import java.io.Serializable;
 import java.util.Objects;
 
-/**
- *
- * @author willi
- */
+
 public class Animal extends InventoryItem implements Serializable {
 
     //class instance variables

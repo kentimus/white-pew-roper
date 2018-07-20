@@ -110,9 +110,8 @@ public class ManageCropsMenuView extends ViewBase {
     }
 
     private void payTithesAndOfferings() {
-        this.console.println("\n**Buy Land**\n"
-                + "This will allow the user to enter the amount of wheat to tithe or offer\n"
-                + "-------------------------------------------------------\n");
+        TithingPaidView view = new TithingPaidView();
+        view.displayView();
     }
 
 }

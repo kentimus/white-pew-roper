@@ -309,32 +309,37 @@ public class GameControl {
         }
     }
 
-    public int wheatHarvested(int acresPlanted, double tithingPaid) {
+    public static void wheatHarvested(Game game, int tithingPaid) {
         //will
         int wheatHarvested = 0;
         Random rand = new Random();
         int low;
         int high;
+        int acresPlanted = game.getCropsPlanted();
+        int wheatInStore = game.getWheatInStorage();
 
-        if (tithingPaid < .08) {
+        if (tithingPaid < 8) {
             low = 1;
             high = 3;
             // 1-3 bushels harvested
             wheatHarvested = (rand.nextInt(high - low) + low) * acresPlanted;
         }
-        if (tithingPaid > .12) {
+        if (tithingPaid > 12) {
             low = 2;
             high = 5;
             // 2-5 bushels harvested
             wheatHarvested = (rand.nextInt(high - low) + low) * acresPlanted;
         }
-        if (tithingPaid >= .08 && tithingPaid <= .12) {
+        if (tithingPaid >= 8 && tithingPaid <= 12) {
             low = 2;
             high = 4;
             // 2-4 bushels harvested
             wheatHarvested = (rand.nextInt(high - low) + low) * acresPlanted;
         }
-        return wheatHarvested;
+        int wheatTithe = wheatHarvested*tithingPaid/100;
+        System.out.println(wheatHarvested);
+        int newWheatHarvested = (wheatInStore + wheatHarvested - wheatTithe);
+        game.setWheatInStorage(newWheatHarvested); 
     }
 
     public static double wheatEatenByRats(Game game, int wheatInStore, double tithingPaid)
