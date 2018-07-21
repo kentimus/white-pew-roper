@@ -29,6 +29,7 @@ public class Game implements Serializable {
     private int landBought;
     private int eatenByRats;
     private int wheatHarvested;
+    private int cropYield;
 
     //javabean code
     public Game() {
@@ -144,6 +145,14 @@ public class Game implements Serializable {
 
     public void setWheatHarvested(int wheatHarvested) {
         this.wheatHarvested = wheatHarvested;
+    }
+
+    public int getCropYield() {
+        return cropYield;
+    }
+
+    public void setCropYield(int cropYield) {
+        this.cropYield = cropYield;
     }
     
 

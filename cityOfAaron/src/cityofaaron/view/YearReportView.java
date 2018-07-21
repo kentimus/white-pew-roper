@@ -30,11 +30,13 @@ public class YearReportView extends ViewBase {
         int tithingPaid = game.getTithingPaid();
         int currentYear = game.getCurrentYear();
         int wheatInStorage = game.getWheatInStorage();
+        int cropYield = game.getCropYield();
         
         String message = "*******************************************\n"
                 + "You made it to year " + currentYear + "\n"
                 + "*******************************************\n"
                 + "You starved " + starvedPopulation + " people\n"
+                + "your crop yield was " + cropYield + " per acre\n"
                 + "You harvested " + wheatHarvested + " bushels of wheat\n"
                 + "You paid " + tithingPaid + " in wheat for tithing\n"
                 + eatenByRats + " bushels of wheat were eaten by rats\n"

@@ -4,7 +4,6 @@ import cityofaaron.CityOfAaron;
 import cityofaaron.control.GameControl;
 import cityofaaron.model.Game;
 
-
 /**
  *
  * @author Kent Roper
@@ -25,8 +24,7 @@ public class BuyLandView extends ViewBase {
         int wheatInStorage = game.getWheatInStorage();
         int currentPopulation = game.getCurrentPopulation();
         int acresOwned = game.getAcresOwned();
-        
-        
+
         return "-----------------------------------------------\n"
                 + "Buy Land\n"
                 + "-----------------------------------------------\n"
@@ -69,7 +67,7 @@ public class BuyLandView extends ViewBase {
         if (inputs[0] == null || inputs[0].equals("")) {
             String errorMessage = "Nothing entered. Try again.";
             ErrorView.display(this.getClass().getName(), errorMessage);
-            
+
             return true;
         }
 
@@ -80,27 +78,33 @@ public class BuyLandView extends ViewBase {
         } catch (Exception e) {
             String errorMessage = "***abc's are letters,1234 are examples of numbers, please use numbers***";
             ErrorView.display(this.getClass().getName(), errorMessage);
-            
+
             return true;
         }
     }
 
     private void buyAcres(int acres) {
-        try {
+        if (acres == 0) {
             Game game = CityOfAaron.getCurrentGame();
-            int pricePerAcre = game.getPricePerAcre();
             int wheatInStorage = game.getWheatInStorage();
-                        
-            GameControl.buyAcres(game, acres, pricePerAcre, wheatInStorage);
-            
-            wheatInStorage = game.getWheatInStorage();
-            int acresOwned = game.getAcresOwned();
-            
-            this.console.println("You bought " + acres + " acres.\n"
-                    + "You now have " + acresOwned + " acres of land and "
-                            + wheatInStorage + " bushels of wheat.\n");
-        } catch (Exception te) {
-            ErrorView.display(this.getClass().getName(), "Error buying acres: " + te.getMessage());
+            game.setWheatInStorage(wheatInStorage);
+        } else {
+            try {
+                Game game = CityOfAaron.getCurrentGame();
+                int pricePerAcre = game.getPricePerAcre();
+                int wheatInStorage = game.getWheatInStorage();
+
+                GameControl.buyAcres(game, acres, pricePerAcre, wheatInStorage);
+
+                wheatInStorage = game.getWheatInStorage();
+                int acresOwned = game.getAcresOwned();
+
+                this.console.println("You bought " + acres + " acres.\n"
+                        + "You now have " + acresOwned + " acres of land and "
+                        + wheatInStorage + " bushels of wheat.\n");
+            } catch (Exception te) {
+                ErrorView.display(this.getClass().getName(), "Error buying acres: " + te.getMessage());
+            }
         }
     }
 }

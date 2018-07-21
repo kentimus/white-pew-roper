@@ -23,7 +23,7 @@ public class AcresPlantedView extends ViewBase {
         Game game = CityOfAaron.getCurrentGame();
         int wheatInStore = game.getWheatInStorage();
         int acresOwned = game.getAcresOwned();
-             
+
         return "-----------------------------------------------\n"
                 + "Plant Acres with Wheat\n"
                 + "-----------------------------------------------\n"
@@ -64,7 +64,7 @@ public class AcresPlantedView extends ViewBase {
         if (inputs[0] == null || inputs[0].equals("")) {
             String errorMessage = "Nothing entered. Try again.";
             ErrorView.display(this.getClass().getName(), errorMessage);
-            
+
             return true;
         }
 
@@ -75,7 +75,7 @@ public class AcresPlantedView extends ViewBase {
         } catch (NumberFormatException e) {
             String errorMessage = "***abc's are letters,1234 are examples of numbers, please use numbers***";
             ErrorView.display(this.getClass().getName(), errorMessage);
-            
+
             return true;
         }
     }
@@ -83,15 +83,23 @@ public class AcresPlantedView extends ViewBase {
     private void acresPlanted(int acresToPlant) {
         try {
             Game game = CityOfAaron.getCurrentGame();
+            int pop = game.getCurrentPopulation();
             int acresOwned = game.getAcresOwned();
-            
-            GameControl.acresPlanted(game, acresToPlant);
-            
-            int wheatInStorage = game.getWheatInStorage();
-            
-            this.console.println("You now have " + wheatInStorage + " bushels of wheat in storage.\n");
+            int plantableAcres = (pop * 10 + 1);
+            if (acresToPlant > plantableAcres) {
+                this.console.println("Each person can only farm 10 acres\n");
+                AcresPlantedView apView = new AcresPlantedView();
+                apView.displayView();
+            } else {
+                GameControl.acresPlanted(game, acresToPlant);
+
+                int wheatInStorage = game.getWheatInStorage();
+
+                this.console.println("You now have " + wheatInStorage + " bushels of wheat in storage.\n");
+            }
         } catch (GameControlException te) {
             ErrorView.display(this.getClass().getName(), "Error palanting crops: " + te.getMessage());
+
         }
     }
 }

@@ -29,9 +29,10 @@ public class FeedPeopleView extends ViewBase {
         return "-----------------------------------------------\n"
                 + "Feed The People\n"
                 + "-----------------------------------------------\n"
-                + "Your current population is " + currentPopulation + "\n"
-                + "Current Wheat in Storage is: " + wheatInStorage + "\n"
-                + "How many bushels of wheat do you want to feed your people?\n";
+                + "Population = " + currentPopulation + "\n"
+                + "Wheat in Storage is: " + wheatInStorage + "\n"
+                + "How many bushels of wheat do you want to feed your people?\n"
+                + "0 - " + wheatInStorage +"\n";
     }
 
     /**

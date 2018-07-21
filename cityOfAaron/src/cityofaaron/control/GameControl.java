@@ -317,28 +317,29 @@ public class GameControl {
         //will
         int wheatHarvested = 0;
         Random rand = new Random();
-        int low;
-        int high;
+        int low = 1;
+        int high = 1;
         int acresPlanted = game.getCropsPlanted();
         int wheatInStore = game.getWheatInStorage();
+        int yield = (rand.nextInt(high - low) + low);
 
-        if (tithingPaid < 8) {
+        if (tithingPaid < 9) {
             low = 1;
             high = 3;
             // 1-3 bushels harvested
-            wheatHarvested = (rand.nextInt(high - low) + low) * acresPlanted;
+            wheatHarvested = yield * acresPlanted;
         }
         if (tithingPaid > 12) {
-            low = 2;
-            high = 5;
-            // 2-5 bushels harvested
-            wheatHarvested = (rand.nextInt(high - low) + low) * acresPlanted;
+            low = 4;
+            high = 6;
+            // 4-6 bushels harvested
+            wheatHarvested = yield * acresPlanted;
         }
-        if (tithingPaid >= 8 && tithingPaid <= 12) {
-            low = 2;
-            high = 4;
-            // 2-4 bushels harvested
-            wheatHarvested = (rand.nextInt(high - low) + low) * acresPlanted;
+        if (tithingPaid >= 9 && tithingPaid <= 12) {
+            low = 3;
+            high = 5;
+            // 3-5 bushels harvested
+            wheatHarvested = yield * acresPlanted;
         }
         int wheatTithe = wheatHarvested*tithingPaid/100;
         System.out.println(wheatHarvested);
@@ -346,6 +347,7 @@ public class GameControl {
         game.setWheatInStorage(newWheatHarvested);
         game.setWheatHarvested(wheatHarvested);
         game.setTithingPaid(wheatTithe);
+        game.setCropYield(yield);
     }
 
     public static void wheatEatenByRats(Game game, int wheatInStore, int tithingPaid)
@@ -389,25 +391,32 @@ public class GameControl {
         game.setEatenByRats(bushelsEaten);
     }
 
-    public static void starvedPopulation(Game game, int wheatForPopulation)
+    public static void starvedPopulation(Game game, int wheatForPop)
             throws GameControlException {
         //Hayden
-        int totalWheatNeeded = game.getCurrentPopulation() * 20;
+        int totalWheatNeeded = (game.getCurrentPopulation() * 20);
         int starvedPopulation;
         int wheatInStore = game.getWheatInStorage();
         int currentPopulation = game.getCurrentPopulation();
-        if (wheatForPopulation <= 0) {
+        if (wheatForPop <= 0) {
             throw new GameControlException("wheat in store must be >= feed population or cannot be zero");
         }
 
-        if (wheatForPopulation > wheatInStore) {
+        if (wheatForPop > wheatInStore) {
             throw new GameControlException("Wheat feed to population must be less then wheat in store");
         }
+        
+        else if (wheatForPop < totalWheatNeeded){
+            starvedPopulation = (totalWheatNeeded - wheatForPop)/20;
+            game.setCurrentPopulation(currentPopulation - starvedPopulation);
+            game.setWheatInStorage(wheatInStore - wheatForPop);
+            game.setStarvedPopulation(starvedPopulation);
+        }
 
-        if (totalWheatNeeded > wheatInStore) {
+        else if (totalWheatNeeded > wheatInStore) {
             starvedPopulation = currentPopulation - (wheatInStore / 20);
             int newCurrentPop = currentPopulation - starvedPopulation;
-            int newWheatInStorage = wheatInStore - wheatForPopulation;
+            int newWheatInStorage = wheatInStore - wheatForPop;
             
             game.setCurrentPopulation(newCurrentPop);
             game.setWheatInStorage(newWheatInStorage);
@@ -415,7 +424,7 @@ public class GameControl {
             
         } else {
             game.setCurrentPopulation(currentPopulation);
-            game.setWheatInStorage(wheatInStore - wheatForPopulation);
+            game.setWheatInStorage(wheatInStore - wheatForPop);
         }
     }
         
