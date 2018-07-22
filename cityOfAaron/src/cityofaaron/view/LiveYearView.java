@@ -61,11 +61,11 @@ public class LiveYearView extends ViewBase {
         BuyLandView blView = new BuyLandView();
         blView.displayView();
         
-        int landBought = game.getLandBought();
-        if(landBought == 0){
+        //int landBought = game.getLandBought();
+        //if(landBought == 0){
             SellLandView slView = new SellLandView();
             slView.displayView();
-        }
+        //}
         
         FeedPeopleView fpView = new FeedPeopleView();
         fpView.displayView();

@@ -25,11 +25,10 @@ public class AcresPlantedView extends ViewBase {
         int acresOwned = game.getAcresOwned();
 
         return "-----------------------------------------------\n"
-                + "Plant Acres with Wheat\n"
+                + "     Plant Acres with Wheat\n"
                 + "-----------------------------------------------\n"
                 + "You have " + wheatInStore + " bushels of wheat in Storage\n"
-                + "And you own " + acresOwned + " acres\n\n"
-                + "How many acres do you want to plant?\n";
+                + "And you own " + acresOwned + " acres";
     }
 
     /**
@@ -43,7 +42,7 @@ public class AcresPlantedView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("", true);
+        inputs[0] = getUserInput("How many acres do you want to plant?", true);
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -87,7 +86,7 @@ public class AcresPlantedView extends ViewBase {
             int acresOwned = game.getAcresOwned();
             int plantableAcres = (pop * 10 + 1);
             if (acresToPlant > plantableAcres) {
-                this.console.println("Each person can only farm 10 acres\n");
+                this.console.println("Each person can only farm 10 acres");
                 AcresPlantedView apView = new AcresPlantedView();
                 apView.displayView();
             } else {
@@ -95,10 +94,12 @@ public class AcresPlantedView extends ViewBase {
 
                 int wheatInStorage = game.getWheatInStorage();
 
-                this.console.println("You now have " + wheatInStorage + " bushels of wheat in storage.\n");
+                this.console.println("You now have " + wheatInStorage + " bushels of wheat in storage.");
             }
         } catch (GameControlException te) {
             ErrorView.display(this.getClass().getName(), "Error palanting crops: " + te.getMessage());
+            AcresPlantedView apView = new AcresPlantedView();
+                apView.displayView();
 
         }
     }

@@ -27,12 +27,12 @@ public class FeedPeopleView extends ViewBase {
         int feedPeople;
              
         return "-----------------------------------------------\n"
-                + "Feed The People\n"
+                + "     Feed The People\n"
                 + "-----------------------------------------------\n"
                 + "Population = " + currentPopulation + "\n"
                 + "Wheat in Storage is: " + wheatInStorage + "\n"
                 + "How many bushels of wheat do you want to feed your people?\n"
-                + "0 - " + wheatInStorage +"\n";
+                + "0 - " + wheatInStorage;
     }
 
     /**
@@ -93,7 +93,7 @@ public class FeedPeopleView extends ViewBase {
             int currentPopulation = game.getCurrentPopulation();
             
             this.console.println("You have allocated " + wheatForPopulation + " bushels of wheat to feed you people\n"
-                    + "You now have " + wheatInStorage + " bundles of wheat left is storage.\n");
+                    + "You now have " + wheatInStorage + " bundles of wheat left is storage.");
         } catch (GameControlException te) {
             ErrorView.display(this.getClass().getName(), "Error buying acres: " + te.getMessage());
         }

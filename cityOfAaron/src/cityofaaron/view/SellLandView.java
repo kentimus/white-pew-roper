@@ -28,13 +28,13 @@ public class SellLandView extends ViewBase {
         
         
         return "-----------------------------------------------\n"
-                + "Sell Land\n"
+                + "     Sell Land\n"
                 + "-----------------------------------------------\n"
                 + "Current Price per Acre is: " + pricePerAcre + "\n"
                 + "Current Wheat in Storage is: " + wheatInStorage + "\n"
                 + "You currently own " + acresOwned + " acres of land.\n"
                 + "Your current population is " + currentPopulation + "\n\n"
-                + "How much land do you want to sell?\n";
+                + "How much land do you want to sell?";
     }
 
     /**
@@ -94,8 +94,8 @@ public class SellLandView extends ViewBase {
             int acresOwned = game.getAcresOwned();
             
             this.console.println("You sold " + acres + " acres.\n"
-                    + "You now have " + acresOwned + " acres of land and "
-                            + wheatInStorage + " bushels of wheat.\n");
+                    + "You now have " + acresOwned + " acres of land\n" 
+                    +"and " + wheatInStorage + " bushels of wheat.");
             return false;
         } catch (Exception te) {
             ErrorView.display(this.getClass().getName(), "Error buying acres: " + te.getMessage());

@@ -26,9 +26,8 @@ public class TithingPaidView extends ViewBase {
         
         
         return "-----------------------------------------------\n"
-                + "Tithing Paid\n"
-                + "-----------------------------------------------\n"
-                + "Current Wheat in Storage is: " + wheatInStorage + "\n";
+                + "     Tithing Paid\n"
+                + "-----------------------------------------------\n";
     }
 
     /**
@@ -90,8 +89,8 @@ public class TithingPaidView extends ViewBase {
             wheatInStorage = game.getWheatInStorage();
             
             this.console.println("You paid " + percent + " percent in tithing.\n"
-                    + "You now have " + wheatInStorage + " acres of land and "
-                            + wheatInStorage + " bushels of wheat.\n");
+                    + "You now have " + wheatInStorage + " acres of land and\n "
+                            + wheatInStorage + " bushels of wheat.");
         } catch (Exception te) {
             ErrorView.display(this.getClass().getName(), "Error buying acres: " + te.getMessage());
         }

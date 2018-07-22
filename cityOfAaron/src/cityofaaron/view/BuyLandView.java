@@ -2,6 +2,7 @@ package cityofaaron.view;
 
 import cityofaaron.CityOfAaron;
 import cityofaaron.control.GameControl;
+import cityofaaron.exceptions.GameControlException;
 import cityofaaron.model.Game;
 
 /**
@@ -26,13 +27,12 @@ public class BuyLandView extends ViewBase {
         int acresOwned = game.getAcresOwned();
 
         return "-----------------------------------------------\n"
-                + "Buy Land\n"
+                + "     Buy Land\n"
                 + "-----------------------------------------------\n"
                 + "Current Price per Acre is: " + pricePerAcre + "\n"
                 + "Current Wheat in Storage is: " + wheatInStorage + "\n"
                 + "You currently own " + acresOwned + " acres of land.\n"
-                + "Your current population is " + currentPopulation + "\n\n"
-                + "How much land do you want to buy?\n";
+                + "Your current population is " + currentPopulation;
     }
 
     /**
@@ -46,7 +46,7 @@ public class BuyLandView extends ViewBase {
         // from the user.
         String[] inputs = new String[1];
 
-        inputs[0] = getUserInput("", true);
+        inputs[0] = getUserInput("How much land do you want to buy?", true);
 
         // Repeat for each input you need, putting it into its proper slot in the array.
         return inputs;
@@ -91,18 +91,18 @@ public class BuyLandView extends ViewBase {
         } else {
             try {
                 Game game = CityOfAaron.getCurrentGame();
-                int pricePerAcre = game.getPricePerAcre();
+                //int pricePerAcre = game.getPricePerAcre();
+                //int wheatInStorage = game.getWheatInStorage();
+
+                GameControl.buyAcres(game, acres);
+
                 int wheatInStorage = game.getWheatInStorage();
-
-                GameControl.buyAcres(game, acres, pricePerAcre, wheatInStorage);
-
-                wheatInStorage = game.getWheatInStorage();
                 int acresOwned = game.getAcresOwned();
 
                 this.console.println("You bought " + acres + " acres.\n"
-                        + "You now have " + acresOwned + " acres of land and "
-                        + wheatInStorage + " bushels of wheat.\n");
-            } catch (Exception te) {
+                        + "You now have " + acresOwned + " acres of land\n "
+                        + "and " + wheatInStorage + " bushels of wheat.");
+            } catch (GameControlException te) {
                 ErrorView.display(this.getClass().getName(), "Error buying acres: " + te.getMessage());
             }
         }

@@ -224,10 +224,12 @@ public class GameControl {
         }
     }
 
-    public static void buyAcres(Game game, int acresRequested, int pricePerAcre, int wheatInStore)
+    public static void buyAcres(Game game, int acresRequested)
             throws GameControlException {
         //group
-
+        int wheatInStore = game.getWheatInStorage();
+        int pricePerAcre = game.getPricePerAcre();
+        
         if (acresRequested < 0) {
             throw new GameControlException("The number of acres must be >= to 0");
         }
@@ -245,9 +247,8 @@ public class GameControl {
             int acresOwned = game.getAcresOwned();
             int newAcresOwned = acresOwned + acresBought;
             
-            int wheatInStorage = game.getWheatInStorage();
             int wheatSpent = acresRequested * pricePerAcre;
-            int newWheatInStorage = wheatInStorage - wheatSpent;
+            int newWheatInStorage = wheatInStore - wheatSpent;
             
             game.setAcresOwned(newAcresOwned);
             game.setWheatInStorage(newWheatInStorage);
@@ -309,7 +310,7 @@ public class GameControl {
             int newWheatInStore = (wheatInStore - acresToPlant);
             game.setCropsPlanted(acresToPlant);
             game.setWheatInStorage(newWheatInStore);
-            
+                        
         }
     }
 
@@ -317,32 +318,31 @@ public class GameControl {
         //will
         int wheatHarvested = 0;
         Random rand = new Random();
-        int low = 1;
-        int high = 1;
+        
         int acresPlanted = game.getCropsPlanted();
         int wheatInStore = game.getWheatInStorage();
-        int yield = (rand.nextInt(high - low) + low);
+        int yield = 2;
 
         if (tithingPaid < 9) {
-            low = 1;
-            high = 3;
+            yield = (rand.nextInt((3 - 1) + 1) +1);
             // 1-3 bushels harvested
             wheatHarvested = yield * acresPlanted;
         }
         if (tithingPaid > 12) {
-            low = 4;
-            high = 6;
+            //low = 4;
+            //high = 6;
+            yield = (rand.nextInt(6 - 4) + 1) + 4;
             // 4-6 bushels harvested
             wheatHarvested = yield * acresPlanted;
         }
         if (tithingPaid >= 9 && tithingPaid <= 12) {
-            low = 3;
-            high = 5;
+            //low = 3;
+            //high = 5;
+            yield = (rand.nextInt(5 - 3) + 1)+ 3;
             // 3-5 bushels harvested
             wheatHarvested = yield * acresPlanted;
         }
         int wheatTithe = wheatHarvested*tithingPaid/100;
-        System.out.println(wheatHarvested);
         int newWheatHarvested = (wheatInStore + wheatHarvested - wheatTithe);
         game.setWheatInStorage(newWheatHarvested);
         game.setWheatHarvested(wheatHarvested);
