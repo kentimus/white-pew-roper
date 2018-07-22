@@ -32,7 +32,7 @@ public class YearReportView extends ViewBase {
         int wheatInStorage = game.getWheatInStorage();
         int cropYield = game.getCropYield();
         
-        String message = "*******************************************\n"
+        String message = "\n\n*******************************************\n"
                 + "You made it to year " + currentYear + "\n"
                 + "*******************************************\n"
                 + "You starved " + starvedPopulation + " people\n"
@@ -42,7 +42,7 @@ public class YearReportView extends ViewBase {
                 + eatenByRats + " bushels of wheat were eaten by rats\n"
                 + "Which leaves you with " + wheatInStorage + " bushels of wheat\n"
                 + "And " + currentPopulation + " people in your city\n"
-                + "*******************************************\n";
+                + "*******************************************";
         return message;
     }
 
