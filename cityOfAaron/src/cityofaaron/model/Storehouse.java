@@ -6,6 +6,7 @@
 package cityofaaron.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Objects;
 
 /**
@@ -15,8 +16,9 @@ import java.util.Objects;
 public class Storehouse implements Serializable {
 
     //Class instance variables
-    private Author[] authors;
+    private ArrayList<Author> authors = new ArrayList<>();
     private Animal[] animals;
+    
     private Provision[] provisions;
     private Tool[] tools;
     // Javabean code
@@ -25,15 +27,23 @@ public class Storehouse implements Serializable {
     public Storehouse() {
     }
 
-    //Getters and setters
-    public Author[] getAuthors() {
+//    //Getters and setters
+//    public Author[] getAuthors() {
+//        return authors;
+//    }
+//
+//    public void setAuthors(Author[] authors) {
+//        this.authors = authors;
+
+    public void setAuthors(ArrayList<Author> authors) {
+        this.authors = authors;
+    }
+    
+    public ArrayList<Author> getAuthors() {
         return authors;
     }
 
-    public void setAuthors(Author[] authors) {
-        this.authors = authors;
-    }
-
+//    }
     public Tool[] getTools() {
         return tools;
     }

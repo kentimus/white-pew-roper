@@ -22,6 +22,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.util.ArrayList;
 import java.util.Random;
 //import cityofaaron.control.MapControl
 
@@ -57,13 +58,11 @@ public class GameControl {
         //add it to the storehouse
         try {
             // author group
-            Author[] authors = new Author[3];
-
-            authors[0] = new Author("Hayden Pew", "SupremeAlliedCommander");
-            authors[1] = new Author("Kent Roper", "Chief Complainer");
-            authors[2] = new Author("Will White", "White Boy");
-            // Added author for testing/failing purposes
-            //authors[3] = new Author("Will fsdfWhite", "White Boy");
+            ArrayList<Author> authors = new ArrayList<>();
+            authors.add(new Author("Hayden Pew", "SupremeAlliedCommander"));
+            authors.add(new Author("Kent Roper", "Chief Complainer"));
+            authors.add(new Author("Will White", "White Boy"));
+            
             storehouse.setAuthors(authors);
 
         } catch (Throwable te) {
@@ -425,6 +424,7 @@ public class GameControl {
         } else {
             game.setCurrentPopulation(currentPopulation);
             game.setWheatInStorage(wheatInStore - wheatForPop);
+            game.setStarvedPopulation(0);
         }
     }
         

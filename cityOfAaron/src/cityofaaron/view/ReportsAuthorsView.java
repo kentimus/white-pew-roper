@@ -4,6 +4,7 @@ import cityofaaron.CityOfAaron;
 import cityofaaron.model.Game;
 import cityofaaron.model.Storehouse;
 import cityofaaron.model.Author;
+import java.util.ArrayList;
 
 /**
  *
@@ -22,8 +23,8 @@ public class ReportsAuthorsView extends ViewBase {
     protected String getMessage() {
         Game game = CityOfAaron.getCurrentGame();
         Storehouse storehouse = game.getStorehouse();
-        Author[] authors = storehouse.getAuthors();
-
+        ArrayList<Author> authors = storehouse.getAuthors();
+        
         String message = "------------------------------------\n"
                 + "Authored by:\n"
                 + "-------------------------------------\n";
