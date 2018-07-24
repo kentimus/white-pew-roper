@@ -78,6 +78,8 @@ public class LiveYearView extends ViewBase {
         
         GameControl.wheatEatenByRats(game, game.getWheatInStorage(), game.getTithingPaid());
         
+        GameControl.newPopulation(game, game.getCurrentPopulation());
+        
         game.setCurrentYear(game.getCurrentYear() + 1);
         
         YearReportView yrView = new YearReportView();

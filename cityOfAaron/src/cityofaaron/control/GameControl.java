@@ -178,9 +178,9 @@ public class GameControl {
         return game;
     }
 
-    public int newPopulation(int currentPopulation)
+    public static void newPopulation(Game game, int currentPopulation)
             throws GameControlException {
-        //Kent
+        //Kent/Hayden
         int addedPopulation;
         int newPopulation;
 
@@ -191,10 +191,11 @@ public class GameControl {
 
         Random rand = new Random(0);
         // get randomNumber between 1 and 5, inclusive
-        int randomNum = rand.nextInt(5) + 1;
+        int randomNum = rand.nextInt(6) + 1;
         addedPopulation = (currentPopulation * randomNum) / 100;
         newPopulation = addedPopulation + currentPopulation;
-        return newPopulation;
+        
+        game.setCurrentPopulation(newPopulation);
     }
 
     public static int pricePerAcre() {
