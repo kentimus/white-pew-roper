@@ -181,6 +181,7 @@ public class GameControl {
     public static void newPopulation(Game game, int currentPopulation)
             throws GameControlException {
         //Kent/Hayden
+        currentPopulation = game.getCurrentPopulation();
         int addedPopulation;
         int newPopulation;
 
@@ -192,7 +193,7 @@ public class GameControl {
         Random rand = new Random(0);
         // get randomNumber between 1 and 5, inclusive
         int randomNum = rand.nextInt(6) + 1;
-        addedPopulation = (currentPopulation * randomNum) / 100;
+        addedPopulation = (currentPopulation + randomNum)/100;
         newPopulation = addedPopulation + currentPopulation;
         
         game.setCurrentPopulation(newPopulation);
